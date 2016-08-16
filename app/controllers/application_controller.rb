@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def categories
-    @categories = Category.all
+  def industries
+    @industries = Industry.all
   end
 end

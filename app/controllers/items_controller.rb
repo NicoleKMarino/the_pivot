@@ -1,13 +1,14 @@
-class ItemsController < ApplicationController
+class JobsController < ApplicationController
   def index
-    @items = Item.where(status: 0)
+    @jobs = Job.where(status: 0)
   end
 
   def unavailable
-    @items = Item.where(status: 1)
+    @jobs = Job.where(status: 1)
   end
 
   def show
-    @item = Item.find(params[:id])
+    @jobs = Job.find(params[:id])
   end
+  
 end

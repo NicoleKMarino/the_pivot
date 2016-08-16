@@ -10,40 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802205506) do
+ActiveRecord::Schema.define(version: 20160816224120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "title"
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.text     "description"
+    t.text     "location"
+    t.integer  "status",      default: 0
+    t.text     "img_path"
+    t.integer  "industry_id"
+    t.index ["industry_id"], name: "index_companies_on_industry_id", using: :btree
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
   end
 
-  create_table "celebrities", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
+  create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "price",                     precision: 9, scale: 2
-    t.integer  "category_id"
-    t.integer  "celebrity_id"
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
-    t.string   "image_path"
-    t.integer  "status",                                            default: 0
-    t.string   "upload_image_file_name"
-    t.string   "upload_image_content_type"
-    t.integer  "upload_image_file_size"
-    t.datetime "upload_image_updated_at"
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["celebrity_id"], name: "index_items_on_celebrity_id", using: :btree
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "status",      default: 0
+    t.text     "salary"
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -85,9 +84,9 @@ ActiveRecord::Schema.define(version: 20160802205506) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "celebrities"
-  add_foreign_key "order_items", "items"
+  add_foreign_key "companies", "industries"
+  add_foreign_key "jobs", "companies"
+  add_foreign_key "order_items", "jobs", column: "item_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
 end

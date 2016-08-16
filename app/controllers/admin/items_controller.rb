@@ -1,17 +1,22 @@
-class Admin::ItemsController < Admin::BaseController
-  before_action :set_item, only: [:edit, :update]
+class Admin::JobsController < Admin::BaseController
+  before_action :set_job, only: [:edit, :update]
 
   def new
-    @item = Item.new
+    @job = Job.new
   end
 
+  # def index
+  #   @jobs = Job.all.where(status: 0)
+  # end
+  # uncomment when you write a test 
+
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      flash[:success] = 'Treasure added successfully'
-      redirect_to @item
+    @job = Job.new(job_params)
+    if @job.save
+      flash[:success] = 'Job added successfully'
+      redirect_to @job
     else
-      flash.now[:danger] = @item.errors.full_messages.join(', ')
+      flash.now[:danger] = @job.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -20,29 +25,27 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def update
-    if @item.update_attributes(item_params)
-      flash[:success] = "#{@item.title} updated successfully."
-      @item.update_image_path
-      redirect_to @item
+    if @job.update_attributes(job_params)
+      flash[:success] = "#{@job.title} updated successfully."
+      @job.update_image_path
+      redirect_to @job
     else
-      flash.now[:danger] = @item.errors.full_messages.join(', ')
+      flash.now[:danger] = @job.errors.full_messages.join(', ')
       render :edit
     end
   end
 
   private
 
-  def item_params
-    params.require(:item).permit(:title,
+  def job_params
+    params.require(:job).permit(:title,
                                  :description,
-                                 :price,
-                                 :category_id,
-                                 :celebrity_id,
-                                 :upload_image)
+                                 :salary,
+                                 :company_id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
+  def set_job
+    @job = job.find(params[:id])
   end
 
 end
