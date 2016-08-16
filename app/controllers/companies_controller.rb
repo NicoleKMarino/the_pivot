@@ -8,9 +8,11 @@ class CompaniesController < ApplicationController
       @jobs = @company.jobs.where(status: 0)
     end
   end
-
+  #
   # def index
   #   @companies= Company.all.where(status: 2)
   # end
-  # add when the test is rady
+  # add when the test is ready
+
+  
 end

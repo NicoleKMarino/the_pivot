@@ -1,27 +1,25 @@
 FactoryGirl.define do
-  factory :item do
+  factory :job do
     title
-    description "Definitely used by this celebrity at least once"
-    price 199.99
-    image_path
-    category
-    celebrity
-    factory :sold_out_item do
+    description "This is a job. Come work here."
+    salary "10,000-60,000"
+    company
+    factory :unavailable_job do
       status 1
     end
   end
 
-  factory :celebrity do
-    name
+  factory :company do
+    name { generate(:company_name) }
   end
 
-  factory :category do
-    title { generate(:category_title) }
-  end
+  # factory :industry do
+  #   name { generate(:industry_name) }
+  # end
 
   factory :order do
     user
-    items { create_list(:item, 2) }
+    jobs { create_list(:job, 2) }
   end
 
   factory :user do
@@ -49,19 +47,18 @@ FactoryGirl.define do
   end
 
   sequence :name do |n|
-    "Celebrity_#{n}"
+    "Industry_#{n}"
   end
 
-  sequence :category_title do |n|
-    "Category_#{n}"
+
+  sequence :company_name do |n|
+    "Company_#{n}"
   end
+
 
   sequence :title do |n|
-    "Item_#{n}"
+    "job_#{n}"
   end
 
-  sequence :image_path do |n|
-    "https://robohash.org/#{n}"
-  end
 
 end
