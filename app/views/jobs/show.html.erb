@@ -1,0 +1,14 @@
+<div class="job-show">
+  <div class="well col-md-10">
+    <h1><%= @job.title %></h1>
+    <div class="job-content">
+      <h2><p>Celebrity: <strong><%= @job.company_name %></strong></h2></p>
+      <p><%= @job.description %></p>
+      <p><%= number_to_currency(@job.salary) %><p>
+        <p><%= button_to 'Add to Cart', cart_jobs_path(job_id: @job.id), class: 'btn btn-default' %></p>
+        <% if current_admin? %>
+          <p><%= link_to 'Edit job', edit_admin_job_path(@job), class: 'btn btn-default' %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

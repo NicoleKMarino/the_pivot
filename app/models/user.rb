@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :state, length: { is: 2 }
   validates :zip_code, length: { is: 5 }
 
-  enum role: %w(default admin)
+  enum role: %w(default employer admin)
 
   after_create :send_welcome_email
 

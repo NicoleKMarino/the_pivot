@@ -1,28 +1,38 @@
 FactoryGirl.define do
-  factory :item do
-    title
-    description "Definitely used by this celebrity at least once"
-    price 199.99
-    image_path
-    category
-    celebrity
-    factory :sold_out_item do
-      status 1
-    end
+
+  industry_names = [ "Tech", "Advertising", "Finance"]
+  salary_ranges = ["$40,000-$60,000", "$60,000-$80,000"]
+  locations = ["CO", "NY", "CA"] #use Faker
+  #
+  # factory :job do
+  #   title
+  #   description "This is our job description. Come work with us."
+  #   salary salary_ranges.sample
+  #
+  #  # factory :unavailable_job do
+  #  #   status 1
+  #  # end
+  # end
+  #
+  # factory :company do
+  #   before_create do |company|
+  #     FactoryGirl.build(:industry, company: company)
+  #   end
+  #   name { generate(:company_name) }
+  #   description "Our company is awesome"
+  #   location locations.sample
+  #   status 2
+  #   img_path "blablabla" #Faker
+  # end
+
+  factory :industry do
+    name industry_names.sample
   end
 
-  factory :celebrity do
-    name
-  end
-
-  factory :category do
-    title { generate(:category_title) }
-  end
-
-  factory :order do
-    user
-    items { create_list(:item, 2) }
-  end
+  #factory :order do
+  #  user
+  #  jobs { create_list(:job, 2) }
+  #end
 
   factory :user do
     username
@@ -48,20 +58,12 @@ FactoryGirl.define do
     "user_#{n}@example.com"
   end
 
-  sequence :name do |n|
-    "Celebrity_#{n}"
+  sequence :company_name do |n|
+    "Company_#{n}"
   end
-
-  sequence :category_title do |n|
-    "Category_#{n}"
-  end
-
   sequence :title do |n|
-    "Item_#{n}"
+    "job_#{n}"
   end
 
-  sequence :image_path do |n|
-    "https://robohash.org/#{n}"
-  end
 
 end

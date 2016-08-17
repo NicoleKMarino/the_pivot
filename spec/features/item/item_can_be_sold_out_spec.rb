@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Item can be sold out" do
-  scenario "logged-in user visits the show page of a sold-out item" do
+  xscenario "logged-in user visits the show page of a sold-out item" do
     user = create(:user)
     item = create(:sold_out_item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -12,7 +12,7 @@ RSpec.feature "Item can be sold out" do
     expect(page).to have_content("SOLD OUT")
   end
 
-  scenario "visitor views the page to view all items" do
+  xscenario "visitor views the page to view all items" do
     available_item = create(:item)
     sold_out_item = create(:sold_out_item)
 
@@ -22,7 +22,7 @@ RSpec.feature "Item can be sold out" do
     expect(page).to_not have_content(sold_out_item.title)
   end
 
-  scenario "visitor views the category page for the sold-out item" do
+  xscenario "visitor views the category page for the sold-out item" do
     sold_out_item = create(:sold_out_item)
     category = sold_out_item.category
 

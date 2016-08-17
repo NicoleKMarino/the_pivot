@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can be created" do
-  scenario "user can visit create account form" do
+  xscenario "user can visit create account form" do
 
     visit new_user_path
 

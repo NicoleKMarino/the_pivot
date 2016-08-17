@@ -7,32 +7,16 @@
       <% end %>
     </li>
     <li>
-      <%= link_to items_path do %>
-        <i class="fa fa-align-justify"></i> All Items
+      <%= link_to jobs_path do %>
+        <i class="fa fa-align-justify"></i> All Jobs
       <% end %>
     </li>
     <li>
-      <a class="" href="#" data-toggle="collapse" data-target="#categories">
-      <i class="fa fa-toggle-down"></i> Categories</a>
-      <div id="categories" class="collapse">
-        <% categories.each do |category| %>
-        <div class="category">
-          <p>
-            <%= link_to " #{category.title}", category_path(category), class:"category" %>
-          </p>
-        </div>
+        <%= link_to companies_path do %>
+        <i class="fa fa-align-justify"></i> All Companies
         <% end %>
+          <p>
       </div>
-    </li>
-    <li>
-      <%= link_to unavailable_items_path do %>
-        <i class="fa fa-trophy"></i> Best Of
-      <% end %>
-    </li>
-    <li>
-      <%= mail_to "onefanstreasure@gmail.com" do %>
-        <i class="fa fa-envelope"></i> Email Us
-      <% end %>
     </li>
   </ul>
 </div>
@@ -47,9 +31,7 @@
     <% end %>
   <ul class="nav navbar-nav navbar-right">
     <li>
-      <%= link_to cart_index_path do %>
-      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
-      <% end %>
+      <i class="fa fa-shopping-cart pull-left"></i> Cart: <%= @cart.total_items %>
     </li>
     <% if current_user %>
       <li>
@@ -60,7 +42,7 @@
     <% else %>
       <li>
         <%= link_to login_path do %>
-        <i class="fa fa-sign-in"></i> Login
+        <i class="fa fa-sign-in pull-right"></i> Login
         <% end %>
       </li>
     <% end %>
