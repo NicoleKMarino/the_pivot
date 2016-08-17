@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/test_helper.rb'
 
 RSpec.feature "All companies can be viewed" do
-  scenario "a guest views the root path" do
+  scenario "a guest views the companies path" do
     create_three_companies
 
     visit root_path
