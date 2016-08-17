@@ -1,14 +1,11 @@
 <div class="page-content">
-
-  <h1>All jobs</h1>
-
+  <h2>All jobs</h2>
   <div class="filter">
     <label>Filter By</label>
     <%= select :job, :filter_location, @locations, {:prompt => 'Location'} %>
     <%= select :job, :filter_salary, @salaries, {:prompt => 'Salary'} %>
   </div>
-
-
+  <br>
 
   <%#= render partial: "filter" %>
   <%# if current_admin? %>

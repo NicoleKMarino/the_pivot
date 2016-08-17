@@ -9,4 +9,5 @@ class Job < ApplicationRecord
   def company_name
     company.name
   end
+  
 end

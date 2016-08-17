@@ -7,10 +7,10 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find_by(slug: params[:name])
     if @company.nil?
-      redirect_to items_path
+      redirect_to companies_path
     else
       @jobs = @company.jobs.where(status: 0)
     end
   end
-  
-end
+
+end 

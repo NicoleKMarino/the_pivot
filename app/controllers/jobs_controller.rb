@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def index
     @jobs = Job.where(status: 0)
     @locations = location_list
@@ -10,7 +11,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @jobs = Job.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   private

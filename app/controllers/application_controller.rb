@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :verify_logged_in, :categories, :current_admin?
+  before_action :industries
   before_action :set_cart
 
   def set_cart
@@ -25,4 +26,5 @@ class ApplicationController < ActionController::Base
   def industries
     @industries = Industry.all
   end
+
 end

@@ -1,1 +1,17 @@
-<h1>Explore Companies</h1>
+<div class="page-content">
+  <h2>All Companies:</h2>
+  <div id="items_list">
+    <%@companies.each do |company|%>
+      <div class="well col-md-3 company-in-list job">
+        <%= image_tag(company.img_path, class: "company-image", alt: company.name) %>
+        <br></br>
+
+        <h4><%=link_to "#{company.name.capitalize}", company_path(company.id)%></h4>
+        <div class="panel-body format-panel">
+          <p><%= company.location %></p>
+          <p><%= company.industry.name %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
