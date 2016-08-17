@@ -57,7 +57,7 @@ def create_three_companies
   industry3.companies.create!(
     name: "TD Ameritrade",
     description: "Rich company",
-    location: "CO",
+    location: "FL",
     status: 2,
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
   )

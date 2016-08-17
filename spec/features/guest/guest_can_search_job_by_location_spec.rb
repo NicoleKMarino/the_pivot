@@ -11,9 +11,10 @@ RSpec.feature "Guest can search jobs by location" do
     expect(current_path).to eq(jobs_path)
 
     expect(page).to have_content("Filter By")
-    expect(page).to have_content("Software Integration Developer")
-    expect(page).to have_content("Senior Software Integration Developer")
-    expect(page).to have_content("Designer")
+
+    expect(page).to have_link("Software Integration Developer")
+    expect(page).to have_link("Senior Software Integration Developer")
+    expect(page).to have_link("Designer")
 
     select('CO', from: 'job[filter_location]')
 

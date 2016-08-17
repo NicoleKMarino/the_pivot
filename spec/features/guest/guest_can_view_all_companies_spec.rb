@@ -12,8 +12,7 @@ RSpec.feature "All companies can be viewed" do
     expect(current_path).to eq(companies_path)
 
     expect(page).to have_content("Inspirato")
-    expect(page).to have_content("Great company")
+    expect(page).to have_content("CO")
     expect(page).to have_content("Tech")
-
   end
 end
