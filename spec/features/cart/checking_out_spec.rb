@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Checking out" do
-  scenario "an existing user with items in cart visits their cart" do
+  xscenario "an existing user with items in cart visits their cart" do
     user = create(:user)
     item = create(:item)
 

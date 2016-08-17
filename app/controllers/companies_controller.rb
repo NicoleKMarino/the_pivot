@@ -1,5 +1,9 @@
 class CompaniesController < ApplicationController
 
+  def index
+    @companies = Company.all.where(status: 2)
+  end
+
   def show
     @company = Company.find_by(slug: params[:name])
     if @company.nil?
@@ -9,8 +13,4 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def index
-    @companies = Company.all.where(status: 2)
-  end
-
-end
+end 

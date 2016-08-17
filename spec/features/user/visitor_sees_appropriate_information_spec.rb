@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor sees appropriate information" do
-  scenario "views their cart" do
+  xscenario "views their cart" do
     item = create(:item)
 
     visit items_path

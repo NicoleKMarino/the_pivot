@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User information is secure from others" do
-  scenario "guest attempts to visit a user's show page" do
+  xscenario "guest attempts to visit a user's show page" do
     place_order
 
     visit order_path(Order.first)
@@ -33,7 +33,7 @@ RSpec.feature "User information is secure from others" do
     expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
   end
 
-  scenario "logged-in user attempts to visit another user's show page" do
+  xscenario "logged-in user attempts to visit another user's show page" do
     place_order
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

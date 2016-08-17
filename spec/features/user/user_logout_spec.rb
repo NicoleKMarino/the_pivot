@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can logout" do
-  scenario "registered user can logout" do
+  xscenario "registered user can logout" do
     user = User.create(username: "lane", email: "lane@nil.com", password: "password")
 
     visit login_path

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Admin creates an item' do
   context 'with valid item infomation and no photo' do
-    scenario 'logged-in admin visits the items path' do
+    xscenario 'logged-in admin visits the items path' do
       admin = create(:admin)
       categories = create_list(:category, 3)
       celebrity = create(:celebrity)
@@ -30,7 +30,7 @@ RSpec.feature 'Admin creates an item' do
   end
 
   context 'with valid information and photo' do
-    scenario 'logged-in admin visits the items path' do
+    xscenario 'logged-in admin visits the items path' do
       admin = create(:admin)
       categories = create_list(:category, 3)
       celebrity = create(:celebrity)
@@ -58,7 +58,7 @@ RSpec.feature 'Admin creates an item' do
   end
 
   context 'with invalid item information' do
-    scenario 'logged-in admin visits the items path' do
+    xscenario 'logged-in admin visits the items path' do
       admin = create(:admin)
       item = create(:item)
 
@@ -76,7 +76,7 @@ RSpec.feature 'Admin creates an item' do
   end
 
   context 'unauthorized user' do
-    scenario 'logged-in user visits the items path' do
+    xscenario 'logged-in user visits the items path' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -85,7 +85,7 @@ RSpec.feature 'Admin creates an item' do
       expect(page).to_not have_link('Add New Treasure')
     end
 
-    scenario 'logged-in user attempts to visit new item path' do
+    xscenario 'logged-in user attempts to visit new item path' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -95,13 +95,13 @@ RSpec.feature 'Admin creates an item' do
       expect(page).to have_css('img[src*="http://i.imgur.com/F4zRA3g.jpg"]')
     end
 
-    scenario 'visitor visits the items path' do
+    xscenario 'visitor visits the items path' do
       visit items_path
 
       expect(page).to_not have_link('Add New Treasure')
     end
 
-    scenario 'visitor attempts to visit new item path' do
+    xscenario 'visitor attempts to visit new item path' do
       visit new_admin_item_path
 
       expect(current_path).to eq(new_admin_item_path)

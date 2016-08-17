@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Cart Item', type: :model do
-  it 'should initialize with an item id and quantity' do
+  xit 'should initialize with an item id and quantity' do
     item = create(:item)
     cart_item = CartItem.new(item.id, 2)
 
@@ -9,7 +9,7 @@ RSpec.describe 'Cart Item', type: :model do
     expect(cart_item.title).to eq(item.title)
   end
 
-  it 'should calculate the sub-total of an item' do
+  xit 'should calculate the sub-total of an item' do
     item = create(:item)
     cart_item = CartItem.new(item.id, 2)
 

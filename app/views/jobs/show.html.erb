@@ -1,19 +1,13 @@
 <div class="job-show">
   <div class="well col-md-10">
     <h1><%= @job.title %></h1>
-    <%= image_tag(@job.image_path, alt: "#{@job.title} pic", class: 'img-thumbnail show-image', style: 'float:left') %>
     <div class="job-content">
-      <h2><p>Celebrity: <strong><%= @job.celebrity_name %></strong></h2></p>
-      <h4><p>Category: <%= @job.category.title %></p></h4>
+      <h2><p>Celebrity: <strong><%= @job.company_name %></strong></h2></p>
       <p><%= @job.description %></p>
-      <p><%= number_to_currency(@job.price) %><p>
-      <% if @job.sold_out? %>
-        <p><%= link_to 'SOLD OUT', cart_jobs_path(job_id: @job.id), class: 'btn btn-danger', disabled: 'disabled' %></p>
-      <% else %>
+      <p><%= number_to_currency(@job.salary) %><p>
         <p><%= button_to 'Add to Cart', cart_jobs_path(job_id: @job.id), class: 'btn btn-default' %></p>
         <% if current_admin? %>
           <p><%= link_to 'Edit job', edit_admin_job_path(@job), class: 'btn btn-default' %></p>
-        <% end %>
       <% end %>
     </div>
   </div>

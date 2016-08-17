@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "All sold-out items can be viewed" do
-  scenario "a visitor views the root path" do
+  xscenario "a visitor views the root path" do
     items = create_list(:sold_out_item, 2)
 
     visit root_path
