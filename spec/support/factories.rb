@@ -1,26 +1,27 @@
 FactoryGirl.define do
-  factory :job do
-    title
-    description "This is a job. Come work here."
-    salary "10,000-60,000"
-    company
-    factory :unavailable_job do
-      status 1
-    end
-  end
 
-  factory :company do
-    name { generate(:company_name) }
-  end
+  # factory :job do
+  #   title
+  #   description "This is a job. Come work here."
+  #   salary "10,000-60,000"
+  #   company
+  #   factory :unavailable_job do
+  #     status 1
+  #   end
+  # end
+
+  # factory :company do
+  #   name { generate(:company_name) }
+  # end
 
   # factory :industry do
   #   name { generate(:industry_name) }
   # end
 
-  factory :order do
-    user
-    jobs { create_list(:job, 2) }
-  end
+  # factory :order do
+  #   user
+  #   jobs { create_list(:job, 2) }
+  # end
 
   factory :user do
     username
