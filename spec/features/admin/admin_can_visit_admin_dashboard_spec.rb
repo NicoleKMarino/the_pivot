@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Admin can login and view dashboard" do
-  scenario "admin can login view dashboard" do
+  xscenario "admin can login view dashboard" do
     admin = create(:admin)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)

@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Cart', type: :model do
-  it 'should have an empty hash if no session[:cart]' do
+  xit 'should have an empty hash if no session[:cart]' do
     cart = Cart.new(nil)
 
     expect(cart.contents).to eq({})
   end
 
-  it 'should be able to add item by item id' do
+  xit 'should be able to add item by item id' do
     cart = Cart.new(nil)
 
     cart.add_item(1)
@@ -17,7 +17,7 @@ RSpec.describe 'Cart', type: :model do
     expect(cart.contents).to eq('1' => 1, '2' => 2)
   end
 
-  it 'should be able to calculate total cost' do
+  xit 'should be able to calculate total cost' do
     create_list(:item, 2)
     item_1 = Item.first
     item_2 = Item.last
@@ -30,25 +30,25 @@ RSpec.describe 'Cart', type: :model do
     expect(cart.total_cost).to eq(item_1.price + (item_2.price * 2))
   end
 
-  it 'should be able to calculate total items' do
+  xit 'should be able to calculate total items' do
     cart = Cart.new('1' => 3, '4' => 7)
 
     expect(cart.total_items).to eq(10)
   end
 
-  it 'should return 0.00 as total cost for an empty cart' do
+  xit 'should return 0.00 as total cost for an empty cart' do
     cart = Cart.new(nil)
 
     expect(cart.total_items).to eq(0.00)
   end
 
-  it 'should return 0 as total items for an empty cart' do
+  xit 'should return 0 as total items for an empty cart' do
     cart = Cart.new(nil)
 
     expect(cart.total_items).to eq(0)
   end
 
-  it 'should return an array of CartItems for its contents' do
+  xit 'should return an array of CartItems for its contents' do
     items = create_list(:item, 2)
     cart = Cart.new(nil)
     cart.add_item(items.first.id)

@@ -13,7 +13,6 @@ RSpec.feature "User can login using Twitter" do
     expect(page).to have_content "Logged in as twitter_login"
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_link "Logout"
-    expect(page).to have_link "Cart"
 
     expect(page).not_to have_content "Login"
   end

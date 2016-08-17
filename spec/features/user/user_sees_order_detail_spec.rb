@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User sees one order's detail" do
-  scenario "logged-in user creates an order and visits their order show page" do
+  xscenario "logged-in user creates an order and visits their order show page" do
     user = create(:user)
     item = create(:item)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

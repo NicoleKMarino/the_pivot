@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor Views All Items", type: :feature do
-  scenario "on the items index page" do
+  xscenario "on the items index page" do
     item1 = create(:item)
     item2 = create(:item)
 

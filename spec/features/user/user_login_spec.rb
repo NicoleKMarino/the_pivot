@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can login" do
-  scenario "registered user can login" do
+  xscenario "registered user can login" do
     user = User.create(username: "lane", email: "lane@nil.com", password: "password")
 
     visit login_path

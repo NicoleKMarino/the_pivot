@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can view categories list" do
-  scenario "from the side navigation bar" do
+  xscenario "from the side navigation bar" do
     Category.create(title: "Kitchen")
     visit root_path
 
