@@ -9,6 +9,16 @@ def create_company
   )
 end
 
+def create_job
+  company = create_company
+  company.jobs.create!(
+    title: "Software Integration Developer",
+    description: "This is an entry level position.",
+    status: 0,
+    salary: "$40,000-$60,000"
+  )
+end
+
 def create_three_companies
   create_company
   industry2 = Industry.create!(name: "Advertising")
