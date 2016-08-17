@@ -13,9 +13,9 @@ FactoryGirl.define do
     name { generate(:company_name) }
   end
 
-  # factory :industry do
-  #   name { generate(:industry_name) }
-  # end
+  factory :industry do
+    name { generate(:industry_name) }
+  end
 
   factory :order do
     user
