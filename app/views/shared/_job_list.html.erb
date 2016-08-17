@@ -1,0 +1,21 @@
+<div id="jobs_list">
+  <% @jobs.each do |job| %>
+      <div class ="well col-md-3 job-in-list" id="job-<%= job.id %>">
+        <a id="popoverData" href="<%= job_path(job) %>" data-content="<%= job.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
+          <%= job.title %>
+        </a>
+        <p>
+        </p>
+        <p>
+          Company: <%= job.company_name %>
+        </p>
+        <p>
+          <%= number_to_currency(job.salary) %>
+        </p>
+        <%= content_tag :div do %>
+        <% end %>
+        <%= link_to "Edit", edit_admin_job_path(job), class: "center_button btn btn-default" if current_admin? %>
+      </div>
+    </div>
+  <% end %>
+</div>

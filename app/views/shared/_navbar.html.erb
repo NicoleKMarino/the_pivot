@@ -7,25 +7,25 @@
       <% end %>
     </li>
     <li>
-      <%= link_to items_path do %>
-        <i class="fa fa-align-justify"></i> All Items
+      <%= link_to jobs_path do %>
+        <i class="fa fa-align-justify"></i> All Jobs
       <% end %>
     </li>
     <li>
-      <a class="" href="#" data-toggle="collapse" data-target="#categories">
-      <i class="fa fa-toggle-down"></i> Categories</a>
+      <a class="" href="#" data-toggle="collapse" data-target="#industries">
+      <i class="fa fa-toggle-down"></i>industries</a>
       <div id="categories" class="collapse">
-        <% categories.each do |category| %>
+        <% @industries.each do |industry| %>
         <div class="category">
           <p>
-            <%= link_to " #{category.title}", category_path(category), class:"category" %>
+            <%= link_to " #{industry.name}", industry_path(industry), class:"category" %>
           </p>
         </div>
         <% end %>
       </div>
     </li>
     <li>
-      <%= link_to unavailable_items_path do %>
+      <%= link_to unavailable_jobs_path do %>
         <i class="fa fa-trophy"></i> Best Of
       <% end %>
     </li>
@@ -47,9 +47,7 @@
     <% end %>
   <ul class="nav navbar-nav navbar-right">
     <li>
-      <%= link_to cart_index_path do %>
       <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
-      <% end %>
     </li>
     <% if current_user %>
       <li>

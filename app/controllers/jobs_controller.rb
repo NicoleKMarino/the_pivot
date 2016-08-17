@@ -1,4 +1,7 @@
 class JobsController < ApplicationController
+
+
+
   def index
     @jobs = Job.where(status: 0)
   end
@@ -10,5 +13,5 @@ class JobsController < ApplicationController
   def show
     @jobs = Job.find(params[:id])
   end
-  
+
 end

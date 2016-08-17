@@ -4,4 +4,6 @@ class Company < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   enum status: %w(pending online offline)
+
+  
 end
