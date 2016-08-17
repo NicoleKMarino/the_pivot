@@ -1,7 +1,7 @@
 
 <div id="items_list">
   <% @jobs.each do |job| %>
-    <div class="well col-md-3 item-in-list job salary<%= job.salary[1] %> <%= job.company.location %>" data-status="<%= job.company.location %>">
+    <div class="well col-md-3 item-in-list job salary<%= job.salary[1] %> <%= job.company.location %>" data-status="<%= job.company.location %>" data-salary="<%= job.salary %>">
       <%= link_to "#{job.title}", job_path(job) %>
       <p>Company: <%= job.company.name %></p>
       <p>Location: <%= job.company.location %></p>
