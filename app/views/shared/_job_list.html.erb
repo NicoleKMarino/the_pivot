@@ -2,7 +2,7 @@
   <% @jobs.each do |job| %>
       <div class ="well col-md-3 job-in-list" id="job-<%= job.id %>">
         <a id="popoverData" href="<%= job_path(job) %>" data-content="<%= job.description %>" rel="popover" data-placement="bottom" data-original-title="Description" data-trigger="hover">
-          <%= job.title %>
+          <%=link_to "#{job.title}", job_path(job.id)%>
         </a>
         <p>
         </p>

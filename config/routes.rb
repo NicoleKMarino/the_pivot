@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  namespace :admin do
+    resources :dashboard, only: [:index]
+    resources :jobs, only: [:new, :create, :edit, :update]
+  end
 
-  # namespace :admin do
-  #   resources :dashboard, only: [:index]
-  #   resources :jobs, only: [:new, :create, :edit, :update]
-  # end
 
-
-  # resources :cart_items, only: [:create, :update, :destroy]
+  resources :cart_jobs, only: [:create, :update, :destroy]
 
 
   resources :companies, only: [:show, :index]
 
-  
-  # resources :cart, only: [:index]
+
+  resources :cart, only: [:index]
 
 
   resources :jobs, only: [:index, :show] do
@@ -23,8 +22,8 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :create, :edit, :update]
-  # resources :orders, only: [:index, :create, :show]
-  # resources :charges
+  resources :orders, only: [:index, :create, :show]
+  resources :charges
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
