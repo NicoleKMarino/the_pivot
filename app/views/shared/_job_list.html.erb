@@ -1,13 +1,14 @@
 
-<div id="items_list">  
-  <% @jobs.each do |job| %>  
+
+<div id="items_list">
+  <% @jobs.each do |job| %>
     <div class="well col-md-3 item-in-list job" data-status="<%= job.company.location %>">
-  
-      <h4><%= job.title %></h4>
+
+      <%=link_to "#{job.title}", job_path(job.id)%>
       <p>Company: <%= job.company.name %></p>
       <p>Location: <%= job.company.location %></p>
 
-      
+
       <%#= content_tag :div do %>
         <%#= button_to "#{btn_label}", cart_items_path(item_id: item.id), class: "center_button btn btn-#{btn_class}", disabled: status %>
       <%# end %>

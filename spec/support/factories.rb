@@ -1,19 +1,19 @@
 FactoryGirl.define do
-  
+
   industry_names = [ "Tech", "Advertising", "Finance"]
   salary_ranges = ["$40,000-$60,000", "$60,000-$80,000"]
   locations = ["CO", "NY", "CA"] #use Faker
-  # 
+  #
   # factory :job do
   #   title
   #   description "This is our job description. Come work with us."
   #   salary salary_ranges.sample
-  #   
+  #
   #  # factory :unavailable_job do
   #  #   status 1
   #  # end
   # end
-  # 
+  #
   # factory :company do
   #   before_create do |company|
   #     FactoryGirl.build(:industry, company: company)

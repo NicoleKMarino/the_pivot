@@ -1,3 +1,41 @@
+<div class="navbar navbar-nav navbar-fixed-left">
+  <span class="navbar-brand"></span>
+  <ul class="nav navbar-nav">
+    <li>
+      <%= link_to root_path do %>
+        <i class="fa fa-home"></i> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to jobs_path do %>
+        <i class="fa fa-align-justify"></i> All Jobs
+      <% end %>
+    </li>
+    <li>
+      <a class="" href="#" data-toggle="collapse" data-target="#industries">
+      <i class="fa fa-toggle-down"></i>industries</a>
+      <div id="categories" class="collapse">
+        <% @industries.each do |industry| %>
+        <div class="category">
+          <p>
+            <%= link_to " #{industry.name}", industry_path(industry), class:"category" %>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </li>
+    <li>
+      <%= link_to unavailable_jobs_path do %>
+        <i class="fa fa-trophy"></i> Best Of
+      <% end %>
+    </li>
+    <li>
+      <%= mail_to "onefanstreasure@gmail.com" do %>
+        <i class="fa fa-envelope"></i> Email Us
+      <% end %>
+    </li>
+  </ul>
+</div>
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-brand">
     <%= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
@@ -8,11 +46,9 @@
     </div>
     <% end %>
   <ul class="nav navbar-nav navbar-right">
-    <!-- <li>
-      <%#= link_to cart_index_path do %>
-      <i class="fa fa-shopping-cart"></i> Cart: <%#= @cart.total_items %>
-      <%# end %>
-    </li> -->
+    <li>
+      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
+    </li>
     <% if current_user %>
       <li>
         <%= link_to logout_path, method: :delete do %>
