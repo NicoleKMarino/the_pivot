@@ -7,7 +7,7 @@ class Job < ApplicationRecord
 
   enum status: %w(available unavailable)
 
-
   def company_name
     company.name
   end
+end

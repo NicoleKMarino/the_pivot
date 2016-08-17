@@ -1,26 +1,38 @@
 FactoryGirl.define do
-  factory :job do
-    title
-    description "This is a job. Come work here."
-    salary "10,000-60,000"
-    company
-    factory :unavailable_job do
-      status 1
-    end
-  end
-
-  factory :company do
-    name { generate(:company_name) }
-  end
-
-  # factory :industry do
-  #   name { generate(:industry_name) }
+  
+  industry_names = [ "Tech", "Advertising", "Finance"]
+  salary_ranges = ["$40,000-$60,000", "$60,000-$80,000"]
+  locations = ["CO", "NY", "CA"] #use Faker
+  # 
+  # factory :job do
+  #   title
+  #   description "This is our job description. Come work with us."
+  #   salary salary_ranges.sample
+  #   
+  #  # factory :unavailable_job do
+  #  #   status 1
+  #  # end
+  # end
+  # 
+  # factory :company do
+  #   before_create do |company|
+  #     FactoryGirl.build(:industry, company: company)
+  #   end
+  #   name { generate(:company_name) }
+  #   description "Our company is awesome"
+  #   location locations.sample
+  #   status 2
+  #   img_path "blablabla" #Faker
   # end
 
-  factory :order do
-    user
-    jobs { create_list(:job, 2) }
+  factory :industry do
+    name industry_names.sample
   end
+
+  #factory :order do
+  #  user
+  #  jobs { create_list(:job, 2) }
+  #end
 
   factory :user do
     username
@@ -46,16 +58,9 @@ FactoryGirl.define do
     "user_#{n}@example.com"
   end
 
-  sequence :name do |n|
-    "Industry_#{n}"
-  end
-
-
   sequence :company_name do |n|
     "Company_#{n}"
   end
-
-
   sequence :title do |n|
     "job_#{n}"
   end
