@@ -1,12 +1,15 @@
 <div class="page-content">
   <h2>All jobs</h2>
-  <div class="filter">
+  <div class="col-xs-offset-3 col-xs-6 text-center">
+      <div class = "thumbnail">
+        <div class="filter">
     <label>Filter By</label>
     <%= select :job, :filter_location, @locations, {:prompt => 'Location'} %>
     <%= select :job, :filter_salary, @salaries, {:prompt => 'Salary'} %>
   </div>
   <br>
-
+</div>
+</div>
   <%#= render partial: "filter" %>
   <%# if current_admin? %>
     <%#= link_to 'Add New Treasure', new_admin_job_path, class: 'btn btn-lg btn-danger pull-right' %>

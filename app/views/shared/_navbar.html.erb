@@ -24,14 +24,16 @@
   <div class="navbar-brand">
     <%= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
   </div>
+  <ul class="nav navbar-nav navbar-right">
+<li>
     <% if current_user %>
     <div class='navbar-header user-info'>
       <%= link_to "Logged in as #{current_user.username}", dashboard_path %>
     </div>
     <% end %>
-  <ul class="nav navbar-nav navbar-right">
+  </li>
     <li>
-      <i class="fa fa-shopping-cart pull-left"></i> Cart: <%= @cart.total_items %>
+      <i class="fa fa-shopping-cart"></i> Cart: <%= @cart.total_items %>
     </li>
     <% if current_user %>
       <li>
@@ -42,7 +44,7 @@
     <% else %>
       <li>
         <%= link_to login_path do %>
-        <i class="fa fa-sign-in pull-right"></i> Login
+        <i class="fa fa-sign-in"></i> Login
         <% end %>
       </li>
     <% end %>

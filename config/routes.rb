@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :cart_jobs, only: [:create, :update, :destroy]
+  resources :jobs_favorites, only: [:create, :update, :destroy]
 
 
   resources :companies, only: [:show, :index]
