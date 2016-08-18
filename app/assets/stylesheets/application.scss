@@ -13,4 +13,8 @@
  *= require_tree .
  *= require_self
  */
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700)
+@import "bootstrap-sprockets";
+// @import "bootstrap";
+@import "general";
+@import "flash_styling";
+@import "navbar_styling";
