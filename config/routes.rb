@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :jobs_favorites, only: [:create, :update, :destroy]
 
 
-  resources :companies, only: [:show, :index]
+  resources :companies, only: [:index]
+  get "/companies/:slug", to: "companies#show", as: "company"
 
 
   resources :cart, only: [:index]
