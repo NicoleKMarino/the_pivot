@@ -1,0 +1,12 @@
+<div class="page-content">
+  <p></p>
+  <div class="well col-md-10">
+    <h1><%= @bucket_job.title %></h1>
+    <h3><%= @bucket_job.company %></h3>
+    <br>
+    <div class="col-sm-4 job-option-buttons">
+      <%=button_to "Login or Create Account to Continue Application", login_path, method: :get, class:"btn btn-warning"%>
+      <%=button_to "Continue Browsing Jobs", jobs_path, method: :get, class:"btn btn-primary disabled"%>
+    </div>
+  </div>
+</div>

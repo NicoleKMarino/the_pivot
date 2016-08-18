@@ -1,5 +1,10 @@
 class BucketController < ApplicationController
+
   def index
-    @applications = @bucket.all_items
+    @bucket_jobs = @bucket.all_items
+  end
+
+  def show
+    @bucket_job = Job.find(params[:id])
   end
 end

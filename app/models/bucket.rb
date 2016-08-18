@@ -1,17 +1,16 @@
-class Cart
+class Bucket
   attr_reader :contents
 
   def initialize(contents)
     @contents = contents || {}
   end
 
-  def add_item(item_id)
-    @contents[item_id.to_s] ||= 0
-    @contents[item_id.to_s] += 1
+  def add_job(job_id)
+    @contents[job_id.to_s] ||= ""
   end
 
-  def total_items
-    contents.values.sum
+  def total_jobs
+    contents.length
   end
 
   def total_cost

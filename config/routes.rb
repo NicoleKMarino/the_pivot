@@ -6,21 +6,15 @@ Rails.application.routes.draw do
     resources :jobs, only: [:new, :create, :edit, :update]
   end
 
-
-
   resources :jobs_favorites, only: [:create, :update, :destroy]
-
-
   resources :companies, only: [:show, :index]
-
-
-  resources :cart, only: [:index]
+  resources :bucket_jobs, only: [:create, :update, :destroy]
+  resources :bucket, only: [:index, :show]
 
 
   resources :jobs, only: [:index, :show] do
     get 'unavailable', on: :collection
   end
-
 
   resources :users, only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :create, :show]
