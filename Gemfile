@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'twitter-bootstrap-rails'
 gem 'faker'
 gem 'email_validator', require: 'email_validator/strict'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'turbolinks'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

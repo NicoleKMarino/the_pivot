@@ -1,0 +1,34 @@
+@import "variables";
+
+// .login {
+// background-image: url('https://hd.unsplash.com/photo-1426523038054-a260f3ef5bc9');
+// }
+
+body {
+  background-image: url('https://hd.unsplash.com/photo-1426523038054-a260f3ef5bc9');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn-companies {
+  background-color: $btn-companies;;
+  color: $white;
+}
+
+.btn-companies:hover {
+  background-color: $btn-companies;
+  color: $white;
+  opacity: 0.8;
+}
+
+.btn-jobs {
+  background-color: $btn-jobs;
+  color: $white;
+}
+
+.btn-jobs:hover {
+  background-color: $btn-jobs;
+  color: $white;
+  opacity: 0.7;
+}
