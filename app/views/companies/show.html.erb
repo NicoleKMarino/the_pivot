@@ -1,4 +1,13 @@
 <div class="page-content">
-  <h1>Industry: <%= @industry.name %></h1>
+  <p></p>
+  <div class="well col-md-12">
+    <%= image_tag(@company.img_path, class: "company-image", alt: @company.name) %>
+    <h1>Industry: <%= @company.industry.name %></h1>
+    <h4>Description: <%= @company.description %></h4>
+  </div>
+
+  <div class="well col-md-12">
+    <h1>All Jobs</h1>
   <%= render partial: 'shared/job_list', locals: { btn_label: 'Add to Cart', btn_class: 'default', status: false } %>
+  </div>
 </div>
