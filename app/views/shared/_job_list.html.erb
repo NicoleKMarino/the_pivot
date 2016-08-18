@@ -4,14 +4,14 @@
     <div class="row well col-md-10 job salary<%= job.salary[1] %> <%= job.company.location %>" data-status="<%= job.company.location %>">
 
     <div class="col-sm-8">
-      <h3 class="card-title">  <%= link_to "#{job.title}", job_path(job) %></h3>
+      <h3 class="card-title">  <%= link_to "#{job.title}", root_path %></h3>
         Company: <%= job.company.name %> | Location: <%= job.company.location %></p>
       </p>
     </div>
-    <div class="col-sm-4">    
-      <%=button_to "Apply",jobs_path, class:"btn btn-warning"%>
-      <%=button_to "Add to Favorite",jobs_path, class:"btn btn-primary"%>
+    <div class="col-sm-4">
+      <%=button_to "Apply",jobs_path, class:"btn btn-warning disabled"%>
+      <%=button_to "Add to Favorite",jobs_path, class:"btn btn-primary disabled"%>
     </div>
-  </div> 
+  </div>
   <% end %>
 </div>
