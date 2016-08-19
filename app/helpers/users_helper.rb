@@ -1,6 +1,6 @@
 module UsersHelper
   def verify_admin
-    unless current_admin? && current_user.id == params[:id].to_i
+    unless platform_admin? && current_user.id == params[:id].to_i
       if current_admin?
         flash[:danger] = "Admins can only modify their own accounts"
         redirect_to dashboard_path
