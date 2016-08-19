@@ -12,6 +12,11 @@
         <td><%= current_user.date_registered %></td>
       </tr>
       <tr>
+          <th>Address</th>
+          <td><%= current_user.address %>,
+          <%= current_user.city %>,
+          <%= current_user.state %>,
+          <%= current_user.zip_code %></td>
       </tr>
     </table>
     <%= link_to 'Pending Requests', edit_user_path(current_user), class: 'btn btn-default' %>
