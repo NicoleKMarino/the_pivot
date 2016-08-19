@@ -2,7 +2,7 @@ require 'pry'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :categories, :current_admin?
+  helper_method :current_user, :categories, :platform_admin?
   before_action :authorize
   before_action :industries
   before_action :set_cart

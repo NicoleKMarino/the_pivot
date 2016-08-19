@@ -4,11 +4,11 @@ class Seed
    create_companies_status_online
    generate_jobs
    create_users
+   create_roles
    create_user_roles
-   roles
   end
 
-  def self.roles
+  def self.create_roles
     Role.create!(name: "registered_user")
     Role.create!(name: "employer")
     Role.create!(name: "platform_admin")
@@ -18,7 +18,7 @@ class Seed
   def self.create_users
     User.create!(username: "Test",
                  email: "deborahleehamel@gmail.com",
-                 password_digest: "password",
+                 password: "password",
                  first_name: "Deb",
                  last_name: "Hamel",
                  address: "2122 Concord Lane",
@@ -29,7 +29,7 @@ class Seed
 
    User.create!(username: "Employer",
                 email: "nicolekmarina@hotmail.com",
-                password_digest: "password",
+                password: "password",
                 first_name: "Nicole",
                 last_name: "Marina",
                 address: "2122 Concord Lane",
@@ -41,7 +41,7 @@ class Seed
 
     User.create!(username: "Admin",
                  email: "lanerdoce@aol.com",
-                 password_digest: "password",
+                 password: "password",
                  first_name: "Lane",
                  last_name: "Winham",
                  address: "2122 Concord Lane",

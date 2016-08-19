@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h2>Profile for <%= current_user.username %></h2>
+  <h2>Employer Page for <%= current_user.username %></h2>
   <div class="well table-responsive col-md-6">
     <table class="table">
       <tr>
@@ -15,13 +15,14 @@
       </tr>
     </table>
     <%= link_to 'Pending Requests', edit_user_path(current_user), class: 'btn btn-default' %>
-    <%= link_to 'Statistics', edit_user_path(current_user), class: 'btn btn-default' %>
+    <%= link_to 'Manage Jobs', edit_user_path(current_user), class: 'btn btn-default' %>
     <br>
     <br>
-    <%= link_to 'Manage Employers', edit_user_path(current_user), class: 'btn btn-default' %>
     <%= link_to 'Edit My Profile', edit_user_path(current_user), class: 'btn btn-default' %>
+    <%= link_to 'Edit Company Info', edit_user_path(current_user), class: 'btn btn-default' %>
     <br>
     <br>
+
   </div>
 </div>
 

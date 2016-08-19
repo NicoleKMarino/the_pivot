@@ -1,7 +1,5 @@
 module ApplicationHelper
 
-
-
   def admin_edit?
     platform_admin?
   end
