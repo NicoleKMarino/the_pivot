@@ -1,53 +1,7 @@
 <div class="page-content">
-  <h1>Shopping Cart</h1>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Description</th>
-          <th>Quantity</th>
-          <th>Unit Price</th>
-          <th>Subtotal</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @items.each do |item| %>
-          <tr id="item-<%= item.id %>">
-            <td>
-              <%= item.title %>
-              <%= image_tag item.image_path, class: "cart-pic" %>
-            </td>
-            <td><%= item.description %></td>
-            <td>
-              <%= form_for(item, url: cart_item_path(item)) do |f| %>
-                <div class='form-group'>
-                  <%= f.select :quantity, quantities, {}, { value: item.quantity, class: 'form-control', onchange: 'this.form.submit();' } %>
-                </div>
-              <% end %>
-            </td>
-            <td><%= number_to_currency(item.price) %></td>
-            <td><%= number_to_currency(item.sub_total) %></td>
-            <td><%= button_to "Remove", cart_item_path(item), method: :delete, class: 'btn btn-danger btn-sm' %></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td colspan='6' class='text-right'>
-            <strong>Total: <%= number_to_currency(@cart.total_cost) %></strong>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class='col-md-12'>
-    <%= link_to 'Back to All Items', items_path, class: 'col-md-2 btn btn-default' %>
-    <% unless @cart.contents.empty? %>
-      <% if current_user %>
-        <%= link_to 'Checkout', orders_path, method: :post, class: 'col-md-2 col-md-offset-8 btn btn-primary' %>
-      <% else %>
-        <%= link_to 'Login or Create Account to Checkout', login_path, class: 'col-md-3 col-md-offset-7 btn btn-info' %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+  <h1>Current Applications</h1>
+  
+  <% @bucket_jobs.each do |job| %>
+    <h2><%=job.title %></h2>
+  <% end %>
+  

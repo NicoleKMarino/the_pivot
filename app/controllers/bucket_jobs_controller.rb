@@ -11,9 +11,12 @@ class BucketJobsController < ApplicationController
   end
 
   def update
-    @bucket.contents[params[:id].to_s] = params[:item][:quantity].to_i
-    flash[:success] = "Quantity of #{@job.title} updated to #{params[:item][:quantity]}."
-    redirect_to cart_index_path
+    @bucket.contents[params[:id]] = params[:summary]
+    if params[:commit] == "Login or Create Account to Continue Application"
+      redirect_to login_path
+    else
+      redirect_to jobs_path
+    end
   end
 
   def destroy
