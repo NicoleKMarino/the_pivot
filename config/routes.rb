@@ -6,12 +6,20 @@ Rails.application.routes.draw do
     resources :jobs, only: [:new, :create, :edit, :update]
   end
 
+  namespace :employer do
+    resources :dashboard, only: [:index]
+    resources :jobs, only: [:new, :create, :edit, :update]
+  end
+
+
+
 
 
   resources :jobs_favorites, only: [:create, :update, :destroy]
 
 
-  resources :companies, only: [:show, :index]
+  resources :companies, only: [:index]
+  get "/companies/:slug", to: "companies#show", as: "company"
 
 
   resources :cart, only: [:index]
