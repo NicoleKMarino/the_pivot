@@ -13,9 +13,10 @@ class Bucket
     contents.length
   end
 
-  def all_items #edit this method and write test
+  def all_jobs
     contents.map do |job_id, summary|
-      BucketJob.new(job_id, summary)
+      job = Job.find(job_id)
+      BucketJob.new(job, summary)
     end
   end
 

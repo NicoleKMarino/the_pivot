@@ -6,7 +6,7 @@ class BucketJobsController < ApplicationController
     job = Job.find(params[:job_id])
     @bucket.add_job(job.id)
     session[:bucket] = @bucket.contents
-    flash[:success] = "#{job.title} added to bucket successfully. Bucket now contains #{pluralize(@bucket.total_jobs, 'job')}."
+    flash[:success] = "You have started an application for #{job.title}. You have started #{pluralize(@bucket.total_jobs, 'job')} applications."
     redirect_to bucket_path(job) 
   end
 
@@ -17,8 +17,8 @@ class BucketJobsController < ApplicationController
 
   def destroy
     @bucket.contents.delete(params[:id])
-    flash[:success] = "Successfully removed #{view_context.link_to(@job.title, item_path(@job))} from your cart."
-    redirect_to cart_index_path
+    flash[:success] = "Your application for #{view_context.link_to(@job.title, job_path(@job))} has been cancelled."
+    redirect_to bucket_index_path
   end
 
   private

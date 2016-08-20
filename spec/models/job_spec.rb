@@ -6,8 +6,15 @@ RSpec.describe Job, Job: :model do
   it { should validate_presence_of :salary }
   it { should have_db_column(:status).with_options(default: 'available') }
 
-  xit "should return tell if an item is sold out" do #need to update this for job that is unavailable
-    item = create(:sold_out_item)
-    expect(item.sold_out?).to eq(true)
+  it "can change the status of a job" do 
+    job = create_job
+    job.make_unavailable
+    
+    expect(job.unavailable?).to eq(true)
+    expect(job.available?).to eq(false)
+    
+    job.make_available
+    expect(job.available?).to eq(true)
+    expect(job.unavailable?).to eq(false)
   end
 end

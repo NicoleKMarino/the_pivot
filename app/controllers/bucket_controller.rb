@@ -1,7 +1,7 @@
 class BucketController < ApplicationController
 
   def index
-    @bucket_jobs = @bucket.all_items
+    @bucket_jobs = @bucket.all_jobs
   end
   
   def show

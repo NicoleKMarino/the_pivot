@@ -8,7 +8,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
     job2 = Job.second
 
     visit jobs_path
-    within("#items-list") do
+    within(".jobs-list") do
       first(".job-option-buttons").click_on "Apply"
     end
 
@@ -19,7 +19,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
 
     click_on("Continue Browsing Jobs")
     expect(current_path).to eq(jobs_path)
-    within("#items-list") do
+    within(".jobs-list") do
       find(".job-item:nth-child(2)").click_on "Apply"
     end
 
