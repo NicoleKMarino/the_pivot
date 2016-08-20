@@ -28,13 +28,4 @@ RSpec.describe 'bucket', type: :model do
 
     expect(bucket.total_jobs).to eq(0)
   end
-
-  xit 'should return an array of BucketJobs for its contents' do
-    jobs = create_list(:item, 2)
-    cart = Cart.new(nil)
-    cart.add_item(items.first.id)
-    cart.add_item(items.last.id)
-
-    expect(cart.all_items.first.quantity).to eq(cart.contents["#{items.first.id}"])
-  end
 end
