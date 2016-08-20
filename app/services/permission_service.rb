@@ -22,40 +22,29 @@ class PermissionService
   private
 
   def platform_admin_permissions(controller)
-    return true 
-    # return true if controller == "companies"
-    # return true if controller == "sessions"
-    # return true if controller == "orders"
-    # return true if controller == "jobs"
-    # return true if controller == "users"
-    # return true if controller == "homes"
+    return true
   end
 
   def employer_permissions(controller)
-    return true
-    # return true if controller == "companies"
-    # return true if controller == "sessions"
-    # return true if controller == "jobs"
-    # return true if controller == "orders"
-    # return true if controller == "homes"
-
+    return true if controller == "companies"
+    return true if controller == "sessions"
+    return true if controller == "jobs"
+    return true if controller == "orders"
+    return true if controller == "home"
   end
 
   def registered_user_permissions(controller)
-    return true
-    # return true if controller == "sessions"
-    # return true if controller == "companies"
-    # return true if controller == "sessions"
-    # return true if controller == "jobs"
-    # return true if controller == "homes"
-
+    return true if controller == "sessions"
+    return true if controller == "companies"
+    return true if controller == "sessions"
+    return true if controller == "jobs"
+    return true if controller == "home"
   end
 
   def guest_user_permissions(controller)
-    return true
-    # return true if controller == "companies"
-    # return true if controller == "sessions"
-    # return true if controller == "homes"
-
+    return true if controller == "jobs"
+    return true if controller == "companies"
+    return true if controller == "sessions"
+    return true if controller == "home"
   end
 end
