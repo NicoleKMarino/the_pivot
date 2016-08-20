@@ -42,7 +42,7 @@ $(document).ready(function(){
 });
 
 var showAllSalaryBasedJobs = function(currentSalary, $jobs) {
-  debugger
+
   $jobs.each(function (index, job) {
     job = $(job)
 
