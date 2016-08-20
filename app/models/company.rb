@@ -3,14 +3,19 @@ class Company < ApplicationRecord
   belongs_to :industry
   before_validation :generate_slug
   validates :name, presence: true, uniqueness: true
+  before_validation :create_slug
   validates_presence_of :slug
+  validates :img_path, presence: true
 
-  enum status: %w(pending online offline)
 
-private
+  def to_params
+    slug
+  end
 
-  def generate_slug
-    self.slug = name.parameterize
+  private
+
+  def create_slug
+    self.slug = name.parameterize if name
   end
 
 end

@@ -10,4 +10,21 @@ class Job < ApplicationRecord
     company.name
   end
   
+  def make_unavailable
+    self.status = 1
+  end
+  
+  def make_available
+    self.status = 0
+  end
+  
+  def available?
+    return true if self.status == "available"
+    return false
+  end
+  
+  def unavailable?
+    return true if self.status == "unavailable"
+    return false
+  end
 end

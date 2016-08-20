@@ -13,6 +13,7 @@ RSpec.feature "Admin can login" do
 
 
     expect(current_path).to eq(admin_dashboard_index_path)
+
     expect(page).to have_link "Logout"
     expect(page).to have_content "Pending Requests"
 
