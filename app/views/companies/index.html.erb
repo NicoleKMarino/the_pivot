@@ -11,7 +11,7 @@
 
   <div id="items_list">
     <%@companies.each do |company|%>
-      <div class="well col-md-3 company-in-list job">
+      <div class="well col-md-3 company-in-list company <%= company.location %>" data-status="<%= company.location %>">
         <%= image_tag(company.img_path, class: "company-image", alt: company.name) %>
         <br></br>
 
