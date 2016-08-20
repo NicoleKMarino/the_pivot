@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     elsif current_user.employer?
       redirect_to employer_dashboard_index_path
   end
-end 
+end
 
   def edit
   end
