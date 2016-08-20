@@ -10,7 +10,7 @@ class Industry < ApplicationRecord
 
   private
 
-  def create_slug
-    self.slug = name.parameterize if name
-  end
+    def create_slug
+      self.slug = name.parameterize if name
+    end
 end
