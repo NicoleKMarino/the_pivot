@@ -26,25 +26,27 @@ class PermissionService
   end
 
   def employer_permissions(controller)
-    return true if controller == "companies"
-    return true if controller == "sessions"
-    return true if controller == "jobs"
-    return true if controller == "orders"
-    return true if controller == "home"
+    return true
   end
 
   def registered_user_permissions(controller)
+    return true if controller == "users"
     return true if controller == "sessions"
     return true if controller == "companies"
     return true if controller == "sessions"
     return true if controller == "jobs"
     return true if controller == "home"
+    return true if controller == "bucket_jobs"
+    return true if controller == "bucket"
   end
 
   def guest_user_permissions(controller)
+    return true if controller == "users"
     return true if controller == "jobs"
     return true if controller == "companies"
     return true if controller == "sessions"
     return true if controller == "home"
+    return true if controller == "bucket_jobs"
+    return true if controller == "bucket"
   end
 end

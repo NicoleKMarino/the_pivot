@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   post '/login',                    to: 'sessions#create'
   delete '/logout',                 to: 'sessions#destroy'
   get '/dashboard',                 to: 'users#show'
-  get '/companies/:company_slug',   to: 'companies#show',  as: :company
   get '/industries/:industry_slug', to: 'industries#show', as: :industry
 
   get '/auth/twitter', as: :twitter_login

@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
   has_many :jobs
   belongs_to :industry
-  before_validation :generate_slug
+  before_validation :create_slug
   validates :name, presence: true, uniqueness: true
   before_validation :create_slug
   validates_presence_of :slug

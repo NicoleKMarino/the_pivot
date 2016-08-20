@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def set_role
     if @role == "1"
-      UserRole.create(user_id: @user.id,role_id:2)
+      @employer=Role.find_by(name: "employer")
+      UserRole.create(user_id: @user.id,role_id:@employer.id)
     else
       UserRole.create(user_id: @user.id,role_id:1)
     end
