@@ -12,17 +12,12 @@ Rails.application.routes.draw do
   end
 
 
-
-
-
-  resources :jobs_favorites, only: [:create, :update, :destroy]
-
-
   resources :companies, only: [:index]
   get "/companies/:slug", to: "companies#show", as: "company"
 
 
-  resources :jobs_favorites, only: [:create, :update, :destroy]
+  resources :saved_jobs, only: [:create,:destroy,:index]
+
   resources :companies,      only: [:index]
   resources :bucket_jobs,    only: [:create, :update, :destroy]
   resources :bucket,         only: [:index, :show]

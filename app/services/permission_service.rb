@@ -30,6 +30,7 @@ class PermissionService
   end
 
   def registered_user_permissions(controller)
+    return true if controller =="saved_jobs"
     return true if controller == "users"
     return true if controller == "sessions"
     return true if controller == "companies"
@@ -41,6 +42,7 @@ class PermissionService
   end
 
   def guest_user_permissions(controller)
+    return true if controller =="saved_jobs"
     return true if controller == "users"
     return true if controller == "jobs"
     return true if controller == "companies"

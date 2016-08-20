@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818210603) do
+ActiveRecord::Schema.define(version: 20160820203834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,15 @@ ActiveRecord::Schema.define(version: 20160818210603) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "saved_jobs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "job_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_saved_jobs_on_job_id", using: :btree
+    t.index ["user_id"], name: "index_saved_jobs_on_user_id", using: :btree
+  end
+
   create_table "user_roles", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "role_id"
@@ -104,6 +113,8 @@ ActiveRecord::Schema.define(version: 20160818210603) do
   add_foreign_key "order_items", "jobs", column: "item_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "saved_jobs", "jobs"
+  add_foreign_key "saved_jobs", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
 end

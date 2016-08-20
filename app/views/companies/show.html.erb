@@ -6,13 +6,12 @@
     <h4>Description: <%= @company.description %></h4>
     <br>
     <h1>All Jobs</h1>
+    <br>
     <% @company.jobs.each do |job| %>
-    <ul>
-    <li>
     <strong><%=link_to "#{job.title.capitalize}", jobs_path%></strong>
+    <br>
     <%= job.salary %>
-  </li>
+    <br></br>
     <%end %>
-  </ul>
   </div>
 </div>
