@@ -8,7 +8,7 @@ RSpec.feature 'Remove application from the bucket' do
       first(".job-option-buttons").click_on "Apply"
     end
     
-    visit bucket_path
+    visit bucket_index_path
     
     expect(page).to have_content("Software Integration Developer")
     
