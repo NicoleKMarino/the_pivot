@@ -19,7 +19,7 @@ RSpec.feature "Guest can search jobs by salary range" do
 
     expect(page).to have_content("Senior Software Integration Developer")
     expect(page).to have_content("Software Integration Developer")
-
+# sorry for this terrible code, .salary6 is a class pertaining to the designer job (salary) line # 16
     expect(page).to have_selector(".salary6", visible: false)
   end
 end

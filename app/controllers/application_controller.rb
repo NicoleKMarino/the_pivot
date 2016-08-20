@@ -2,10 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :verify_logged_in, :categories, :current_admin?
   before_action :industries
-  before_action :set_cart
+  before_action :set_bucket
 
-  def set_cart
-    @cart = Cart.new(session[:cart])
+  def set_bucket
+    @bucket = Bucket.new(session[:bucket])
   end
 
   def current_user
@@ -26,5 +26,4 @@ class ApplicationController < ActionController::Base
   def industries
     @industries = Industry.all
   end
-
 end

@@ -7,7 +7,7 @@ RSpec.feature "Visitor Views All Items", type: :feature do
 
     visit items_path
 
-    within('#items_list') do
+    within('#items-list') do
       expect(page).to have_content(item1.celebrity.name)
       expect(page).to have_content(item2.celebrity.name)
       expect(page).to have_content(item2.price)
