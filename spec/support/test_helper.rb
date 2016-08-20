@@ -39,6 +39,16 @@ def create_job
   )
 end
 
+def create_job_application
+  job = create_job
+  job.job_applications.create!(
+    summary: "I'm the perfect candidate for this job.",
+    education: "Turing",
+    experience: "The pivot project",
+    status: 0
+  )
+end
+
 def create_three_jobs
   create_three_companies
   Company.first.jobs.create!(

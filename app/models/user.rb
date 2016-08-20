@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :orders
+  has_many :job_applications
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
