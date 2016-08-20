@@ -6,7 +6,7 @@
         <%= image_tag(company.img_path, class: "company-image", alt: company.name) %>
         <br></br>
 
-        <h4><%=link_to "#{company.name.capitalize}", company_path(company_slug: company.slug) %></h4>
+        <%=link_to company.name.capitalize, company_path(slug:company.slug) %>
         <div class="panel-body format-panel">
           <p><%= company.location %></p>
           <p><%= company.industry.name %></p>

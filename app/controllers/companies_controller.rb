@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find_by_slug(params[:company_slug])
+    @company = Company.find_by(slug: params[:slug])
     if @company.nil?
       redirect_to companies_path
     else
