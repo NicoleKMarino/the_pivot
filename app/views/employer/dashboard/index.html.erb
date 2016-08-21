@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h2>Profile for <%= current_user.username %></h2>
+  <h2>Employer Page for <%= current_user.username %></h2>
   <div class="well table-responsive col-md-6">
     <table class="table">
       <tr>
@@ -11,15 +11,24 @@
         <th>Date Registered</th>
         <td><%= current_user.date_registered %></td>
       </tr>
-        <tr>
+      <tr>
           <th>Address</th>
           <td><%= current_user.address %>,
           <%= current_user.city %>,
           <%= current_user.state %>,
           <%= current_user.zip_code %></td>
-        </tr>
+      </tr>
     </table>
-    <%= link_to 'Saved Jobs', saved_jobs_path, class: 'btn btn-default' %>
+    <%= link_to 'Pending Requests', edit_user_path(current_user), class: 'btn btn-default' %>
+    <%= link_to 'Manage Jobs', edit_user_path(current_user), class: 'btn btn-default' %>
+    <br>
+    <br>
+    <%= link_to 'Edit My Profile', edit_user_path(current_user), class: 'btn btn-default' %>
+    <%= link_to 'Edit Company Info', edit_user_path(current_user), class: 'btn btn-default' %>
+    <br>
+    <br>
 
   </div>
+</div>
+
 </div>
