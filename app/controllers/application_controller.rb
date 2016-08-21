@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :verify_logged_in, :categories, :current_admin?
+  helper_method :current_user, :categories, :platform_admin?
+  before_action :authorize
   before_action :industries
   before_action :set_bucket
 
@@ -19,11 +20,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_admin?
-    current_user && current_user.admin?
-  end
-
   def industries
     @industries = Industry.all
+  end
+
+  def authorize
+    unless authorize?
+      redirect_to root_url
+    end
+  end
+
+  def authorize?
+    PermissionService.new(current_user).allow?(params[:controller])
   end
 end

@@ -8,9 +8,19 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def set_role
+    if @role == "1"
+      @employer = Role.find_by(name: "employer")
+      UserRole.create!(user_id: @user.id, role_id: @employer.id)
+    else
+      UserRole.create!(user_id: @user.id, role_id: 1)
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
+      set_role
       session[:user_id] = @user.id
       redirect_to dashboard_path
     else
@@ -20,7 +30,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to admin_dashboard_index_path if current_admin?
+    if current_user.platform_admin?
+      redirect_to admin_dashboard_index_path
+    elsif current_user.employer?
+      redirect_to employer_dashboard_index_path
+    end
   end
 
   def edit
@@ -37,8 +51,20 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password)
-  end
-
+    def user_params
+      @role = params[:user][:user_roles]
+      params[:user].delete :user_roles
+      params.require(:user).permit(
+        :username, 
+        :email, 
+        :first_name, 
+        :last_name,
+        :address,
+        :city,
+        :zip_code,
+        :state,
+        :password,
+        :user_role
+      )
+    end
 end

@@ -7,7 +7,12 @@ class BucketJobsController < ApplicationController
     @bucket.add_job(job.id)
     session[:bucket] = @bucket.contents
     flash[:success] = "You have started an application for #{job.title}. You have started #{pluralize(@bucket.total_jobs, 'job')} applications."
-    redirect_to bucket_path(job) 
+    job.job_applications.create(summary: "add")
+    if current_user
+      redirect_to edit_job_application_path(job)
+    else
+      redirect_to bucket_path(job) 
+    end
   end
 
   def update
@@ -23,15 +28,15 @@ class BucketJobsController < ApplicationController
 
   private
 
-  def check_button_for_redirect
-    if params[:commit] == "Login or Create Account to Continue Application"
-      redirect_to login_path
-    else
-      redirect_to jobs_path
-    end 
-  end
-  
-  def set_job
-    @job = Job.find(params[:id])
-  end
+    def check_button_for_redirect
+      if params[:commit] == "Login or Create Account to Continue Application"
+        redirect_to login_path
+      else
+        redirect_to jobs_path
+      end 
+    end
+    
+    def set_job
+      @job = Job.find(params[:id])
+    end
 end

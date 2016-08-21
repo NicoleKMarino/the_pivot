@@ -1,0 +1,19 @@
+<div class="well">
+  <%= form_for(@job_application) do |f|  %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br>
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+    <br>
+    <%= f.label :education %>
+    <%= f.text_field :education %>
+    <br>
+    <%= f.label :experience %>
+    <%= f.text_field :experience%>
+    <br>
+
+    <%= f.submit "Submit Application", class: "center_button btn btn-#{btn_class}"%>
+  </center>
+  <% end %>
+</div>
