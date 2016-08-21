@@ -17,12 +17,11 @@ class CompaniesController < ApplicationController
 
   private
 
-  def location_list
-    @companies.map { |company| company.location }.uniq
-  end
+    def location_list
+      @companies.map { |company| company.location }.uniq
+    end
 
-  def industry_list
-    @companies.map { |company| company.industry.name }.uniq
-  end
-
+    def industry_list
+      @companies.map { |company| company.industry.name }.uniq
+    end
 end
