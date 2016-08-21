@@ -2,16 +2,15 @@ class JobApplicationsController < ApplicationController
   before_action :set_job_application, only: [:show, :edit, :update]
 
   def show
-    @job_application = JobApplication.find(params[:id])
   end
   
   def edit
-    @job_application = JobApplication.find(params[:id])
   end
   
   def update
     if @job_application.update(job_application_params)
       flash[:success] = "Your application was successfully submitted."
+      @bucket.remove_job(@job_application.job)
       redirect_to dashboard_path
     else
       render :edit

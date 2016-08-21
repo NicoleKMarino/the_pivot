@@ -1,14 +1,22 @@
 <div class="page-content">
   <div class="well col-md-10">
+    <h2>Job Application</h2>
+    <p>You are applying for <%= @job_application.job.title.upcase %> position at <%= @job_application.job.company.name.upcase %></p>
+    <br>
+    <p><strong>Job Position Description</strong></p>
+    <p><%= @job_application.job.description %></p>
+    <br>
+    <p>Please fill in the form bellow to complete your application:</p>
     <%= form_for(@job_application) do |f|  %>
       <%= f.label :summary %>
-      <%= f.text_field :summary, class:"form-control" %>
+      <%= f.text_field :summary, class:"form-control", placeholder: "#{@job_application.summary}"%>
       <br>
       <%= f.label :education %>
       <%= f.text_field :education, class:"form-control" %>
       <br>
       <%= f.label :experience %>
       <%= f.text_field :experience, class:"form-control" %>
+      <br>
       <br>
       <%= f.submit "Submit Application", class: "center_button btn"%>
     </center>

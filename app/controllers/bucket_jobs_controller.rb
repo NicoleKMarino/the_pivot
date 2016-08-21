@@ -7,7 +7,7 @@ class BucketJobsController < ApplicationController
     @bucket.add_job(@job.id)
     session[:bucket] = @bucket.contents
     flash[:success] = "You have started an application for #{@job.title}. You have started #{pluralize(@bucket.total_jobs, 'job')} applications."
-    @job_application = @job.job_applications.create(summary: "add")
+    create_job_application
     separate_guest_and_user
   end
 
@@ -23,7 +23,10 @@ class BucketJobsController < ApplicationController
   end
 
   private
-    
+    def create_job_application
+    @job_application = @job.job_applications.create(summary: "Please write a brief paragraph explaining why you would be a good fit for this job.")
+    end
+
     def separate_guest_and_user
       if current_user
         redirect_to edit_job_application_path(@job_application)
