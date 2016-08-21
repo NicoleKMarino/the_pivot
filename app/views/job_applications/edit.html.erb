@@ -1,19 +1,17 @@
-<div class="well">
-  <%= form_for(@job_application) do |f|  %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <br>
-    <%= f.label :summary %>
-    <%= f.text_field :summary %>
-    <br>
-    <%= f.label :education %>
-    <%= f.text_field :education %>
-    <br>
-    <%= f.label :experience %>
-    <%= f.text_field :experience%>
-    <br>
-
-    <%= f.submit "Submit Application", class: "center_button btn btn-#{btn_class}"%>
-  </center>
-  <% end %>
+<div class="page-content">
+  <div class="well col-md-10">
+    <%= form_for(@job_application) do |f|  %>
+      <%= f.label :summary %>
+      <%= f.text_field :summary, class:"form-control" %>
+      <br>
+      <%= f.label :education %>
+      <%= f.text_field :education, class:"form-control" %>
+      <br>
+      <%= f.label :experience %>
+      <%= f.text_field :experience, class:"form-control" %>
+      <br>
+      <%= f.submit "Submit Application", class: "center_button btn"%>
+    </center>
+    <% end %>
+  </div>
 </div>

@@ -14,9 +14,11 @@ RSpec.feature "Registered user can apply for a job" do
     
     visit jobs_path
     click_on "Apply"
-
-    expect(current_path).to eq(edit_job_application_path(job))
     
+    job_application = JobApplication.last
+
+    expect(current_path).to eq(edit_job_application_path(job_application))
+
     fill_in "Summary",    with: "I would love to get this job!"
     fill_in "Education",  with: "Turing School of Software & Design"
     fill_in "Experience", with: "Google"

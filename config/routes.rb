@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :users,  only: [:new, :create, :edit, :update]
-  resources :job_applications, only: [:show, :edit, :update, :create]
+  resources :job_applications, only: [:show, :edit, :update, :create, :index]
 
   get '/login',                     to: 'sessions#new'
   post '/login',                    to: 'sessions#create'

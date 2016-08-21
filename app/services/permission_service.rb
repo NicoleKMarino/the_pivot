@@ -38,6 +38,7 @@ class PermissionService
     return true if controller == "home"
     return true if controller == "bucket_jobs"
     return true if controller == "bucket"
+    return true if controller == "job_applications"
   end
 
   def guest_user_permissions(controller)

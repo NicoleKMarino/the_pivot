@@ -3,21 +3,17 @@ class BucketJobsController < ApplicationController
   before_action :set_job, only: [:update, :destroy]
 
   def create
-    job = Job.find(params[:job_id])
-    @bucket.add_job(job.id)
+    @job = Job.find(params[:job_id])
+    @bucket.add_job(@job.id)
     session[:bucket] = @bucket.contents
-    flash[:success] = "You have started an application for #{job.title}. You have started #{pluralize(@bucket.total_jobs, 'job')} applications."
-    job.job_applications.create(summary: "add")
-    if current_user
-      redirect_to edit_job_application_path(job)
-    else
-      redirect_to bucket_path(job) 
-    end
+    flash[:success] = "You have started an application for #{@job.title}. You have started #{pluralize(@bucket.total_jobs, 'job')} applications."
+    @job_application = @job.job_applications.create(summary: "add")
+    separate_guest_and_user
   end
 
   def update
     @bucket.contents[params[:id]] = params[:summary]
-    check_button_for_redirect
+    check_guest_button_for_redirect
   end
 
   def destroy
@@ -27,8 +23,16 @@ class BucketJobsController < ApplicationController
   end
 
   private
+    
+    def separate_guest_and_user
+      if current_user
+        redirect_to edit_job_application_path(@job_application)
+      else
+        redirect_to bucket_path(@job) 
+      end
+    end
 
-    def check_button_for_redirect
+    def check_guest_button_for_redirect
       if params[:commit] == "Login or Create Account to Continue Application"
         redirect_to login_path
       else
