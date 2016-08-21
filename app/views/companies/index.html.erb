@@ -6,12 +6,13 @@
     <!-- <div class="col-xs-offset-3 col-xs-6 text-center thumbnail"> -->
     <label>Filter By</label>
     <%= select :company, :filter_location, @locations, {:prompt => 'Location'} %>
+    <%= select :company, :filter_industry, @industries, {:prompt => 'Industry'} %>
   </div>
   <br>
 
   <div id="items_list">
     <%@companies.each do |company|%>
-      <div class="well col-md-3 company-in-list company <%= company.location %>" data-status="<%= company.location %>">
+      <div class="well col-md-3 company-in-list company <%= company.location %> <%= company.industry.name %>" data-status="<%= company.location %>" data-industry="<%= company.industry.name %>">
         <%= image_tag(company.img_path, class: "company-image", alt: company.name) %>
         <br></br>
 

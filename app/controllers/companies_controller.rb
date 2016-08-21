@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all.where(status: 2)
     @locations = location_list
+    @industries = industry_list
   end
 
   def show
@@ -18,6 +19,10 @@ class CompaniesController < ApplicationController
 
   def location_list
     @companies.map { |company| company.location }.uniq
+  end
+
+  def industry_list
+    @companies.map { |company| company.industry.name }.uniq
   end
 
 end

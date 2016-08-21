@@ -14,4 +14,16 @@ $(document).ready(function(){
     });
   });
 
+  $('#company_filter_industry').on('change', function(){
+    var currentIndustry = this.value;
+    $companies.each(function (index, company) {
+      $company = $(company);
+      if ($company.data('industry') === currentIndustry) {
+        $company.show();
+      } else {
+        $company.hide();
+      }
+    });
+  });
+
 });
