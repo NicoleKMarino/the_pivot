@@ -5,6 +5,6 @@ class JobApplication < ApplicationRecord
   enum status: %w(started submitted)
 
   def change_status_to_submitted
-    self.status = "submitted"
+    self.update(status: "submitted")
   end
 end

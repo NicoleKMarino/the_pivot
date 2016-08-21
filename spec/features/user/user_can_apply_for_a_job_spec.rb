@@ -18,16 +18,20 @@ RSpec.feature "Registered user can apply for a job" do
     job_application = JobApplication.last
 
     expect(page).to have_content("Started Applications: 1")
+    expect(job_application.status).to eq("started")
     expect(current_path).to eq(edit_job_application_path(job_application))
-
+    
     fill_in "Summary",    with: "I would love to get this job!"
     fill_in "Education",  with: "Turing School of Software & Design"
     fill_in "Experience", with: "Google"
     
     click_on "Submit Application"
-    
+
+    job_application = JobApplication.last
+
     expect(page).to have_content("Your application was successfully submitted.")
     expect(page).to have_content("Started Applications: 0")
+    expect(job_application.status).to eq("submitted")
     expect(current_path).to eq(dashboard_path)    
   end
   

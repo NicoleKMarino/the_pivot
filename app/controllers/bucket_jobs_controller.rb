@@ -25,6 +25,7 @@ class BucketJobsController < ApplicationController
   private
     def create_job_application
     @job_application = @job.job_applications.create(summary: "Please write a brief paragraph explaining why you would be a good fit for this job.")
+    @job_application.update(user_id: current_user.id) if current_user
     end
 
     def separate_guest_and_user
