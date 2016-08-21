@@ -14,8 +14,10 @@
 !/tmp/.keep
 
 # Ignore Byebug command history file.
-coverage
 .byebug_history
+
+# Ignore SimpleCov
+coverage
 
 # Ignore application configuration
 /config/application.yml
