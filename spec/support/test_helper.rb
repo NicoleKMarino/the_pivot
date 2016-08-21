@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 def create_user
   role = Role.create(name: "registered_user")
   role.users.create!(
