@@ -10,15 +10,10 @@ RSpec.feature "Admin can login" do
     fill_in 'Password', with: "password"
     click_button 'Login'
 
-
-
     expect(current_path).to eq(admin_dashboard_index_path)
-
     expect(page).to have_link "Logout"
     expect(page).to have_content "Pending Requests"
-
     expect(page).to have_content "Edit My Profile"
-
     expect(page).not_to have_content "Login"
   end
 end

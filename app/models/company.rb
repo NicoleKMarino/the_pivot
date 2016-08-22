@@ -7,15 +7,13 @@ class Company < ApplicationRecord
   validates_presence_of :slug
   validates :img_path, presence: true
 
-
   def to_params
     slug
   end
 
   private
 
-  def create_slug
-    self.slug = name.parameterize if name
-  end
-
+    def create_slug
+      self.slug = name.parameterize if name
+    end
 end

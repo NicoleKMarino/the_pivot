@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :job_applications
   has_many :saved_jobs
   has_many :jobs, through: :saved_jobs
   has_many :user_roles
@@ -9,7 +10,6 @@ class User < ApplicationRecord
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
   validates :state, length: { is: 2 }
   validates :zip_code, length: { is: 5 }
-
 
   after_create :send_welcome_email
 
@@ -30,16 +30,15 @@ class User < ApplicationRecord
     UserNotifierMailer.send_signup_email(self).deliver if self.email
   end
 
+  def platform_admin?
+    roles.exists?(name:'platform_admin')
+  end
 
-    def platform_admin?
-      roles.exists?(name:'platform_admin')
-    end
+  def employer?
+    roles.exists?(name: "employer")
+  end
 
-    def employer?
-      roles.exists?(name: "employer")
-    end
-
-    def registered_user?
-      roles.exists?(name: "registered_user")
-    end
+  def registered_user?
+    roles.exists?(name: "registered_user")
+  end
 end

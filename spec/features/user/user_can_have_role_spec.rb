@@ -9,6 +9,5 @@ RSpec.feature "Registered user can have a role" do
     UserRole.create(user_id:user1.id, role_id:role1.id)
 
     expect(user1.roles.first.name).to eq("employer")
-
   end
 end

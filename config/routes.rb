@@ -11,10 +11,8 @@ Rails.application.routes.draw do
     resources :jobs, only: [:new, :create, :edit, :update]
   end
 
-
   resources :companies, only: [:index]
   get "/companies/:slug", to: "companies#show", as: "company"
-
 
   resources :saved_jobs, only: [:create,:destroy,:index]
 
@@ -27,8 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :users,  only: [:new, :create, :edit, :update]
-  resources :orders, only: [:index, :create, :show]
-  resources :charges
+  resources :job_applications, only: [:show, :edit, :update, :create, :index]
 
   get '/login',                     to: 'sessions#new'
   post '/login',                    to: 'sessions#create'

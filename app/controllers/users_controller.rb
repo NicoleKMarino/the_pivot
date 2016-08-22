@@ -10,13 +10,12 @@ class UsersController < ApplicationController
 
   def set_role
     if @role == "1"
-      @employer=Role.find_by(name: "employer")
-      UserRole.create(user_id: @user.id,role_id:@employer.id)
+      @employer = Role.find_by(name: "employer")
+      UserRole.create!(user_id: @user.id, role_id: @employer.id)
     else
-      UserRole.create(user_id: @user.id,role_id:1)
+      UserRole.create!(user_id: @user.id, role_id: 1)
     end
   end
-
 
   def create
     @user = User.new(user_params)
@@ -35,8 +34,8 @@ class UsersController < ApplicationController
       redirect_to admin_dashboard_index_path
     elsif current_user.employer?
       redirect_to employer_dashboard_index_path
+    end
   end
-end
 
   def edit
   end
@@ -52,10 +51,20 @@ end
 
   private
 
-  def user_params
-    @role = params[:user][:user_roles]
-    params[:user].delete :user_roles
-    params.require(:user).permit(:username, :email, :first_name, :last_name,:address,:city,:zip_code,:state,:password,:user_roles)
-  end
-
+    def user_params
+      @role = params[:user][:user_roles]
+      params[:user].delete :user_roles
+      params.require(:user).permit(
+        :username, 
+        :email, 
+        :first_name, 
+        :last_name,
+        :address,
+        :city,
+        :zip_code,
+        :state,
+        :password,
+        :user_role
+      )
+    end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can be created" do
-  scenario "user can visit create account form" do
+  xscenario "user can visit create account form" do
 
     visit new_user_path
 
@@ -13,7 +13,6 @@ RSpec.feature "User can be created" do
     click_button "Create Account"
 
     expect(page).to have_link "Logout"
-
     expect(page).not_to have_content "Login"
   end
 end

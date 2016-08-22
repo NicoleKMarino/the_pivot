@@ -45,5 +45,4 @@ class Order < ApplicationRecord
       UserNotifierMailer.send_confirmation_email(@current_user, self).deliver
     end
   end
-
 end

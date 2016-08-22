@@ -1,12 +1,9 @@
-require 'pry'
-
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :categories, :platform_admin?
   before_action :authorize
   before_action :industries
   before_action :set_bucket
-
 
   def set_bucket
     @bucket = Bucket.new(session[:bucket])
@@ -15,7 +12,6 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-
 
   def verify_logged_in
     unless current_user
@@ -28,7 +24,6 @@ class ApplicationController < ActionController::Base
     @industries = Industry.all
   end
 
-
   def authorize
     unless authorize?
       flash[:danger] = "You don't have the authority to visit this page"
@@ -39,5 +34,4 @@ class ApplicationController < ActionController::Base
   def authorize?
     PermissionService.new(current_user).allow?(params[:controller])
   end
-
 end
