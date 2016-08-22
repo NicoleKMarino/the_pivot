@@ -1,23 +1,45 @@
 <div class="well">
   <%= form_for(target, url: path) do |f|  %>
-  <p>
     <%= f.label :username %>
-    <%= f.text_field :username, class: 'entry' %>
+    <%= f.text_field :username %>
+    <br></br>
   </p>
-  <%  %>
-  <% if new_user_path? || admin_edit? %>
-  <p>
+  <% if new_user_path?%>
     <%= f.label :email %>
-    <%= f.text_field :email, class: 'entry' %>
-  </p>
+    <%= f.text_field :email %>
+    <br></br>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <br></br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name%>
+    <br></br>
+
+    <%= f.label :address %>
+    <%= f.text_field :address%>
+    <br></br>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+    <br></br>
+
+    <%= f.label :state %>
+    <%= f.text_field :state%>
+    <br></br>
+    <%= f.label :zip_code %>
+    <%= f.text_field :zip_code%>
+    <br></br>
+    <%= f.label :user_roles, 'Are you an employer?' %>
+    <%= f.check_box :user_roles%>
+  <br></br>
   <% end %>
-  <p>
     <%= f.label :password %>
-    <%= f.password_field :password, class: 'entry' %>
-  </p>
+    <%= f.password_field :password %>
 
   <center>
+    <br></br>
+
     <%= f.submit button, class: "center_button btn btn-#{btn_class}"%>
   </center>
-  <% end %>  
+  <% end %>
 </div>

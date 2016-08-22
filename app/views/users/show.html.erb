@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h1>Profile for <%= current_user.username %></h1>
+<h2>Profile for <%= current_user.username %></h2>
   <div class="well table-responsive col-md-6">
     <table class="table">
       <tr>
@@ -11,10 +11,15 @@
         <th>Date Registered</th>
         <td><%= current_user.date_registered %></td>
       </tr>
-      <tr>
-        <th>Orders Placed</th>
-        <td><%= current_user.orders.count %></td>
-      </tr>
+        <tr>
+          <th>Address</th>
+          <td><%= current_user.address %>,
+          <%= current_user.city %>,
+          <%= current_user.state %>,
+          <%= current_user.zip_code %></td>
+        </tr>
     </table>
+    <%= link_to 'Saved Jobs', saved_jobs_path, class: 'btn btn-default' %>
+
   </div>
 </div>
