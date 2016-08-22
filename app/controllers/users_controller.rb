@@ -55,9 +55,9 @@ class UsersController < ApplicationController
       @role = params[:user][:user_roles]
       params[:user].delete :user_roles
       params.require(:user).permit(
-        :username, 
-        :email, 
-        :first_name, 
+        :username,
+        :email,
+        :first_name,
         :last_name,
         :address,
         :city,

@@ -4,20 +4,16 @@ SimpleCov.start 'rails'
 def create_user
   role = Role.create(name: "registered_user")
   role.users.create!(
-    username: "josh", 
-    email: "josh@aol.com", 
-    password: "password", 
-    first_name: "Josh", 
-    last_name: "Winham", 
-    address: "2122 Concord Lane", 
-    city: "Denver", 
-    state: "CO", 
+    username: "josh",
+    email: "josh@aol.com",
+    password: "password",
+    first_name: "Josh",
+    last_name: "Winham",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
     zip_code: 80215
   )
-end
-
-def add_resume_info_to_user
-  user = create_user
 end
 
 def create_company
