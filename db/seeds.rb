@@ -12,6 +12,7 @@ class Seed
     Role.create!(name: "registered_user")
     Role.create!(name: "employer")
     Role.create!(name: "platform_admin")
+    Role.create!(name: "guest_user")
   end
 
 
