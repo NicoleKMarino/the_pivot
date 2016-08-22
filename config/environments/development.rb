@@ -61,4 +61,7 @@ Rails.application.configure do
       s3_region: ENV['AWS_REGION'],
     }
   }
+
+config.twitter_key = ENV["TWITTER_KEY"]
+config.twitter_secret = ENV["TWITTER_SECRET"]
 end
