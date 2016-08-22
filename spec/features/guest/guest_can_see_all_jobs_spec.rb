@@ -7,7 +7,7 @@ RSpec.feature "all available jobs are shown" do
 
     visit jobs_path
 
-    expect(page).to have_link("Software Integration Developer")
+    expect(page) .to have_link("Software Integration Developer")
     expect(page).to have_link("Senior Software Integration Developer")
     expect(page).to have_link(job1.title)
     expect(page).to have_content(job1.company.location)

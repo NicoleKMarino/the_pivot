@@ -205,7 +205,6 @@
         1,
         1,
         null,
-        null,
         null
       ],
       "/Users/Nicole/Documents/mod3/little_shop/app/controllers/application_controller.rb": [
@@ -587,12 +586,10 @@
         2,
         2,
         1,
-        1,
         null,
         1,
-        1,
         null,
-        null,
+        2,
         null,
         null,
         1,
@@ -600,8 +597,6 @@
         1,
         1,
         1,
-        null,
-        null,
         null,
         null
       ],
@@ -740,16 +735,9 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
         0
       ],
       "/Users/Nicole/Documents/mod3/little_shop/app/helpers/sessions_helper.rb": [
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -836,6 +824,6 @@
         0
       ]
     },
-    "timestamp": 1471907850
+    "timestamp": 1471908274
   }
 }
