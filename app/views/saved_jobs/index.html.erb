@@ -1,0 +1,16 @@
+<div class="page-content">
+
+<h2>Saved Jobs for <%= current_user.username %></h2>
+<h2>Number of Jobs Saved: <%= current_user.jobs.count %></h2>
+<%current_user.jobs.each do |job| %>
+<div class="row well col-md-10 job-item job salary">
+Job Title: <%=link_to "#{job.title.capitalize}", job_path(job.id)%>
+<br>
+Location: <%= job.company.location %>
+<br>
+Salary: <%= job.salary %>
+<%=button_to "Apply", bucket_jobs_path(job_id: job.id), class:"btn btn-primary pull-center"%>
+<%= button_to "Delete", saved_job_path(id: job.id), class:"btn btn-danger pull-center", method: :delete%>
+</div>
+<br></br>
+<%end %>

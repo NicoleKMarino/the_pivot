@@ -6,11 +6,21 @@ Rails.application.routes.draw do
     resources :jobs,      only: [:new, :create, :edit, :update]
   end
 
-  resources :jobs_favorites, only: [:create, :update, :destroy]
+  namespace :employer do
+    resources :dashboard, only: [:index]
+    resources :jobs, only: [:new, :create, :edit, :update]
+  end
+
+
+  resources :companies, only: [:index]
+  get "/companies/:slug", to: "companies#show", as: "company"
+
+
+  resources :saved_jobs, only: [:create,:destroy,:index]
+
   resources :companies,      only: [:index]
   resources :bucket_jobs,    only: [:create, :update, :destroy]
   resources :bucket,         only: [:index, :show]
-
 
   resources :jobs, only: [:index, :show] do
     get 'unavailable', on: :collection
@@ -24,9 +34,8 @@ Rails.application.routes.draw do
   post '/login',                    to: 'sessions#create'
   delete '/logout',                 to: 'sessions#destroy'
   get '/dashboard',                 to: 'users#show'
-  get '/companies/:company_slug',   to: 'companies#show',  as: :company
   get '/industries/:industry_slug', to: 'industries#show', as: :industry
-  
+
   get '/auth/twitter', as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'
 end
