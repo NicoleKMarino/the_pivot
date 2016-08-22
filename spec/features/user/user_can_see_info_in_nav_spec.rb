@@ -2,8 +2,19 @@ require 'rails_helper'
 
 RSpec.feature "User can view nav bar info" do
   scenario "user can see all details of nav bar" do
-    role = Role.create(name: "registered_user")
-    user1= User.create(username: "user", email: "lanerdoce@aol.com", password: "password", first_name: "Lane", last_name: "Winham", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215)
+    Role.create(name: "registered_user")
+    user1 = User.create(
+      username: "user",
+      email: "lanerdoce@aol.com",
+      password: "password",
+      first_name: "Lane",
+      last_name: "Winham",
+      address: "2122 Concord Lane",
+      city: "Denver",
+      state: "CO",
+      zip_code: 80215
+    )
+
     visit login_path
 
     fill_in "Username", with: "user"
