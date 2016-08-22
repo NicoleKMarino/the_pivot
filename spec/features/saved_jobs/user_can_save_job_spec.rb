@@ -19,5 +19,8 @@ RSpec.feature "Registered user can save a job for later" do
     expect(page).to have_content "You already saved that job"
     visit saved_jobs_path
     expect(page).to have_content "Programmer"
+    expect(page).to have_content "Number of Jobs Saved: 1"
+
+
   end
 end

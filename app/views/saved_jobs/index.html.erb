@@ -1,6 +1,7 @@
 <div class="page-content">
 
 <h2>Saved Jobs for <%= current_user.username %></h2>
+<h2>Number of Jobs Saved: <%= current_user.jobs.count %></h2>
 <%current_user.jobs.each do |job| %>
 <div class="row well col-md-10 job-item job salary">
 Job Title: <%=link_to "#{job.title.capitalize}", job_path(job.id)%>
