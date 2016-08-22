@@ -20,4 +20,7 @@ class Bucket
     end
   end
 
+  def remove_job(job)
+    @contents.delete(job.id.to_s)
+  end
 end

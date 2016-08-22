@@ -3,23 +3,74 @@ class Seed
    create_industries
    create_companies_status_online
    generate_jobs
-  #  create_users
-  #  create_platform_admin
+   create_users
+   create_roles
+   create_user_roles
   end
-  
-  def self.create_industries 
+
+  def self.create_roles
+    Role.create!(name: "registered_user")
+    Role.create!(name: "employer")
+    Role.create!(name: "platform_admin")
+  end
+
+
+  def self.create_users
+    User.create!(username: "Test",
+                 email: "deborahleehamel@gmail.com",
+                 password: "password",
+                 first_name: "Deb",
+                 last_name: "Hamel",
+                 address: "2122 Concord Lane",
+                 city: "Denver",
+                 state: "CO",
+                 zip_code: 80215,
+                 )
+
+   User.create!(username: "Employer",
+                email: "nicolekmarina@hotmail.com",
+                password: "password",
+                first_name: "Nicole",
+                last_name: "Marina",
+                address: "2122 Concord Lane",
+                city: "Denver",
+                state: "CO",
+                zip_code: 80215,
+                )
+
+
+    User.create!(username: "Admin",
+                 email: "lanerdoce@aol.com",
+                 password: "password",
+                 first_name: "Lane",
+                 last_name: "Winham",
+                 address: "2122 Concord Lane",
+                 city: "Denver",
+                 state: "CO",
+                 zip_code: 80215,
+                 )
+  end
+
+  def self.create_user_roles
+    UserRole.create(user_id:1, role_id:1)
+    UserRole.create(user_id:2, role_id:2)
+    UserRole.create(user_id:3, role_id:3)
+  end
+
+
+  def self.create_industries
     Industry.create!(name: "Tech")
     Industry.create!(name: "Advertising")
     Industry.create!(name: 'Finance')
   end
-  
+
   def self.create_companies_status_online #check how to make sure name is unique with Faker
    20.times do |i|
     industry = Industry.offset(rand(Industry.count)).first
     industry.companies.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, location: Faker::Address.state, status: 2, img_path: Faker::Company.logo)
    end
   end
-  
+
   def self.generate_jobs
     30.times do |i|
      company = Company.offset(rand(Company.count)).first
@@ -27,16 +78,16 @@ class Seed
     end
   end
 end
-  
+
 Seed.start
-# 
+#
 # health = Category.create(title: "Health & Beauty")
 # kitchen = Category.create(title: "Kitchen")
 # cleaning = Category.create(title: 'Cleaning')
 # bathroom = Category.create(title: 'Bathroom')
 # entertainment = Category.create(title: 'Entertainment')
 # outdoors = Category.create(title: 'Outdoors')
-# 
+#
 # jt = Celebrity.create(name: 'Justin Timberlake')
 # jtt = Celebrity.create(name: 'Jonathan Taylor Thomas')
 # attenborough = Celebrity.create(name: 'Sir David Attenborough')
@@ -52,7 +103,7 @@ Seed.start
 # arnold = Celebrity.create(name: "Arnold Schwarzenegger")
 # charlie = Celebrity.create(name: "Charlie Sheen")
 # britney = Celebrity.create(name: "Britney Spears")
-# 
+#
 # Item.create(
 #   title: 'Broken Swiffer',
 #   description: "When times are tough and you're cleaning your own home,\
@@ -65,7 +116,7 @@ Seed.start
 #   category: cleaning,
 #   celebrity: jtt
 # )
-# 
+#
 # Item.create(
 #   title: 'Half-full Throat Spray',
 #   description: "You know him from every nature documentary ever \
@@ -79,7 +130,7 @@ Seed.start
 #   category: health,
 #   celebrity: attenborough
 # )
-# 
+#
 # Item.create(
 #   title: 'Malfunctioning Bidet',
 #   description: "Perhaps one of our greatest treasures: hit-maker, \
@@ -93,7 +144,7 @@ Seed.start
 #   celebrity: jt,
 #   status: 1
 # )
-# 
+#
 # Item.create(
 #   title: 'Justin Timberlake N*Sync Doll',
 #   description: "Worlds have collided with this unique item. Owned by \
@@ -107,7 +158,7 @@ Seed.start
 #   category: entertainment,
 #   celebrity: attenborough
 # )
-# 
+#
 # Item.create(
 #   title: 'Glee Season 2 Soundtrack (CD)',
 #   description: "Priced at a very special fifty-TWO dollars, this CD \
@@ -120,7 +171,7 @@ Seed.start
 #   category: entertainment,
 #   celebrity: jt
 # )
-# 
+#
 # Item.create(
 #   title: "Quarter Full Bottle of Visine",
 #   description: 'It’s no secret in Christopher Walken’s circle of friends that
@@ -138,7 +189,7 @@ Seed.start
 #   image_path: "http://i.imgur.com/be4TQVU.jpg",
 #   status: 1
 # )
-# 
+#
 # Item.create(
 #   title: "Toothbrush",
 #   description: 'Barely used! This was acquired from Gary’s housecleaner who said,
@@ -148,7 +199,7 @@ Seed.start
 #   celebrity: gary,
 #   image_path: "http://i.imgur.com/s4Z1p1G.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Bedazzled Toothbrush",
 #   description: 'Upon arrival at the Riviera Hotel & Casino in Las Vegas where Flavor Flave
@@ -162,7 +213,7 @@ Seed.start
 #   celebrity: flavor,
 #   image_path: "http://i.imgur.com/zVIJ8wJ.png"
 # )
-# 
+#
 # Item.create(
 #   title: "Nearly Panned Blue Eyeshadow",
 #   description: 'Straight from the set of the 1983 hit music video Girls Wanna
@@ -172,7 +223,7 @@ Seed.start
 #   celebrity: cyndi,
 #   image_path: "http://i.imgur.com/LGbPdhk.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "1800w Microwave",
 #   description: 'Acquired through an estate sale after his passing, this
@@ -184,7 +235,7 @@ Seed.start
 #   celebrity: chris,
 #   image_path: "http://i.imgur.com/Ea13XQf.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Almost New Bottle of Baby Oil",
 #   description: "Only enough of the oil was used to grease up the Hulkster
@@ -196,7 +247,7 @@ Seed.start
 #   celebrity: hulk,
 #   image_path: "http://i.imgur.com/7Muqvq2.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Willson (volleyball)",
 #   description: "This is the companion that we all watched and wanted during
@@ -207,7 +258,7 @@ Seed.start
 #   celebrity: tom,
 #   image_path: "http://i.imgur.com/XDSCwr4.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Dull Straight Razor",
 #   description: "You may have thought it was all natural, but Vin was maintaining
@@ -219,7 +270,7 @@ Seed.start
 #   celebrity: vin,
 #   image_path: "http://i.imgur.com/LT9Jeka.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Oscar Award",
 #   description: 'One would have to wonder how long Leo has been wanting an Oscar
@@ -232,7 +283,7 @@ Seed.start
 #   celebrity: leo,
 #   image_path: "http://i.imgur.com/ET3lR7u.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Blender",
 #   description: "This slightly used blender was used by none other than Arnold
@@ -243,7 +294,7 @@ Seed.start
 #   celebrity: arnold,
 #   image_path: "http://i.imgur.com/r8TlVsW.jpg"
 # )
-# 
+#
 # Item.create(
 #   title: "Flask Containing Mystery Liquor",
 #   description: 'This was a secretly prized possesion of Charlie Sheen until the
@@ -260,7 +311,7 @@ Seed.start
 #   image_path: "http://i.imgur.com/RIwQsL4.jpg",
 #   status: 1
 # )
-# 
+#
 # Item.create(
 #   title: "Broken Green Umbrella",
 #   description: "You may immediately recognize this iconic umbrella used by

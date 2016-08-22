@@ -1,13 +1,15 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :orders
+  has_many :job_applications
+  has_many :saved_jobs
+  has_many :jobs, through: :saved_jobs
+  has_many :user_roles
+  has_many :roles, through: :user_roles
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, email: { strict_mode: true }, if: "uid.nil?", on: :create
   validates :state, length: { is: 2 }
   validates :zip_code, length: { is: 5 }
-
-  enum role: %w(default employer admin)
 
   after_create :send_welcome_email
 
@@ -26,5 +28,17 @@ class User < ApplicationRecord
 
   def send_welcome_email
     UserNotifierMailer.send_signup_email(self).deliver if self.email
+  end
+
+  def platform_admin?
+    roles.exists?(name:'platform_admin')
+  end
+
+  def employer?
+    roles.exists?(name: "employer")
+  end
+
+  def registered_user?
+    roles.exists?(name: "registered_user")
   end
 end

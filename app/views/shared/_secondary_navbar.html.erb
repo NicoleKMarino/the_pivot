@@ -10,5 +10,12 @@
         <i class="fa fa-align-justify navbar-list"></i> All Companies
       <% end %>
     </li>
+    <% if current_user %>
+     <li class="nav">
+     <%= link_to dashboard_path, class:"navbar-list" do %>
+       <i class="fa fa-align-justify navbar-list"></i>My Account
+     <% end %>
+     </li>
+    <% end %>
   </ul>
 </div>
