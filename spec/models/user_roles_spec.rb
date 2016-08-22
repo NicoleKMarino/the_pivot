@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.feature "Registered user can have a role" do
+
+RSpec.describe UserRole, type: :model do
+  it { should belong_to(:user) }
+  it { should belong_to(:role) }
+
   it "should have a relationship with user" do
     role1 = Role.create(name: "employer")
 
