@@ -1,0 +1,25 @@
+<div class="page-content">
+  <div class="well col-md-10">
+    <h1><%= @bucket_job.title %></h1>
+    <h3><%= @bucket_job.company.name %></h3>
+    <br>
+    <h3>Cover Paragraph</h3>
+    <%= form_tag("/bucket_jobs/#{@bucket_job.id}", method: "put") do %>
+    <div class="form-group col-sm-8">
+      <%= label_tag(:summary, "Write a summary background paragraph to start this job application:") %>
+    </div>
+    <div class="form-group col-lg-12">
+      <%= text_area_tag :summary, nil, class:"form-control" %>
+    </div>
+    <div class="form-group col-sm-12">
+      <%= submit_tag "Login or Create Account to Continue Application", class:"col-sm-4 btn-primary" %>
+    </div>
+    <div class="form-group col-sm-12">
+      <%= submit_tag "Continue Browsing Jobs", class:"col-sm-4 btn-primary" %>
+    <% end %>
+    </div>
+      
+  </div>
+</div>
+
+

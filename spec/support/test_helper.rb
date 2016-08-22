@@ -1,3 +1,21 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
+def create_user
+  role = Role.create(name: "registered_user")
+  role.users.create!(
+    username: "josh",
+    email: "josh@aol.com",
+    password: "password",
+    first_name: "Josh",
+    last_name: "Winham",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
+    zip_code: 80215
+  )
+end
+
 def create_company
   industry = Industry.create!(name: "Tech")
   industry.companies.create!(
@@ -36,6 +54,16 @@ def create_job
     description: "This is an entry level position.",
     status: 0,
     salary: "$40,000-$60,000"
+  )
+end
+
+def create_job_application
+  job = create_job
+  job.job_applications.create!(
+    summary: "I'm the perfect candidate for this job.",
+    education: "Turing",
+    experience: "The pivot project",
+    status: 0
   )
 end
 

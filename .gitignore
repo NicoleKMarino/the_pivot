@@ -16,6 +16,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore SimpleCov
+coverage
+
 # Ignore application configuration
 /config/application.yml
 

@@ -2,10 +2,12 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all.where(status: 2)
+    @locations = location_list
+    @industries = industry_list
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find_by(slug: params[:slug])
     if @company.nil?
       redirect_to companies_path
     else
@@ -13,4 +15,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  private
+
+    def location_list
+      @companies.map { |company| company.location }.uniq
+    end
+
+    def industry_list
+      @companies.map { |company| company.industry.name }.uniq
+    end
 end

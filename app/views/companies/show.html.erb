@@ -6,6 +6,12 @@
     <h4>Description: <%= @company.description %></h4>
     <br>
     <h1>All Jobs</h1>
-  <%= render partial: 'shared/job_list', locals: { btn_label: 'Add to Cart', btn_class: 'default', status: false } %>
+    <br>
+    <% @company.jobs.each do |job| %>
+    <strong><%=link_to "#{job.title.capitalize}", jobs_path%></strong>
+    <br>
+    <%= job.salary %>
+    <br></br>
+    <%end %>
   </div>
 </div>

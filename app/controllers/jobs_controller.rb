@@ -16,11 +16,11 @@ class JobsController < ApplicationController
 
   private
 
-  def salary_list
-    @jobs.map { |job| job.salary }.uniq
-  end
+    def salary_list
+      @jobs.map { |job| job.salary }.uniq
+    end
 
-  def location_list
-    @jobs.map { |job| job.company.location }.uniq
-  end
+    def location_list
+      @jobs.map { |job| job.company.location }.uniq
+    end
 end

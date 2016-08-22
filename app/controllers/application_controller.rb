@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :verify_logged_in, :categories, :current_admin?
+  helper_method :current_user, :categories, :platform_admin?
+  before_action :authorize
   before_action :industries
-  before_action :set_cart
+  before_action :set_bucket
 
-  def set_cart
-    @cart = Cart.new(session[:cart])
+  def set_bucket
+    @bucket = Bucket.new(session[:bucket])
   end
 
   def current_user
@@ -19,12 +20,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_admin?
-    current_user && current_user.admin?
-  end
-
   def industries
     @industries = Industry.all
   end
 
+  def authorize
+    unless authorize?
+      flash[:danger] = "You don't have the authority to visit this page"
+      redirect_to root_url
+    end
+  end
+
+  def authorize?
+    PermissionService.new(current_user).allow?(params[:controller])
+  end
 end

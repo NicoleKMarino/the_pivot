@@ -3,21 +3,23 @@ module SessionsHelper
     session[:previous_url].split('/').last if session[:previous_url]
   end
 
-  def redirect_based_on_referrer
-    if login_referrer == 'cart'
-      redirect_to cart_index_path
-    elsif current_admin?
-      redirect_to admin_dashboard_index_path
-    else
-      redirect_to dashboard_path
-    end
-  end
-
   def set_user
     if params[:commit]
       @user = User.find_by(username: params[:session][:username])
     else
       @user = User.from_omniauth(request.env["omniauth.auth"])
+    end
+  end
+
+  def redirect_based_on_referrer
+    if login_referrer == 'cart'
+      redirect_to cart_index_path
+    elsif @user.platform_admin?
+      redirect_to admin_dashboard_index_path
+    elsif @user.employer?
+      redirect_to employer_dashboard_index_path
+    else
+      redirect_to dashboard_path
     end
   end
 
