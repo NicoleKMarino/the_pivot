@@ -17,8 +17,8 @@
 .byebug_history
 
 # Ignore SimpleCov
-coverage
 /coverage
+.coverage
 
 # Ignore application configuration
 /config/application.yml

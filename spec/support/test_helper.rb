@@ -28,7 +28,7 @@ def create_company
   )
 end
 
-def create_three_companies
+def create_two_companies
   create_company
   user = User.create!(username: "Test2", email: "nicolekrixxxxstenmarina@hotmail.com", password: "password", first_name: "Nicole", last_name: "Marina", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215)
   industry2 = Industry.create!(name: "Advertising")
@@ -39,6 +39,10 @@ def create_three_companies
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
     user_id: user.id
   )
+end
+
+def create_three_companies
+  create_two_companies
   industry3 = Industry.create!(name: "Finance")
   industry3.companies.create!(
     name: "TD Ameritrade",
@@ -66,6 +70,29 @@ def create_job_application
     education: "Turing",
     experience: "The pivot project",
     status: 0
+  )
+end
+
+def create_submitted_job_application
+  industry = Industry.create!(name: "Advertising")
+  company = industry.companies.create!(
+    name: "Integer",
+    description: "Nice company",
+    location: "CO",
+    status: 2,
+    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
+  )
+  job = company.jobs.create!(
+    title: "Designer",
+    description: "Experience required",
+    status: 0,
+    salary: "$60,000-$80,000"
+  )
+  job.job_applications.create!(
+    summary: "I would love to work for this company",
+    education: "Self taught",
+    experience: "2 years Rails experience",
+    status: 1
   )
 end
 
