@@ -5,11 +5,11 @@ module SessionsHelper
 
 
   def set_user
-    # if params[:commit]
+    if params[:commit]
       @user = User.find_by(username: params[:session][:username])
-    # else
-    #   @user = User.from_omniauth(request.env["omniauth.auth"])
-    # end
+    else
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+    end
   end
 
   def redirect_based_on_referrer

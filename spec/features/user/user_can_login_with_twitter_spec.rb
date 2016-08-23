@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User can login using Twitter" do
-  xscenario "user clicks twitter link and is logged in with that information" do
+  scenario "user clicks twitter link and is logged in with that information" do
     setup_for_oauth
 
     visit login_path
@@ -10,7 +10,7 @@ RSpec.feature "User can login using Twitter" do
 
     click_link "Twitter"
 
-    expect(page).to have_content "Logged in as twitter_login"
+    expect(page).to have_content "Hello, twitter_login"
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_link "Logout"
 
