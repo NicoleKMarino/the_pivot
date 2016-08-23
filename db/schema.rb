@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821212220) do
+ActiveRecord::Schema.define(version: 20160823022316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 20160821212220) do
     t.text     "img_path"
     t.integer  "industry_id"
     t.string   "slug"
+    t.integer  "user_id"
     t.index ["industry_id"], name: "index_companies_on_industry_id", using: :btree
+    t.index ["user_id"], name: "index_companies_on_user_id", using: :btree
   end
 
   create_table "industries", force: :cascade do |t|

@@ -1,20 +1,31 @@
-class Admin::JobsController < Admin::BaseController
+class Employer::JobsController < Employer::BaseController
   before_action :set_job, only: [:edit, :update]
 
   def new
     @job = Job.new
   end
 
-  # def index
-  #   @jobs = Job.all.where(status: 0)
-  # end
-  # uncomment when you write a test 
+  def index
+    @company = current_user.companies.last
+    @jobs = Job.where(company_id: @company.id).all
+  end
+
+  def destroy
+    @job= Job.find(params[:id])
+    @job.destroy
+    flash[:success] = "You've deleted job #{@job.title}."
+    redirect_to employer_jobs_path
+  end
+
 
   def create
-    @job = Job.new(job_params)
+    @company = current_user.companies.last
+    job_hash = job_params
+    job_hash[:company_id] = @company.id
+    @job = Job.new(job_hash)
     if @job.save
       flash[:success] = 'Job added successfully'
-      redirect_to @job
+      redirect_to employer_jobs_path
     else
       flash.now[:danger] = @job.errors.full_messages.join(', ')
       render :new

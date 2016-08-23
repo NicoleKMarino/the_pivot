@@ -17,37 +17,58 @@ def create_user
 end
 
 def create_company
+  user = User.create!(username: "Test",
+    email: "nicolekmarina@ssdshotmail.com",
+    password: "password",
+    first_name: "Nicole",
+    last_name: "Marina",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
+    zip_code: 80215
+  )
   industry = Industry.create!(name: "Tech")
   industry.companies.create!(
     name: "Inspirato",
     description: "Great company",
     location: "CO",
-    status: 2,
-    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
+    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
+    user_id: user.id
   )
 end
 
 def create_two_companies
   create_company
+  user = User.create!(username: "Test2", email: "nicolekrihhhxxxxstenmarina@hotmail.com", password: "password", first_name: "Nicole", last_name: "Marina", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215)
   industry2 = Industry.create!(name: "Advertising")
   industry2.companies.create!(
     name: "Integer",
     description: "Nice company",
     location: "CO",
-    status: 2,
-    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
+    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
+    user_id: user.id
   )
 end
 
 def create_three_companies
   create_two_companies
+  user = User.create!(username: "Test5",
+    email: "nicolekrixxxxstfffghhenmarina@hotmail.com",
+    password: "password",
+    first_name: "Nicole",
+    last_name: "Marina",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
+    zip_code: 80215
+  )
   industry3 = Industry.create!(name: "Finance")
   industry3.companies.create!(
     name: "TD Ameritrade",
     description: "Rich company",
     location: "FL",
-    status: 2,
-    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
+    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
+    user_id: user.id
   )
 end
 
@@ -72,14 +93,26 @@ def create_job_application
 end
 
 def create_submitted_job_application
+  user = User.create!(username: "Test3",
+    email: "nicolekmaffffrina@hotmail.com",
+    password: "password",
+    first_name: "Nicole",
+    last_name: "Marina",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
+    zip_code: 80215
+  )
+
   industry = Industry.create!(name: "Advertising")
   company = industry.companies.create!(
     name: "Integer",
     description: "Nice company",
     location: "CO",
     status: 2,
-    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904"
-  )
+    img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
+    user_id: user.id)
+
   job = company.jobs.create!(
     title: "Designer",
     description: "Experience required",
