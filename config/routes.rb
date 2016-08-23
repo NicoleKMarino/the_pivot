@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :jobs,      only: [:new, :create, :edit, :update]
   end
 
   namespace :employer do
     resources :dashboard, only: [:index]
-    resources :jobs, only: [:new, :create, :edit, :update]
+    resources :jobs, only: [:new, :create, :edit, :update, :index, :destroy]
+    resources :companies, only: [:new, :create]
   end
 
   resources :companies, only: [:index]

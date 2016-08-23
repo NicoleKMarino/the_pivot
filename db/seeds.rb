@@ -1,11 +1,11 @@
 class Seed
   def self.start
    create_industries
-   create_companies_status_online
-   generate_jobs
    create_users
    create_roles
    create_user_roles
+   create_companies_status_online
+   generate_jobs
   end
 
   def self.create_roles
@@ -67,8 +67,9 @@ class Seed
 
   def self.create_companies_status_online #check how to make sure name is unique with Faker
    20.times do |i|
+    user = User.offset(rand(Industry.count)).first
     industry = Industry.offset(rand(Industry.count)).first
-    industry.companies.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, location: Faker::Address.state, status: 2, img_path: Faker::Company.logo)
+    industry.companies.create!(name: Faker::Company.name, description: Faker::Company.catch_phrase, location: Faker::Address.state, img_path: Faker::Company.logo, user_id:2)
    end
   end
 
