@@ -6,8 +6,9 @@ RSpec.feature "Employer can create a job" do
     user = User.find(company.user_id)
     role1 = Role.create(name: "employer")
     UserRole.create(user_id: user.id, role_id: role1.id)
-    
-    job = Job.create(title: "Web Developer",
+
+    Job.create(
+      title: "Web Developer",
       description: "Web Stuff",
       salary: "10,000",
       company_id: company.id
@@ -23,12 +24,12 @@ RSpec.feature "Employer can create a job" do
 
     expect(current_path).to eq(employer_jobs_path)
 
-    expect(page).to have_content("Web Developer")
+    expect(page).to have_content "Web Developer"
 
-    click_button 'Delete'
+    click_button "Delete"
 
     expect(current_path).to eq(employer_jobs_path)
 
-    expect(page).to have_content("You've deleted job Web Developer.")
+    expect(page).to have_content "You've deleted job Web Developer."
   end
 end

@@ -40,7 +40,17 @@ end
 
 def create_two_companies
   create_company
-  user = User.create!(username: "Test2", email: "nicolekrihhhxxxxstenmarina@hotmail.com", password: "password", first_name: "Nicole", last_name: "Marina", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215)
+  user = User.create!(
+    username: "Test2",
+    email: "nicolekrihhhxxxxstenmarina@hotmail.com",
+    password: "password",
+    first_name: "Nicole",
+    last_name: "Marina",
+    address: "2122 Concord Lane",
+    city: "Denver",
+    state: "CO",
+    zip_code: 80215
+  )
   industry2 = Industry.create!(name: "Advertising")
   industry2.companies.create!(
     name: "Integer",
