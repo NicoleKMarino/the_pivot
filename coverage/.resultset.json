@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/company.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/company.rb": [
         1,
         1,
         1,
@@ -22,12 +22,12 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/application_record.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/industry.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/industry.rb": [
         1,
         1,
         1,
@@ -45,7 +45,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/job_application.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/job_application.rb": [
         1,
         1,
         1,
@@ -57,7 +57,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/job.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/job.rb": [
         1,
         1,
         1,
@@ -92,27 +92,27 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/role.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/role.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/saved_job.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/saved_job.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/user_role.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/user_role.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/user.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/user.rb": [
         1,
         1,
         1,
@@ -123,6 +123,70 @@
         1,
         1,
         1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        15,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        17,
+        null,
+        null,
+        1,
+        127,
+        null,
+        null,
+        1,
+        121,
+        null,
+        null,
+        1,
+        95,
+        null,
+        null
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/mailers/user_notifier_mailer.rb": [
+        1,
+        1,
+        null,
+        1,
+        14,
+        14,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/mailers/application_mailer.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -130,75 +194,11 @@
         null,
         1,
         14,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        16,
-        null,
-        null,
-        1,
-        122,
-        null,
-        null,
-        1,
-        116,
-        null,
-        null,
-        1,
-        92,
-        null,
-        null
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/mailers/user_notifier_mailer.rb": [
-        1,
-        1,
-        null,
-        1,
-        14,
         14,
         null,
         null,
-        null,
-        null,
-        null,
         1,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/mailers/application_mailer.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/sessions_controller.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        13,
-        13,
-        null,
-        null,
-        1,
-        11,
+        12,
         null,
         null,
         1,
@@ -207,7 +207,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/application_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -216,42 +216,42 @@
         1,
         null,
         1,
-        94,
+        97,
         null,
         null,
         1,
-        537,
+        558,
         null,
         null,
         1,
-        11,
+        12,
         1,
         1,
         null,
         null,
         null,
         1,
-        94,
+        97,
         null,
         null,
         1,
-        98,
+        101,
         4,
         4,
         null,
         null,
         null,
         1,
-        98,
+        101,
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/services/permission_service.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/services/permission_service.rb": [
         1,
         1,
         null,
         1,
-        98,
+        101,
         null,
         null,
         1,
@@ -263,8 +263,8 @@
         null,
         9,
         null,
-        83,
-        98,
+        86,
+        101,
         null,
         null,
         1,
@@ -291,23 +291,23 @@
         null,
         null,
         1,
-        83,
-        77,
-        69,
-        58,
-        52,
+        86,
+        80,
+        71,
+        60,
+        54,
         27,
         15,
         9,
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/bucket.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/bucket.rb": [
         1,
         1,
         null,
         1,
-        98,
+        101,
         null,
         null,
         1,
@@ -315,7 +315,7 @@
         null,
         null,
         1,
-        74,
+        76,
         null,
         null,
         1,
@@ -330,13 +330,13 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/admin/dashboard_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/admin/dashboard_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/admin/base_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/admin/base_controller.rb": [
         1,
         1,
         null,
@@ -347,7 +347,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/users_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -381,9 +381,9 @@
         null,
         null,
         1,
-        10,
+        11,
         0,
-        10,
+        11,
         1,
         null,
         null,
@@ -420,13 +420,13 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/employer/dashboard_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/employer/dashboard_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/employer/base_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/employer/base_controller.rb": [
         1,
         1,
         null,
@@ -437,13 +437,13 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/home_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/companies_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/companies_controller.rb": [
         1,
         null,
         1,
@@ -472,7 +472,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/jobs_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/jobs_controller.rb": [
         1,
         null,
         1,
@@ -500,7 +500,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/bucket_jobs_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/bucket_jobs_controller.rb": [
         1,
         1,
         1,
@@ -554,7 +554,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/bucket_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/bucket_controller.rb": [
         1,
         null,
         1,
@@ -567,7 +567,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/bucket_job.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/bucket_job.rb": [
         1,
         1,
         null,
@@ -578,7 +578,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/saved_jobs_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/saved_jobs_controller.rb": [
         1,
         null,
         1,
@@ -600,7 +600,7 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/job_applications_controller.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/job_applications_controller.rb": [
         1,
         1,
         null,
@@ -632,87 +632,26 @@
         null,
         null
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/channels/application_cable/channel.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/channels/application_cable/connection.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/company/jobs_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/employer/items_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/company/jobs_controller.rb": [
         0,
         0,
         0,
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/controllers/industries_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/helpers/application_helper.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/employer/items_controller.rb": [
         0,
         0,
         0,
@@ -720,24 +659,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/helpers/sessions_helper.rb": [
         0,
         0,
         0,
@@ -783,7 +704,26 @@
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/helpers/users_helper.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/controllers/industries_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/helpers/application_helper.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -797,11 +737,71 @@
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/jobs/application_job.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/helpers/sessions_helper.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0
       ],
-      "/Users/Nicole/Documents/mod3/little_shop/app/models/mailers/user_notifier_mailer.rb": [
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/helpers/users_helper.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/deborahhamel/Turing/3_mod/projects/the_pivot/app/models/mailers/user_notifier_mailer.rb": [
         0,
         0,
         0,
@@ -824,6 +824,6 @@
         0
       ]
     },
-    "timestamp": 1471909476
+    "timestamp": 1471914679
   }
 }
