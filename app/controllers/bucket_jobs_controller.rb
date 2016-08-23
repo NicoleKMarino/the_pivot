@@ -24,9 +24,16 @@ class BucketJobsController < ApplicationController
 
   private
     def create_job_application
+      create_registered_user_application if current_user
+      @job_application = @job.job_applications.create(
+        summary: "Please write a brief paragraph explaining why you would be a good fit for this job."
+      )
+    end
+    
+    def create_registered_user_application
       @job_application = @job.job_applications.create(
         summary: "Please write a brief paragraph explaining why you would be a good fit for this job.",
-        user_id: current_user
+        user_id: current_user.id
       )
     end
 

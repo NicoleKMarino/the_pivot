@@ -9,7 +9,7 @@ class JobApplicationsController < ApplicationController
   
   def update
     if @job_application.update(job_application_params)
-      @job_application.change_status_to_submitted
+      UserJobApplication.new(@job_application, current_user)
       flash[:success] = "Your application was successfully submitted."
       @bucket.remove_job(@job_application.job)
       redirect_to dashboard_path
