@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.feature "Employer can create a company" do
   scenario "approved employer creates company" do
     role = Role.create!(name: "employer")
-    user = User.create!(username: "Employer",
+    user = User.create!(
+      username: "Employer",
       email: "nicolekmarina@hotmail.com",
       password: "password",
       first_name: "Nicole",
