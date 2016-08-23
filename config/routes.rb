@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   end
 
   resources :users,  only: [:new, :create, :edit, :update]
+  namespace :user do
+    resources :job_applications, only: [:index] 
+  end
   resources :job_applications, only: [:show, :edit, :update, :create, :index]
 
   get '/login',                     to: 'sessions#new'

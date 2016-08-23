@@ -1,32 +1,32 @@
 <div class="page-content">
   <h1>My Applications</h1>
   <% @job_applications.each do |job_application| %>
-    <div class="well col-md-8 table-responsive" id="application-<%= job_application.id %>">
+    <div class="well col-md-8 table-responsive" id="applications-<%= job_application.id %>">
       <table class="table">
         <thead>
           <tr>
             <td colspan="5" class="text-left">
-              <strong>Job Application # <%= application.id %></strong>
+              <strong>Job Application # <%= order.id %></strong>
             </td>
           <tr>
             <th>Industry</th>
             <th>Company</th>
-            <th>Job Title</th>
+            <th>Title</th>
             <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= job_application.job.company.industry %></td>
-            <td><%= job_application.job.company.name %></td>
-            <td><%= job_application.job.title %></td>
+            <td><%= job_application.company.industry.name %></td>
+            <td><%= job_application.total_items %></td>
+            <td><%= number_to_currency(job_application.total) %></td>
             <td><%= job_application.status %></td>
           </tr>
           <td colspan="5" class="text-right">
-            <strong><%#= link_to "Order Details", order_path(order), class:'btn btn-primary' %></strong>
+            <strong><%= link_to "Order Details", order_path(order), class:'btn btn-primary' %></strong>
             <% if order.ordered? %>
-              <%#= form_tag charges_path do %>
-                <%#= hidden_field_tag :orderid, order.id %>
+              <%= form_tag charges_path do %>
+                <%= hidden_field_tag :orderid, order.id %>
                 <article>
                   <% if flash[:error].present? %>
                     <div id="error_explanation">
@@ -34,11 +34,12 @@
                     </div>
                   <% end %>
                 </article>
+                
               <% end %>
             <% end %>
           </td>
         </tbody>
       </table>
     </div>
-
+  <% end %>
 </div>
