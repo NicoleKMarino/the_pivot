@@ -20,7 +20,7 @@ RSpec.feature "User can view all of their applications" do
     visit dashboard_path
 
     click_on "My Applications"
-    
+
     expect(current_path).to eq(user_job_applications_path)
 
     within("#application-#{started_application.id}") do
@@ -31,11 +31,11 @@ RSpec.feature "User can view all of their applications" do
       expect(page).to have_content(submitted_application.job.title)
       expect(page).to have_content("Submitted")
     end
-    
+
     within("#application-#{started_application.id}") do
       click_link "Job Application # #{started_application.id}"
     end
-    
+
     expect(current_path).to eq(user_job_application_path(started_application))
   end
 end
