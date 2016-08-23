@@ -53,17 +53,16 @@ class UsersController < ApplicationController
         :city,
         :zip_code,
         :state,
-        :password,
-        :user_role
+        :password
       )
     end
     
     def set_role
       if @role == "1"
-        @registered = Role.find_by(name: "registered_user")
         @employer = Role.find_by(name: "employer")
         UserRole.create!(user_id: @user.id, role_id: @employer.id)
       else
+        @registered = Role.find_by(name: "registered_user")
         UserRole.create!(user_id: @user.id, role_id: @registered.id)
       end
     end
