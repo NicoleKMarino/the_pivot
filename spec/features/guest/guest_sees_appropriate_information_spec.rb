@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+#what it this test???
 RSpec.feature "Visitor sees appropriate information" do
   scenario "views the item index" do
     create_three_jobs
