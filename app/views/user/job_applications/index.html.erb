@@ -7,7 +7,7 @@
         <thead>
           <tr>
             <td colspan="5" class="text-left">
-              <%= link_to "Job Application # #{job_application.id}", user_job_application_path(job_application) %>
+              <%= link_to "Job Application # #{job_application.id} for #{job_application.job.title}" , user_job_application_path(job_application) %>
             </td>
           <tr>
             <th>Industry</th>

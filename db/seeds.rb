@@ -81,7 +81,3 @@ class Seed
 end
 
 Seed.start
-
-
-
-
