@@ -2,6 +2,7 @@
   <p></p>
   <div class="well col-md-10">
     <%= image_tag(@company.img_path, class: "company-image", alt: @company.name) %>
+    <h2><%=@company.name.capitalize%></h2>
     <h1>Industry: <%= @company.industry.name %></h1>
     <h4>Description: <%= @company.description %></h4>
     <br>

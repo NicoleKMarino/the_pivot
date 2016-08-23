@@ -10,10 +10,11 @@ class UsersController < ApplicationController
 
   def set_role
     if @role == "1"
+      @registered = Role.find_by(name: "registered_user")
       @employer = Role.find_by(name: "employer")
       UserRole.create!(user_id: @user.id, role_id: @employer.id)
     else
-      UserRole.create!(user_id: @user.id, role_id: 1)
+      UserRole.create!(user_id: @user.id, role_id:@registered.id)
     end
   end
 
@@ -55,9 +56,9 @@ class UsersController < ApplicationController
       @role = params[:user][:user_roles]
       params[:user].delete :user_roles
       params.require(:user).permit(
-        :username, 
-        :email, 
-        :first_name, 
+        :username,
+        :email,
+        :first_name,
         :last_name,
         :address,
         :city,

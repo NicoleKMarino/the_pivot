@@ -3,7 +3,6 @@ module SessionsHelper
     session[:previous_url].split('/').last if session[:previous_url]
   end
 
-
   def set_user
     if params[:commit]
       @user = User.find_by(username: params[:session][:username])
@@ -24,7 +23,6 @@ module SessionsHelper
     end
   end
 
-
   def process_local_user
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
@@ -43,5 +41,4 @@ module SessionsHelper
   def authorize_user
     params[:commit] ? process_local_user : process_twitter_user
   end
-
 end
