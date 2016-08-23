@@ -12,8 +12,6 @@ RSpec.feature "Guest can finilize application after creating an account" do
 
     fill_in "summary", with: "I have tons of experience in this industry."
     click_button "Login or Create Account to Continue Application"
-
-    # expect{JobApplication.count}.to change{ User.count }.by(1)
     
     click_on "Create an account"
     

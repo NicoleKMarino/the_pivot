@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-08-23T14:16:57-06:00">2016-08-23T14:16:57-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-08-23T14:36:38-06:00">2016-08-23T14:36:38-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -103,7 +103,7 @@
       <tr>
         <td class="strong"><a href="#3cafc92f2e72c448bdd4b680f0e534aa80457ace" class="src_link" title="app/controllers/bucket_controller.rb">app/controllers/bucket_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>11</td>
+        <td>10</td>
         <td>5</td>
         <td>5</td>
         <td>0</td>
@@ -223,7 +223,7 @@
       <tr>
         <td class="strong"><a href="#e79ad86ca8e8e8ba225f509df2398e66fb4af185" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="yellow strong">80.56 %</td>
-        <td>70</td>
+        <td>69</td>
         <td>36</td>
         <td>29</td>
         <td>7</td>
@@ -491,7 +491,7 @@
       <tr>
         <td class="strong"><a href="#3cafc92f2e72c448bdd4b680f0e534aa80457ace" class="src_link" title="app/controllers/bucket_controller.rb">app/controllers/bucket_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>11</td>
+        <td>10</td>
         <td>5</td>
         <td>5</td>
         <td>0</td>
@@ -611,7 +611,7 @@
       <tr>
         <td class="strong"><a href="#e79ad86ca8e8e8ba225f509df2398e66fb4af185" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="yellow strong">80.56 %</td>
-        <td>70</td>
+        <td>69</td>
         <td>36</td>
         <td>29</td>
         <td>7</td>
@@ -1568,16 +1568,10 @@
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">    # redirect_to job_application_path(@bucket_job) unless current_user</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="10">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">end</code>
@@ -3686,82 +3680,76 @@
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">        # :user_role</code>
+          <code class="ruby">      )</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby">      )</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
           <code class="ruby">    </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="61">
+        <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
           <code class="ruby">    def set_role</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="62">
+        <li class="covered" data-hits="2" data-linenumber="61">
           <span class="hits">2</span>
           
           <code class="ruby">      if @role == &quot;1&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="63">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">        @employer = Role.find_by(name: &quot;employer&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
+        <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
           <code class="ruby">        UserRole.create!(user_id: @user.id, role_id: @employer.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="66">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
           <code class="ruby">        @registered = Role.find_by(name: &quot;registered_user&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">        UserRole.create!(user_id: @user.id, role_id: @registered.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">end</code>
