@@ -8,6 +8,13 @@ RSpec.describe JobApplication, type: :model do
     expect(job_application.status).to eq("started")
   end
 
+  it "should be assigned to a user once a guest user becomes a registered user" do
+    user = create_user
+    job_application = create_job_application
+    job_application.assign_user(user)
+    expect(job_application.user_id).to eq(user.id)
+  end
+  
   it "can change the status to submitted" do
     job_application = create_job_application
     job_application.change_status_to_submitted

@@ -1,21 +1,10 @@
 class UsersController < ApplicationController
   include UsersHelper
-
   before_action :verify_logged_in, only: [:show]
   before_action :verify_admin, only: [:edit, :update]
 
   def new
     @user = User.new
-  end
-
-  def set_role
-    if @role == "1"
-      @registered = Role.find_by(name: "registered_user")
-      @employer = Role.find_by(name: "employer")
-      UserRole.create!(user_id: @user.id, role_id: @employer.id)
-    else
-      UserRole.create!(user_id: @user.id, role_id:@registered.id)
-    end
   end
 
   def create
@@ -67,5 +56,15 @@ class UsersController < ApplicationController
         :password,
         :user_role
       )
+    end
+    
+    def set_role
+      if @role == "1"
+        @registered = Role.find_by(name: "registered_user")
+        @employer = Role.find_by(name: "employer")
+        UserRole.create!(user_id: @user.id, role_id: @employer.id)
+      else
+        UserRole.create!(user_id: @user.id, role_id: @registered.id)
+      end
     end
 end
