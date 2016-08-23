@@ -4,15 +4,15 @@ RSpec.feature "Employer can create a company" do
   scenario "approved employer creates company" do
     role = Role.create!(name: "employer")
     user = User.create!(username: "Employer",
-                email: "nicolekmarina@hotmail.com",
-                password: "password",
-                first_name: "Nicole",
-                last_name: "Marina",
-                address: "2122 Concord Lane",
-                city: "Denver",
-                state: "CO",
-                zip_code: 80215,
-            )
+      email: "nicolekmarina@hotmail.com",
+      password: "password",
+      first_name: "Nicole",
+      last_name: "Marina",
+      address: "2122 Concord Lane",
+      city: "Denver",
+      state: "CO",
+      zip_code: 80215
+    )
 
     UserRole.create(user_id: user.id, role_id: role.id)
     Industry.create!(name: 'Finance')
@@ -29,7 +29,7 @@ RSpec.feature "Employer can create a company" do
     fill_in 'Name', with: 'Hewitt and packard'
     fill_in 'Description', with: 'testertestertester'
     fill_in 'Location', with: 'Colorado'
-    select('Finance', :from => 'company[industry_id]')
+    select('Finance', from: 'company[industry_id]')
 
     click_button 'Submit'
 

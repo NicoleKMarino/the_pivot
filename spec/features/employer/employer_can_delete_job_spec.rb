@@ -6,7 +6,12 @@ RSpec.feature "Employer can create a job" do
     user = User.find(company.user_id)
     role1 = Role.create(name: "employer")
     UserRole.create(user_id: user.id, role_id: role1.id)
-    job = Job.create(title: "Web Developer", description: "Web Stuff", salary: "10,000", company_id: company.id)
+    
+    job = Job.create(title: "Web Developer",
+      description: "Web Stuff",
+      salary: "10,000",
+      company_id: company.id
+    )
 
     visit login_path
 
