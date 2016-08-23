@@ -17,7 +17,8 @@ def create_user
 end
 
 def create_company
-  user = User.create!(username: "Test",
+  user = User.create!(
+    username: "Test",
     email: "nicolekmarina@ssdshotmail.com",
     password: "password",
     first_name: "Nicole",
@@ -52,7 +53,8 @@ end
 
 def create_three_companies
   create_two_companies
-  user = User.create!(username: "Test5",
+  user = User.create!(
+    username: "Test5",
     email: "nicolekrixxxxstfffghhenmarina@hotmail.com",
     password: "password",
     first_name: "Nicole",
@@ -93,7 +95,8 @@ def create_job_application
 end
 
 def create_submitted_job_application
-  user = User.create!(username: "Test3",
+  user = User.create!(
+    username: "Test3",
     email: "nicolekmaffffrina@hotmail.com",
     password: "password",
     first_name: "Nicole",
