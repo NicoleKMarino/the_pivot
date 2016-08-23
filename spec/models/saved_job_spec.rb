@@ -8,7 +8,7 @@ RSpec.describe SavedJob, type: :model do
     job1 = create_job
 
     user1 = User.create(
-      username: "Test",
+      username: "Testeroni",
       email: "lanerdoce@aol.com",
       password: "password",
       first_name: "Lane",
@@ -20,6 +20,6 @@ RSpec.describe SavedJob, type: :model do
 
     SavedJob.create(user_id: user1.id, job_id: job1.id)
 
-    expect(user1.jobs.first.title).to eq("Software Integration Developer")
+    expect(user1.jobs.last.title).to eq("Software Integration Developer")
   end
 end

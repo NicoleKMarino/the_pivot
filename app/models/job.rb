@@ -4,7 +4,7 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :salary, presence: true
   validates :company, presence: true
-  has_many :saved_jobs
+  has_many :saved_jobs, dependent: :destroy
   has_many :users, through: :saved_jobs
 
   enum status: %w(available unavailable)
