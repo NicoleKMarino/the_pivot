@@ -36,7 +36,7 @@ class PermissionService
     return true if controller == "sessions"
     return true if controller == "jobs"
     return true if controller == "home"
-    return true if controller == "bucket_jobs"
+    return true if controller == "bucket_applications"
     return true if controller == "bucket"
     return true if controller == "job_applications"
     return true if controller == "user/job_applications"
@@ -49,7 +49,7 @@ class PermissionService
     return true if controller == "companies"
     return true if controller == "sessions"
     return true if controller == "home"
-    return true if controller == "bucket_jobs"
+    return true if controller == "bucket_applications"
     return true if controller == "bucket"
   end
 end

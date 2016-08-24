@@ -7,25 +7,29 @@ RSpec.describe 'bucket', type: :model do
     expect(bucket.contents).to eq({})
   end
 
-  it 'should be able to add job by job id' do
-    bucket = Bucket.new(nil)
+    it 'should be able to add application to the bucket' do
+      bucket = Bucket.new(nil)
+      job = create_job
+      application = job.job_applications.create!(
+        summary: "I'm the perfect candidate for this job.",
+        education: "Turing",
+        experience: "The pivot project",
+        status: 0
+      )    
+      bucket.add_application(application)
+    
+      expect(bucket.contents).to eq("#{application.id}" => "")
+    end
 
-    bucket.add_job(1)
-    bucket.add_job(2)
-    bucket.add_job(2)
-
-    expect(bucket.contents).to eq('1' => '', '2' => '')
-  end
-
-  it 'should be able to calculate total jobs' do
+  it 'should be able to calculate total applications' do
     bucket = Bucket.new('1' => {}, '4' => {})
 
-    expect(bucket.total_jobs).to eq(2)
+    expect(bucket.total_applications).to eq(2)
   end
 
   it 'should return 0 as total jobs for an empty bucket' do
     bucket = Bucket.new(nil)
 
-    expect(bucket.total_jobs).to eq(0)
+    expect(bucket.total_applications).to eq(0)
   end
 end

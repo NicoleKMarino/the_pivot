@@ -5,22 +5,23 @@ class Bucket
     @contents = contents || {}
   end
 
-  def add_job(job_id)
-    @contents[job_id.to_s] ||= ""
+  def add_application(job_application)
+    #add conditional for not allowing duplicates
+    @contents[job_application.id.to_s] ||= ""
   end
 
-  def total_jobs
-    contents.length
+  def total_applications
+    self.contents.length
   end
 
-  def all_jobs
-    contents.map do |job_id, summary|
-      job = Job.find(job_id)
-      BucketJob.new(job, summary)
+  def all_applications
+    contents.map do |application_id, summary|
+      application = JobApplication.find(application_id)
+      BucketApplication.new(application, summary)
     end
   end
 
-  def remove_job(job)
-    @contents.delete(job.id.to_s)
+  def remove_application(job_application)
+    @contents.delete(job_application.id.to_s)
   end
 end

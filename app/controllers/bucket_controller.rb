@@ -1,10 +1,10 @@
 class BucketController < ApplicationController
 
   def index
-    @bucket_jobs = @bucket.all_jobs
+    @bucket_applications = @bucket.all_applications
   end
   
   def show
-    @bucket_job = Job.find(params[:id])
+    @bucket_application = Job.find(params[:id]).job_applications.first
   end
 end
