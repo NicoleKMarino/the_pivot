@@ -1,6 +1,16 @@
 require 'simplecov'
 SimpleCov.start 'rails'
 
+# SimpleCov.start do
+#   add_group "Model", "app/models"
+#   add_group "Controllers", "app/controllers"
+#   add_group "Helpers", "app/helpers"
+#   add_group "Long files" do |src_file|
+#     src_file.lines.count > 100
+#   end
+#   add_group "Multiple Files", ["app/models", "app/controllers", "app/helpers"] # You can also pass in an array
+# end
+
 def create_user
   role = Role.create(name: "registered_user")
   role.users.create!(

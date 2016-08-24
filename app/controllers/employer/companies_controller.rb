@@ -1,8 +1,8 @@
 class Employer::CompaniesController < Employer::BaseController
 
   def new
-    @company = Company.new
     @industries = Industry.all
+    @company = Company.new
   end
 
   def create
@@ -10,25 +10,22 @@ class Employer::CompaniesController < Employer::BaseController
     company_hash[:user_id] = current_user.id
     @company = Company.new(company_hash)
     if @company.save
-      flash[:success] = 'Company added successfully'
+      flash[:success] = "Company added successfully"
       redirect_to company_path(@company.slug)
     else
-      flash.now[:danger] = @company.errors.full_messages.join(', ')
+      flash.now[:danger] = "Missing required fields. Please re-enter your company information."
       render :new
     end
   end
 
   private
 
-  def company_params
-    params.require(:company).permit(:name,
-                                 :description,
-                                 :location,
-                                 :img_path,
-                                 :industry_id
-                                 )
-
-
-  end
-
+    def company_params
+      params.require(:company).permit(:name,
+                                   :description,
+                                   :location,
+                                   :img_path,
+                                   :industry_id
+                                   )
+    end
 end

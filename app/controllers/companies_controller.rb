@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def index
     @companies = Company.all.where(status:0)
     @locations = location_list
@@ -8,11 +7,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by(slug: params[:slug])
-    if @company.nil?
-      redirect_to companies_path
-    else
-      @jobs = @company.jobs.where(status: 0)
-    end
+    @jobs = @company.jobs.where(status: 0)
   end
 
   private

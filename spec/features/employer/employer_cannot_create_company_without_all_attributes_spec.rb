@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Employer can create a company" do
-  scenario "approved employer creates company" do
+RSpec.feature "Employer cannot create a company without all attributes" do
+  scenario "approved employer does not fill all the information to create a company" do
     role = Role.create!(name: "employer")
     user = User.create!(
       username: "Employer",
@@ -27,18 +27,15 @@ RSpec.feature "Employer can create a company" do
 
     click_link "Add Company"
 
-    fill_in 'Name', with: 'Hewitt and packard'
+    fill_in 'Name', with: ''
     fill_in 'Description', with: 'testertestertester'
     fill_in 'Location', with: 'Colorado'
     select('Finance', from: 'company[industry_id]')
 
     click_button 'Submit'
 
-    expect(current_path).to eq(company_path(Company.last.slug))
+    expect(page).to have_content "Missing required fields. Please re-enter your company information."
 
-    expect(page).to have_content 'Hewitt and packard'
-    expect(page).to have_content 'Company added successfully'
-    expect(page).to have_content "testertestertester"
-    expect(page).to have_content "Finance"
+    expect(current_path).to eq(employer_companies_path)
   end
 end
