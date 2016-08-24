@@ -6,7 +6,7 @@ class Admin::CompaniesController < Admin::BaseController
   def update
     @company = Company.find(params[:id])
     @company.update(status: 1)
-    flash[:success] = 'Company Now Online'
+    flash[:success] = "#{@company.name} Now Online"
     redirect_to admin_companies_path
   end
 

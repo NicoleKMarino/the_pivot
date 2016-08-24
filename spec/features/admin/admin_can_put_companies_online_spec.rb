@@ -38,7 +38,7 @@ RSpec.feature "Admin can approve a company" do
 
     expect(page).to have_content company.name
     click_button "Put Online"
-    expect(page).to have_content('Company Now Online')
+    expect(page).to have_content("#{company.name} Now Online")
   end
 
   scenario "the status should change to online from show page" do
@@ -82,7 +82,7 @@ RSpec.feature "Admin can approve a company" do
 
     click_button "Put Online"
 
-    expect(page).to have_content('Company Now Online')
+    expect(page).to have_content("#{company.name} Now Online")
 
   end
 end
