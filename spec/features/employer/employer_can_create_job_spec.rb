@@ -23,7 +23,7 @@ RSpec.feature "Employer can create a job" do
     fill_in 'Title', with: 'Developer'
     fill_in 'Description', with: "Web Dev"
     fill_in 'Salary', with: "50,000-60,0000"
-    select(company.name, :from => 'job[company_id]')
+    select(company.name, from: 'job[company_id]')
     click_button 'Create Job'
 
     expect(current_path).to eq(employer_jobs_path)
