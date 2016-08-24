@@ -7,6 +7,9 @@ class Company < ApplicationRecord
   before_validation :create_slug
   validates_presence_of :slug
 
+  enum status: %w(offline online)
+
+
   def to_params
     slug
   end
