@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Admin can login" do
   scenario "registered admin can login" do
-    role1= Role.create(name: "platform_admin")
-    user1= User.create(username: "Admin", email: "lanerdoce@aol.com", password: "password", first_name: "Lane", last_name: "Winham", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215, )
-    UserRole.create(user_id:user1.id, role_id:role1.id)
+    role = Role.create!(name: "platform_admin")
+    user = User.create!(username: "Admin", email: "lane@email.com", password: "password", first_name: "Lane", last_name: "Beard", address: "2122 Concord Lane", city: "Denver", state: "CO", zip_code: 80215)
+    UserRole.create(user_id: user.id, role_id:role.id)
+    
     visit login_path
     fill_in 'Username', with: 'Admin'
     fill_in 'Password', with: "password"
