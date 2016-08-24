@@ -3,11 +3,12 @@ class Employer::JobsController < Employer::BaseController
 
   def new
     @job = Job.new
+    @companies = current_user.companies
   end
 
   def index
-    @company = current_user.companies.last
-    @jobs = Job.where(company_id: @company.id).all
+    @companies = current_user.companies
+
   end
 
   def destroy
@@ -19,10 +20,7 @@ class Employer::JobsController < Employer::BaseController
 
 
   def create
-    @company = current_user.companies.last
-    job_hash = job_params
-    job_hash[:company_id] = @company.id
-    @job = Job.new(job_hash)
+    @job = Job.new(job_params)
     if @job.save
       flash[:success] = 'Job added successfully'
       redirect_to employer_jobs_path
