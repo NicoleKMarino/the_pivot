@@ -33,6 +33,7 @@ def create_company
     name: "Inspirato",
     description: "Great company",
     location: "CO",
+    status: "online",
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
     user_id: user.id
   )
@@ -56,6 +57,7 @@ def create_two_companies
     name: "Integer",
     description: "Nice company",
     location: "CO",
+    status: "online",
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
     user_id: user.id
   )
@@ -79,6 +81,7 @@ def create_three_companies
     name: "TD Ameritrade",
     description: "Rich company",
     location: "FL",
+    status: "online",
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
     user_id: user.id
   )
@@ -122,14 +125,14 @@ def create_submitted_job_application
     name: "Integer",
     description: "Nice company",
     location: "CO",
-    status: 2,
+    status: 1,
     img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
     user_id: user.id)
 
   job = company.jobs.create!(
     title: "Designer",
     description: "Experience required",
-    status: 0,
+    status: 1,
     salary: "$60,000-$80,000"
   )
   job.job_applications.create!(

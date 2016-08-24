@@ -66,8 +66,8 @@ class Seed
   end
 
   def self.create_companies_status_online
-    user= User.create!(username: "Test",
-                 email: "nicolekmarina@hotmail.com",
+    user= User.create!(username: "Test2",
+                 email: "nicolekmaringgga@hotmail.com",
                  password: "password",
                  first_name: "Nicole",
                  last_name: "Marina",
