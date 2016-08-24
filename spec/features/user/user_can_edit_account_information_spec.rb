@@ -45,15 +45,3 @@ RSpec.feature "Registered user can edit account information" do
     expect(current_path).to eq(dashboard_path)
   end
 end
-
-# as a user
-# when I visit /dashboard
-# and I click "Edit Profile"
-# I should be redirected to a form
-# I should see current/old information in each field
-# I should have to enter my password to make any changes
-# Enter new/changed info in field
-# then I click submit
-# I should be redirected to /dashboard
-# Verify all edited info is changed
-# Old info should be gone
