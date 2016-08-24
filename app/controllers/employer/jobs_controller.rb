@@ -8,7 +8,6 @@ class Employer::JobsController < Employer::BaseController
 
   def index
     @companies = current_user.companies
-
   end
 
   def destroy
