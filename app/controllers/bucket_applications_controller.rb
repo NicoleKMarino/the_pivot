@@ -12,7 +12,9 @@ class BucketApplicationsController < ApplicationController
   end
 
   def update
+    @job_application = JobApplication.find(params[:id])
     @bucket.contents[params[:id]] = params[:summary]
+    @job_application.update_summary(params[:summary])
     redirect_based_on_referrer_button
   end
 

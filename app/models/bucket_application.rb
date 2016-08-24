@@ -3,7 +3,6 @@ class BucketApplication < SimpleDelegator
 
   def initialize(application, summary)
     @application = application
-    # @job = job
     @summary = summary
     super(@application)
   end

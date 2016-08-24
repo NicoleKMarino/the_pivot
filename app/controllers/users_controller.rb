@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       set_role
       session[:user_id] = @user.id
+      assign_bucket_applications_to_user
       redirect_to dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages.join(", ")

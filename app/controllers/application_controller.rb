@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   def set_bucket
     @bucket = Bucket.new(session[:bucket])
   end
+  
+  def assign_bucket_applications_to_user
+    @bucket.contents.keys.each do |job_application|
+      application = JobApplication.find(job_application)
+      application.assign_user(current_user)
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

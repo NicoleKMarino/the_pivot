@@ -12,7 +12,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
       first(".job-option-buttons").click_on "Apply"
     end
 
-    expect(page).to have_content("Started Applications: 1")
+    expect(page).to have_content "Started Applications: 1"
     expect(current_path).to eq(bucket_path(job1))
     expect(page).to have_button("Login or Create Account to Continue Application")
     expect(page).to have_button("Continue Browsing Jobs")

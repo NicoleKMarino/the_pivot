@@ -17,7 +17,6 @@ class Bucket
   def all_applications
     contents.map do |application_id, summary|
       application = JobApplication.find(application_id)
-      # job = Job.find(application.job_id)
       BucketApplication.new(application, summary)
     end
   end
