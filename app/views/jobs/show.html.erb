@@ -5,7 +5,7 @@
       <h2><p>Company: <strong><%= @job.company_name %></strong></h2></p>
       <p><%= @job.description %></p>
       <p><%= @job.salary %><p>
-        <%=button_to "Apply", bucket_jobs_path(job_id: @job.id), class:"btn btn-warning" unless current_user == nil %>
+        <%=button_to "Apply", bucket_applications_path(job_id: @job.id), class:"btn btn-warning" unless current_user == nil %>
       <p><%= button_to 'Login or Create Account to Continue Application', login_path, method: :get, class: 'btn btn-default' unless current_user != nil%></p>
       <p><%= button_to 'Continue Browsing Jobs', jobs_path, method: :get, class: 'btn btn-default' %></p>
     </div>

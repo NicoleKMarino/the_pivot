@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
   def create
     authorize_user
+    assign_bucket_applications_to_user
   end
 
   def destroy

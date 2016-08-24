@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :saved_jobs, only: [:create,:destroy,:index]
 
   resources :companies,      only: [:index]
-  resources :bucket_jobs,    only: [:create, :update, :destroy]
+  resources :bucket_applications,    only: [:create, :update, :destroy]
   resources :bucket,         only: [:index, :show]
 
   resources :jobs, only: [:index, :show] do

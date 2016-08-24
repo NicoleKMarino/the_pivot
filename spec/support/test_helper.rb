@@ -94,6 +94,44 @@ def create_job
   )
 end
 
+def create_two_jobs
+  create_two_companies
+  Company.first.jobs.create!(
+    title: "Software Integration Developer",
+    description: "This is an entry level position.",
+    status: 0,
+    salary: "$40,000-$60,000"
+  )
+  Company.last.jobs.create!(
+    title: "Senior Software Integration Developer",
+    description: "This positions requires 5 years of experience.",
+    status: 0,
+    salary: "$60,000-$80,000"
+  )
+end
+
+def create_three_jobs
+  create_three_companies
+  Company.first.jobs.create!(
+    title: "Software Integration Developer",
+    description: "This is an entry level position.",
+    status: 0,
+    salary: "$40,000-$60,000"
+  )
+  Company.second.jobs.create!(
+    title: "Senior Software Integration Developer",
+    description: "This positions requires 5 years of experience.",
+    status: 0,
+    salary: "$60,000-$80,000"
+  )
+  Company.last.jobs.create!(
+    title: "Designer",
+    description: "This positions requires 3 years of experience.",
+    status: 0,
+    salary: "$40,000-$60,000"
+  )
+end
+
 def create_job_application
   job = create_job
   job.job_applications.create!(
@@ -140,24 +178,4 @@ def create_submitted_job_application
   )
 end
 
-def create_three_jobs
-  create_three_companies
-  Company.first.jobs.create!(
-    title: "Software Integration Developer",
-    description: "This is an entry level position.",
-    status: 0,
-    salary: "$40,000-$60,000"
-  )
-  Company.first.jobs.create!(
-    title: "Senior Software Integration Developer",
-    description: "This positions requires 5 years of experience.",
-    status: 0,
-    salary: "$60,000-$80,000"
-  )
-  Company.last.jobs.create!(
-    title: "Designer",
-    description: "This positions requires 3 years of experience.",
-    status: 0,
-    salary: "$40,000-$60,000"
-  )
-end
+

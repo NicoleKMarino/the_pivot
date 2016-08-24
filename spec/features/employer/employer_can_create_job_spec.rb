@@ -6,9 +6,7 @@ RSpec.feature "Employer can create a job" do
     user = User.find(company.user_id)
     role1 = Role.create(name: "employer")
     UserRole.create(user_id: user.id, role_id: role1.id)
-
     visit login_path
-
     fill_in 'Username', with: 'Test'
     fill_in 'Password', with: "password"
 
@@ -23,6 +21,8 @@ RSpec.feature "Employer can create a job" do
     fill_in 'Title', with: 'Developer'
     fill_in 'Description', with: "Web Dev"
     fill_in 'Salary', with: "50,000-60,0000"
+    select('Inspirato', from: 'job[company_id]')
+
     click_button 'Create Job'
 
     expect(current_path).to eq(employer_jobs_path)
