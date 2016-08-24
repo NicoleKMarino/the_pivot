@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Employer can create an account" do
   scenario "guest visitor visits create account page and creates an employer account" do
-    role = Role.create!(name: "employer")
+    Role.create!(name: "employer")
 
     visit new_user_path
 
