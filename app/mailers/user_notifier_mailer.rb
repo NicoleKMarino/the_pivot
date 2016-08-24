@@ -1,20 +1,20 @@
 class UserNotifierMailer < ApplicationMailer
-  default from: 'onefanstreasure@gmail.com'
+  default from: 'makemypaypday@gmail.com'
 
   def send_signup_email(user)
     @user = user
     mail(
       to: @user.email,
-      subject: "Welcome to One Fan's Treasure!"
+      subject: "Welcome to MakeMyPayday!"
       )
   end
 
-  def send_confirmation_email(user, order)
+  def send_confirmation_email(user, job_application)
     @user = user
-    @order = order
+    @job_application = job_application
     mail(
       to: @user.email,
-      subject: "Thank you for your order - Order ##{@order.id}"
+      subject: "We've received your application for the  #{@job_application.job.title} position!"
     )
   end
 end
