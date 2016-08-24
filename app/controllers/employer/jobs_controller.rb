@@ -18,7 +18,6 @@ class Employer::JobsController < Employer::BaseController
     redirect_to employer_jobs_path
   end
 
-
   def create
     @job = Job.new(job_params)
     if @job.save
@@ -31,13 +30,13 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def edit
+    @companies = current_user.companies
   end
 
   def update
-    if @job.update_attributes(job_params)
+    if @job.update(job_params)
       flash[:success] = "#{@job.title} updated successfully."
-      @job.update_image_path
-      redirect_to @job
+      redirect_to employer_jobs_path
     else
       flash.now[:danger] = @job.errors.full_messages.join(', ')
       render :edit
@@ -54,7 +53,7 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def set_job
-    @job = job.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
 end

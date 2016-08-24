@@ -15,12 +15,14 @@
         <%= f.label :salary %>
         <%= f.text_field :salary, class: 'form-control' %>
       </div>
-      <br></br>
-      <select name="job[company_id]">
-        <%= @companies.each do |company| %>
-          <option value="<%=company.id %>"><%=company.name %></option>
-         <% end %>
-       </select>
+      <div class="form-group">
+        <br></br>
+        <%= f.label :company_id %>
+        <select name="job[company_id]">
+          <%= @companies.each do |company| %>
+            <option value="<%=company.id %>"><%=company.name %></option>
+           <% end %>
+         </select>
       <div class="form-group">
         <br></br>
         <%= f.submit %>
