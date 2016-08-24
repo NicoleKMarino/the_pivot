@@ -117,13 +117,13 @@ class Seed
 
   def self.generate_jobs
     Industry.all.each do |industry|
+      industry.companies.each do |company|
       50.times do |i|
-       company = Company.offset(rand(Company.count)).first
        company.jobs.create!(
         title: Faker::Company.profession,
         description: Faker::Lorem.paragraph(2),
-        status: 0,
         salary: ["$40,000-$60,000", "$60,000-$80,000", "$80,000-$100,000"].sample)
+        end
       end
     end
   end
