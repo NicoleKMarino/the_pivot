@@ -12,6 +12,7 @@
       </div>
       <div class="col-sm-4 job-option-buttons">
         <%= button_to "Delete", employer_job_path(id: job.id), class:"btn btn-danger pull-center", method: :delete%>
+        <%= button_to "Edit", edit_employer_job_path(id: job.id), class:"btn btn-danger pull-center", method: :get%>
       </div>
     </div>
     <%end %>
