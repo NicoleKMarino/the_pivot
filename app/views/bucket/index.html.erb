@@ -1,25 +1,25 @@
 <div class="page-content">
   <h1>Open Applications</h1>
   
-  <% @bucket_jobs.each do |job| %>
+  <% @bucket_applications.each do |application| %>
     <div class="well col-md-8 table-responsive jobs-list">
       <table class="table">
         <thead>
           <tr>
             <td colspan="5" class="text-left">
-              Job Position: <%= job.title.upcase %>
+              Job Position: <%= application.job.title.upcase %>
             </td>
           <tr>
             <th>Summary Paragrah</th>
             <th>Status</th>
-            <th><%= button_to "Complete this Application", bucket_job_path(job), method: :delete %></th>
+            <th><%= button_to "Complete this Application", bucket_application_path(application), method: :delete %></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= job.summary %></td>
+            <td><%= application.summary %></td>
             <td>Open</td>
-            <td><%= button_to "Remove this Application", bucket_job_path(job), method: :delete %></td>
+            <td><%= button_to "Remove this Application", bucket_application_path(application), method: :delete %></td>
           </tr>
         </tbody>
       </table>

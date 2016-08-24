@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include UsersHelper
   before_action :verify_logged_in, only: [:show]
   before_action :verify_admin, only: [:edit, :update]
 

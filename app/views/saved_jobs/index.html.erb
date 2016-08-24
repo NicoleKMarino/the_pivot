@@ -9,7 +9,7 @@ Job Title: <%=link_to "#{job.title.capitalize}", job_path(job.id)%>
 Location: <%= job.company.location %>
 <br>
 Salary: <%= job.salary %>
-<%=button_to "Apply", bucket_jobs_path(job_id: job.id), class:"btn btn-primary pull-center"%>
+<%=button_to "Apply", bucket_applications_path(job_id: job.id), class:"btn btn-primary pull-center"%>
 <%= button_to "Delete", saved_job_path(id: job.id), class:"btn btn-danger pull-center", method: :delete%>
 </div>
 <br></br>

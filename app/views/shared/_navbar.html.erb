@@ -5,7 +5,8 @@
   </div>
   <ul class="nav navbar-nav navbar-right">
     <li>
-      <%= link_to "Started Applications: #{@bucket.total_jobs}", bucket_index_path %>
+  
+      <%= link_to "Started Applications: #{@bucket.total_applications}", bucket_index_path %>
     </li>
     <li>
       <% if current_user != nil %>
