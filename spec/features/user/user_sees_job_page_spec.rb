@@ -17,7 +17,7 @@ RSpec.feature "User sees job show page" do
     expect(page).to have_content(job.company.name.capitalize)
     expect(page).to have_content(job.description)
     expect(page).to have_content(job.salary)
-    expect(page).to have_button("Apply")
-    expect(page).to have_button("Continue Browsing Jobs")
+    expect(page).to have_button "Apply"
+    expect(page).to have_button "Continue Browsing Jobs"
   end
 end
