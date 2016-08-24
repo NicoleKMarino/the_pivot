@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:index]
+    resources :companies, only: [:index, :update, :destroy]
   end
 
   namespace :employer do
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
 
   resources :users,  only: [:new, :create, :edit, :update]
   namespace :user do
-    resources :job_applications, only: [:index, :show] 
+    resources :job_applications, only: [:index, :show]
   end
   resources :job_applications, only: [:show, :edit, :update, :create, :index]
 
