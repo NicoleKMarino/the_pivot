@@ -12,7 +12,6 @@ class Company < ApplicationRecord
 
   enum status: %w(offline online)
 
-
   def to_params
     slug
   end

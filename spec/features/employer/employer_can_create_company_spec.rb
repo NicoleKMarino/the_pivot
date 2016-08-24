@@ -29,7 +29,7 @@ RSpec.feature "Employer can create a company" do
 
     fill_in 'Name', with: 'Hewitt and packard'
     fill_in 'Description', with: 'testertestertester'
-    fill_in 'Location', with: 'Colorado'
+    select('Arizona', from: 'company[location]')
     select('Finance', from: 'company[industry_id]')
 
     click_button 'Submit'

@@ -29,7 +29,8 @@ RSpec.feature "Employer can edit a job" do
 
     fill_in 'Title', with: 'Doctor'
     fill_in 'Description', with: "poke things"
-    fill_in 'Salary', with: "50,000-60,0000"
+    select('$40,000-$60,000', from: 'job[salary]')
+
 
     click_button "Update Job"
 
