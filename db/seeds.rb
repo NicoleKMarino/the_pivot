@@ -103,7 +103,7 @@ class Seed
   end
 
   def self.create_companies_status_online
-    20.times do |i|
+    20.times do
       user = rand(66..121)
       industry = Industry.offset(rand(Industry.count)).first
       industry.companies.create!(
@@ -119,11 +119,16 @@ class Seed
   def self.generate_jobs
     Industry.all.each do |industry|
       industry.companies.each do |company|
-        50.times do |i|
+        50.times do
           company.jobs.create!(
             title: Faker::Company.profession,
             description: Faker::Lorem.paragraph(2),
-            salary: ["$40,000-$60,000", "$60,000-$80,000", "$80,000-$100,000"].sample)
+            salary: [
+              "$40,000-$60,000",
+              "$60,000-$80,000",
+              "$80,000-$100,000"
+            ].sample
+          )
         end
       end
     end
