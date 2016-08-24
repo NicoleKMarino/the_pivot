@@ -10,7 +10,9 @@ RSpec.feature "Guest can finilize application after creating an account" do
       first(".job-option-buttons").click_on "Apply"
     end
 
-    fill_in "summary", with: "I have tons of experience in this industry."
+    expect(page).to have_content "Started Applications: 1"
+    
+    fill_in "summary", with: "I have experience in this industry."
     click_button "Login or Create Account to Continue Application"
     
     click_on "Create an account"
@@ -28,5 +30,18 @@ RSpec.feature "Guest can finilize application after creating an account" do
     click_button "Create Account"
 
     expect(current_path).to eq(dashboard_path)
+
+    click_on "Started Applications: 1"
+    
+    expect(page).to have_content "I have experience in this industry."
+    
+    click_on "Complete this Application"
+
+    fill_in "Education", with: "Turing"
+    fill_in "Experience", with: "Group projects"
+    
+    click_on "Submit"
+  
+    expect(page).to have_content "Started Applications: 0"
   end
 end

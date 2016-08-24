@@ -12,9 +12,7 @@ module SessionsHelper
   end
 
   def redirect_based_on_referrer
-    if login_referrer == 'cart'
-      redirect_to cart_index_path
-    elsif @user.platform_admin?
+    if @user.platform_admin?
       redirect_to admin_dashboard_index_path
     elsif @user.employer?
       redirect_to employer_dashboard_index_path
