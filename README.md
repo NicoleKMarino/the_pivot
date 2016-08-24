@@ -1,12 +1,54 @@
-# Little Shop
+# MakeMyPayday
 
-Little Shop is a Turing School of Software and Design Module 2 final group project.
+### Here's what you'll need to do to pull down code and run on a local machine
+* `bundle`
+* `rake db:drop db:create db:migrate db:seed`
 
-One Fan's Treasure is an exploration into e-commerce with Rails. CRUD, authorization, and authentication are all fully utilized to allow a user to create an account, purchase items, and receive confirmation. An administrator has additional privileges (i.e., the ability to edit their account).
+#Tests
+*To run a test: 'rspec'
 
-Extensions include e-mail confirmation, Stripe for payment processing, OAuth (Twitter), image upload and storage via Paperclip and AWS, and dynamic search.
+
+The Pivot is a collaborative Rails project that builds a multi-tenancy ecommerce website adapted from an existing codebase in 2 weeks. MakeMyPayday is a job platform for employers to post available jobs and job seekers to search and apply for jobs.
+
+Production Website - makemypayday.herokuapp.com/
+
+## Features:
+
+### Guest User
+Visit different companies.
+Add jobs from multiple companies into a bucket of applications.
+Log in or create an account before submitting an application.
+
+
+### Registered User
+
+Apply to jobs for any company
+Interactive company and job filters with jQuery
+Manage my account information
+View my job application history
+
+
+### Employer Admin
+
+Manage jobs at my companies
+Update my company information
+
+
+### Platform Admin
+
+Approve or decline the creation of new employers
+Take an employer offline / online
+Perform any functionality restricted to business admins
+
+
+**Project Goals**: Multi-tenancy, authentication, brownfield development.
+
+**Tech Stack**: Ruby on Rails, RSpec, Capybara and Capybara Webkit,  PostgreSQL, Bootstrap, Heroku.
+
+
 
 Contributors:
-* [Ryan Flach](https://github.com/ryanflach)
-* [Angela Lindow](https://github.com/allindow)
+* [Nicole Marino](https://github.com/NicoleKMarino)
+* [Roberta Doyle](https://github.com/roscalabrin)
 * [Lane Winham](https://github.com/Laner12)
+* [Deb Hamel](https://github.com/deborahleehamel)
