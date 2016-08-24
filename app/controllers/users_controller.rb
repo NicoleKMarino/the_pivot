@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   include UsersHelper
   before_action :verify_logged_in, only: [:show]
-  # before_action :verify_admin, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -20,9 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.employer?
-      redirect_to employer_dashboard_index_path
-    end
+    redirect_to employer_dashboard_index_path if current_user.employer?
   end
 
   def edit
