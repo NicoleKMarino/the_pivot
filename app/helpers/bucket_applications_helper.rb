@@ -1,5 +1,4 @@
-module BucketApplicationsHelper
-  
+module BucketApplicationsHelper  
   def redirect_based_on_user
     if current_user
       redirect_to edit_job_application_path(@job_application)
