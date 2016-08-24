@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include UsersHelper
   before_action :verify_logged_in, only: [:show]
-  before_action :verify_admin, only: [:edit, :update]
+  # before_action :verify_admin, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -20,9 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.platform_admin?
-      redirect_to admin_dashboard_index_path
-    elsif current_user.employer?
+    if current_user.employer?
       redirect_to employer_dashboard_index_path
     end
   end
@@ -33,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_dashboard_index_path
+      redirect_to dashboard_path
     else
       render :edit
     end
@@ -56,7 +54,7 @@ class UsersController < ApplicationController
         :password
       )
     end
-    
+
     def set_role
       if @role == "1"
         @employer = Role.find_by(name: "employer")
