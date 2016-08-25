@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823022316) do
+ActiveRecord::Schema.define(version: 20160825005538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160823022316) do
     t.string   "uid"
     t.string   "oauth_token"
     t.string   "oauth_token_secret"
+    t.integer  "status",             default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end

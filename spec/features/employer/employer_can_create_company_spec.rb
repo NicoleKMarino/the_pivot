@@ -29,16 +29,17 @@ RSpec.feature "Employer can create a company" do
 
     fill_in 'Name', with: 'Hewitt and packard'
     fill_in 'Description', with: 'testertestertester'
+    fill_in 'Image', with: 'http://path_to_company_logo'
     select('Arizona', from: 'company[location]')
     select('Finance', from: 'company[industry_id]')
 
-    click_button 'Submit'
+    click_button "Submit"
 
     expect(current_path).to eq(company_path(Company.last.slug))
-
-    expect(page).to have_content 'Hewitt and packard'
-    expect(page).to have_content 'Company added successfully'
+    expect(page).to have_content "Hewitt and packard"
+    expect(page).to have_content "Company added successfully"
     expect(page).to have_content "testertestertester"
     expect(page).to have_content "Finance"
+    expect(Company.last.location).to eq "Arizona"
   end
 end

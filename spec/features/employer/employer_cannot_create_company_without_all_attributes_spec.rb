@@ -29,13 +29,12 @@ RSpec.feature "Employer cannot create a company without all attributes" do
 
     fill_in 'Name', with: ''
     fill_in 'Description', with: 'testertestertester'
-    fill_in 'Location', with: 'Colorado'
+    select('Colorado', from: 'company[location]')
     select('Finance', from: 'company[industry_id]')
 
     click_button 'Submit'
 
     expect(page).to have_content "Missing required fields. Please re-enter your company information."
-
     expect(current_path).to eq(employer_companies_path)
   end
 end

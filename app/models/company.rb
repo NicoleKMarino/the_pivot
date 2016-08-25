@@ -6,7 +6,7 @@ class Company < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :location, presence: true
-  # validates :img_path, presence: true
+  validates :img_path, presence: true
   before_validation :create_slug
   validates_presence_of :slug
 
