@@ -1,5 +1,5 @@
 class Employer::CompaniesController < Employer::BaseController
-  before_action :set_states, only: [:edit, :new]
+  before_action :set_states
 
 
   def set_states
