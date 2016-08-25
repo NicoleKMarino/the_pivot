@@ -7,6 +7,9 @@ class Seed
    create_platform_admin
    create_companies_status_online
    generate_jobs
+   generate_main_user
+   generate_applications
+   generate_main_employer
   end
 
   def self.create_roles
@@ -76,8 +79,8 @@ class Seed
 
   def self.create_platform_admin
     User.create!(
-      username: "Platform_admin",
-      email: "platform_admin@hotmail.com",
+      username: "jorge@turing.io",
+      email: "jorge@turing.io",
       password: "password",
       first_name: "Happy",
       last_name: "Gilmore",
@@ -133,6 +136,59 @@ class Seed
       end
     end
   end
+
+  def self.generate_applications
+    role = Role.find_by(name: "registered_user")
+    users = User.joins(:user_roles).where("user_roles.role_id = ?", role.id)
+    users.each do |user|
+      50.times do
+        user.job_applications.create!(
+        user_id: user.id,
+        summary: Faker::Hipster.paragraph(2),
+        education: Faker::Hipster.paragraph(2),
+        experience: Faker::Hipster.paragraph(2),
+        job_id: rand(1..1000))
+    end
+  end
+end
+
+
+  def self.generate_main_user
+    user = User.create!(
+      username: "jmejia@turing.io",
+      email: "jmejia@turing.io",
+      password: "password",
+      first_name: "Josh",
+      last_name: "Mhhhdhhddfre",
+      address: "2122 Concord Lane",
+      city: "Denver",
+      state: "CO",
+      zip_code: 80215
+    )
+    UserRole.create!(
+      user_id: user.id,
+      role_id: 1
+    )
+  end
+
+  def self.generate_main_employer
+    user = User.create!(
+      username: "nate@turing.io",
+      email: "nate@turing.io",
+      password: "password",
+      first_name: "Nate",
+      last_name: "Mhhhdhhddfre",
+      address: "2122 Concord Lane",
+      city: "Denver",
+      state: "CO",
+      zip_code: 80215
+    )
+    UserRole.create!(
+      user_id: user.id,
+      role_id: 2
+    )
+  end
+
 end
 
 Seed.start

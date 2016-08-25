@@ -8,13 +8,14 @@ class Admin::CompaniesController < Admin::BaseController
     @company = Company.find(params[:id])
     if @company.status == "online"
         @company.update_attributes(status: "offline")
-        @company.jobs.update_all(status: "unavailable")
+        byebug
+        @company.jobs.update_all(status: 1)
       flash[:success] = "#{@company.name} Now Offline"
       redirect_to company_path(@company.slug)
     else
       @company.status == "offline"
       @company.update_attributes(status: "online")
-      @company.jobs.update_all(status: "available")
+      @company.jobs.update_all(status: 0)
       flash[:success] = "#{@company.name} Now Online"
       redirect_to admin_companies_path
     end
