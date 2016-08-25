@@ -25,24 +25,24 @@ Production Website - http://makemypayday.herokuapp.com/
 
 ### Registered User
 
-Apply to jobs for any company
-Company and job filters with jQuery
-Manage my account information
-View my job application history
+- Apply to jobs for any company
+- Company and job filters with jQuery
+- Manage my account information
+- View my job application history
 
 
 ### Employer Admin
 
-Add a job to a company
-Take a companies offline / online
-Update my company information
+- Add a job to a company
+- Take a companies offline / online
+- Update my company information
 
 
 ### Platform Admin
 
-Approve or decline the creation of new employers
-Take an employer offline / online
-Perform any functionality restricted to platform admins
+- Approve or decline the creation of new employers
+- Take an employer offline / online
+- Perform any functionality restricted to platform admins
 
 
 **Project Goals**: Multi-tenancy, authentication, brownfield development.
