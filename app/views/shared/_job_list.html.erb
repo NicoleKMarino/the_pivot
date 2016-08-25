@@ -1,14 +1,16 @@
 <div class="jobs-list">
-  <% @jobs.each do |job| %>
+  <%@companies.each do |company| %>
+  <% company.jobs.each do |job| %>
     <div class="row well col-md-10 job-item job salary<%= job.salary[1] %> <%= job.company.location %>" data-status="<%= job.company.location %>" data-salary="<%= job.salary %>">
       <div class="col-sm-8">
         <h3 class="card-title"> <%=link_to "#{job.title}", job_path(id:job.id) %></h3>
-        <p> Company: <%= job.company.name %> | Location: <%= job.company.location %></p>
+        <p> Company: <%= company.name %> | Location: <%= company.location %></p>
       </div>
       <div class="col-sm-4 job-option-buttons">
         <%=button_to "Apply", bucket_applications_path(job_id: job.id), class:"btn btn-warning" %>
         <%=button_to "Save For Later", saved_jobs_path(id: job.id), class:"btn btn-primary" unless current_user == nil%>
       </div>
     </div>
+    <%end %>
   <% end %>
 </div>

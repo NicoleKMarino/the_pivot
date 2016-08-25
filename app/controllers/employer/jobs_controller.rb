@@ -1,5 +1,15 @@
 class Employer::JobsController < Employer::BaseController
   before_action :set_job, only: [:edit, :update]
+  before_action :set_salary, only: [:edit, :new]
+
+  def set_salary
+    @salaries = [
+      "$20,000-$40,000",
+      "$40,000-$60,000",
+      "$60,000-$80,000",
+      "$80,000-$100,000"
+    ]
+  end
 
   def new
     @job = Job.new

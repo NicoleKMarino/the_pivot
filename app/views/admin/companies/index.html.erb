@@ -3,7 +3,7 @@
 <div class="jobs-list">
   <% @companies.each do |company| %>
     <div class="row well col-md-10 job-item job salary">
-      <%=button_to "Put Online", admin_company_path(id: company.id), class:"btn btn-warning", method: :put %>
+      <%=button_to "Put Online", admin_company_path(id: company.id, status: 1), class:"btn btn-warning", method: :put %>
       <h3 class="card-title"> <%=link_to "#{company.name}", company_path(slug:company.slug)%></h3>
       <div class="col-sm-8">
       </div>

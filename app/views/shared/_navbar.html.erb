@@ -1,17 +1,22 @@
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-brand">
     <%= link_to "MakeMyPayday", root_path, class: 'site-name' %>
-    <%#= link_to image_tag('logo-big.png', class: 'logo'), root_path %>
   </div>
   <ul class="nav navbar-nav navbar-right">
     <li>
-  
+
       <%= link_to "Started Applications: #{@bucket.total_applications}", bucket_index_path %>
     </li>
     <li>
       <% if current_user != nil %>
-        <%= link_to "Hello, #{current_user.username}", dashboard_path %>
-      <% end %>
+        <% if current_user.platform_admin? %>
+          <%= link_to "Hello, #{current_user.username}", admin_dashboard_index_path %>
+        <% elsif current_user.employer? %>
+          <%= link_to "Hello, #{current_user.username}", employer_dashboard_index_path %>
+          <%else %>
+          <%= link_to "Hello, #{current_user.username}", dashboard_path %>
+        <% end %>
+      <%end %>
     </li>
     <% if current_user %>
       <li>

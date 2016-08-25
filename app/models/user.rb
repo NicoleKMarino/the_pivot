@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :saved_jobs
   has_many :jobs, through: :saved_jobs
   has_many :user_roles
-  has_many :companies 
+  has_many :companies
   has_many :roles, through: :user_roles
   validates :username, presence: true, uniqueness: true, if: "uid.nil?", on: :create
   validates :email, presence: true, uniqueness: true, if: "uid.nil?", on: :create
@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :zip_code, length: { is: 5 }
 
   after_create :send_welcome_email
+
+  enum status: %w(online offline)
 
   def date_registered
     created_at.strftime("%m/%d/%Y")
@@ -41,5 +43,11 @@ class User < ApplicationRecord
 
   def registered_user?
     roles.exists?(name: "registered_user")
+  end
+
+  def total_jobs #test this method
+    companies.map do |company|
+      company.jobs.count
+    end.reduce(:+)
   end
 end

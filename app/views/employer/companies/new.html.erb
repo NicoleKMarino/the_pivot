@@ -1,8 +1,9 @@
 <div class="page-content">
 
   <br></br>
-  <br></br>
-
+  <center>
+<h2>Add Company</h2>
+</center>
 <div class="well col-md-7 col-md-offset-2">
   <%= form_for [:employer, @company] do |f| %>
     <div class="form-group">
@@ -13,10 +14,14 @@
       <%= f.label :description %>
       <%= f.text_field :description, class: 'form-control' %>
     </div>
+    <br></br>
     <div class="form-group">
       <%= f.label :location %>
-      <%= f.text_field :location, step: 'any', class: 'form-control' %>
-    </div>
+      <select name="company[location]">
+        <%= @states.each do |state| %>
+          <option value="<%= state %>"><%= state %></option>
+         <% end %>
+       </select>
     <br></br>
     <div class="form-group">
       <%= f.label :industry_id %>
@@ -28,7 +33,7 @@
      </div>
     <div class="form-group">
       <%= f.label :img_path, 'Image' %>
-      <%= f.file_field :img_path, class: 'center_button' %>
+      <%= f.text_field :img_path, class: 'center_button' %>
     </div>
     <div class="form-group">
       <%= f.submit 'Submit', :class => 'btn btn-primary' %>

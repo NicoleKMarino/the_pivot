@@ -23,13 +23,11 @@ RSpec.feature "Employer can create a job" do
     click_link 'Manage Jobs'
 
     expect(current_path).to eq(employer_jobs_path)
-
     expect(page).to have_content "Web Developer"
 
     click_button "Delete"
 
     expect(current_path).to eq(employer_jobs_path)
-
     expect(page).to have_content "You've deleted job Web Developer."
   end
 end
