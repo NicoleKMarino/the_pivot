@@ -7,10 +7,11 @@ class BucketApplicationsController < ApplicationController
     app = StartApplication.new(@job, @bucket, current_user)
     if app.outcome == "success"
       add_app_to_bucket
+      redirect_based_on_user
     else
       flash[:alert] = "You can't apply twice for the same job position."
+      redirect_to jobs_path
     end
-    redirect_based_on_user
   end
 
   def update
