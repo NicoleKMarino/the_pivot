@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def set_bucket
     @bucket = Bucket.new(session[:bucket])
   end
-  
+
   def assign_bucket_applications_to_user
     @bucket.contents.keys.each do |job_application|
       application = JobApplication.find(job_application)
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in
     unless current_user
-      flash[:danger] = "Please login to view this page"
+      flash[:danger] = "Please login to view this page!"
       redirect_to login_path
     end
   end
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless authorize?
-      flash[:danger] = "You don't have the authority to visit this page"
+      flash[:danger] = "Please login to view this page!"
       redirect_to root_url
     end
   end
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   def authorize?
     PermissionService.new(current_user).allow?(params[:controller])
   end
-  
+
   def salary_list
     @jobs = Job.all
     @jobs.map { |job| job.salary }.uniq
@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   def location_list
     @companies.map { |company| company.location }.uniq
   end
-  
+
   def industry_list
     @companies.map { |company| company.industry.name }.uniq
   end

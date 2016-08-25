@@ -42,28 +42,27 @@ class Employer::JobsController < Employer::BaseController
 
   private
 
-  def job_params
-    params.require(:job).permit(:title,
-                                 :description,
-                                 :salary,
-                                 :company_id)
-  end
+    def job_params
+      params.require(:job).permit(:title,
+                                   :description,
+                                   :salary,
+                                   :company_id)
+    end
 
-  def set_job
-    @job = Job.find(params[:id])
-  end
+    def set_job
+      @job = Job.find(params[:id])
+    end
 
-  def set_salary
-    @salaries = [
-      "$20,000-$40,000",
-      "$40,000-$60,000",
-      "$60,000-$80,000",
-      "$80,000-$100,000"
-    ]
-  end
+    def set_salary
+      @salaries = [
+        "$20,000-$40,000",
+        "$40,000-$60,000",
+        "$60,000-$80,000",
+        "$80,000-$100,000"
+      ]
+    end
 
-  def set_companies
-    @companies = current_user.companies
-  end
-
+    def set_companies
+      @companies = current_user.companies
+    end
 end

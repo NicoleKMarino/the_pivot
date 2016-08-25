@@ -7,9 +7,7 @@ class Employer::CompaniesController < Employer::BaseController
   end
 
   def create
-    company_hash = company_params
-    company_hash[:user_id] = current_user.id
-    @company = Company.new(company_hash)
+    @company = current_user.companies.create(company_params)
     if @company.save
       flash[:success] = "Company added successfully"
       redirect_to company_path(@company.slug)

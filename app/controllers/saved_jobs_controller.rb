@@ -6,7 +6,7 @@ class SavedJobsController < ApplicationController
     if @saved_job.save
       flash[:success] = "You have saved #{@job.title} for later."
     else
-      flash[:danger] = "You already saved that job"
+      flash[:danger] = "You already saved that job."
     end
     redirect_to jobs_path
   end
@@ -19,7 +19,7 @@ class SavedJobsController < ApplicationController
 
   private
 
-  def set_job
-    @job = Job.find(params[:id])
-  end
+    def set_job
+      @job = Job.find(params[:id])
+    end
 end
