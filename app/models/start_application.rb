@@ -20,12 +20,19 @@ class StartApplication < SimpleDelegator
   end
 
   def create_registered_user_application
-    # if job_application_already_created?
+    if user_already_applied?
+      @outcome = "failed"
+    else
       @job.job_applications.create(
         summary: "Please write a brief paragraph explaining why you would be a good fit for this job.",
         user_id: current_user.id
       ) 
       @bucket.add_application(JobApplication.last)
+    end
+  end
+  
+  def user_already_applied?
+    JobApplication.where(user_id: @current_user.id, job_id: @job.id).exists?
   end
   
   def job_application_already_in_bucket?
@@ -38,5 +45,4 @@ class StartApplication < SimpleDelegator
       @bucket.add_application(JobApplication.last)
     end
   end
-  
 end
