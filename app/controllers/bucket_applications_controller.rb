@@ -2,20 +2,16 @@ class BucketApplicationsController < ApplicationController
   include ActionView::Helpers::TextHelper
   before_action :set_job_application, only: [:update, :destroy]
 
-  # def create
-  #   @job = Job.find(params[:job_id])
-  #   create_job_application
-  #   @bucket.add_application(@job_application)
-  #   session[:bucket] = @bucket.contents  
-  #   flash[:success] = "You have started an application for #{@job.title}. You have started #{pluralize(@bucket.total_applications, 'job')} applications."
-  #   redirect_based_on_user
-  # end
   def create
     @job = Job.find(params[:job_id])
-    StartApplication.new(@job, current_user)
-    @bucket.add_application(JobApplication.last)
-    session[:bucket] = @bucket.contents 
-    flash[:success] = "You have started an application for #{@job.title}. You have started #{pluralize(@bucket.total_applications, 'job')} applications."
+    app = StartApplication.new(@job, @bucket, current_user)
+    if app.outcome == "success"
+      session[:bucket] = @bucket.contents 
+      flash[:success] = "You have started an application for #{@job.title}. \
+      You have started #{pluralize(@bucket.total_applications, 'job')} applications."
+    else
+      flash[:alert] = "You can't apply twice for the same job position."
+    end
     redirect_based_on_user
   end
 
@@ -52,21 +48,4 @@ class BucketApplicationsController < ApplicationController
         redirect_to jobs_path
       end 
     end
-    
-    # def create_job_application
-    #   if current_user
-    #     create_registered_user_application 
-    #   else
-    #   @job_application = @job.job_applications.create(
-    #     summary: "Please write a brief paragraph explaining why you would be a good fit for this job."
-    #   )
-    #   end
-    # end
-    # 
-    # def create_registered_user_application
-    #   @job_application = @job.job_applications.create(
-    #     summary: "Please write a brief paragraph explaining why you would be a good fit for this job.",
-    #     user_id: current_user.id
-    #   )
-    # end
 end
