@@ -16,9 +16,9 @@ class SavedJobsController < ApplicationController
     flash[:success] = "You have delete #{@job.title} from your saved jobs."
     redirect_to saved_jobs_path
   end
-  
+
   private
-  
+
   def set_job
     @job = Job.find(params[:id])
   end
