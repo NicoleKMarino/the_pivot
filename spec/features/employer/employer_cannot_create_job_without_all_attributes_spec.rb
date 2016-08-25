@@ -25,10 +25,10 @@ RSpec.feature "Employer can create a job" do
     fill_in 'Description', with: "Experience required"
     select('$40,000-$60,000', from: 'job[salary]')
     select('Inspirato', from: 'job[company_id]')
-
-    # click_button "Create Job"
     # 
-    # expect(current_path).to eq(new_employer_job_path)
+    # click_button "Create Job"
+    
+    # # expect(current_path).to eq(new_employer_job_path)
     # expect(page).to have_content "Title can't be blank"
   end
 end
