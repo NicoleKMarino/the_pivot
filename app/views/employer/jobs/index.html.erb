@@ -1,11 +1,11 @@
 <div class="page-content">
 <br></br>
 <div class="row well col-sm-6">
-<%=button_to "Add New Job", new_employer_job_path, class:"btn btn-primary pull-left", method: :get%>
+  <%= button_to "Add New Job", new_employer_job_path, class:"btn btn-primary pull-left", method: :get%>
 </div>
   <% @companies.each do |company| %>
 <div class="jobs-list">
-  <% company.jobs.each do |job| unless company.jobs.empty?%>
+  <% company.jobs.each do |job| unless company.jobs.empty? %>
     <div class="row well col-md-10 job-item job salary<%= job.salary[1] %> <%= job.company.location %>" data-status="<%= job.company.location %>" data-salary="<%= job.salary %>">
       <div class="col-sm-8">
         <h3 class="card-title"> <%=link_to "#{job.title}", job_path(id:job.id) %></h3>

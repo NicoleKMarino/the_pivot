@@ -12,7 +12,6 @@ class Admin::CompaniesController < Admin::BaseController
       flash[:success] = "#{@company.name} Now Offline"
       redirect_to company_path(@company.slug)
     else
-      @company.status == "offline"
       @company.update_attributes(status: "online")
       @company.jobs.update_all(status: "available")
       flash[:success] = "#{@company.name} Now Online"

@@ -15,7 +15,7 @@
         <%= image_tag(company.img_path, class: "company-image", alt: company.name) unless company.img_path.nil?%>
         <br></br>
 
-        <%=link_to company.name.capitalize, company_path(slug:company.slug) %>
+        <%=link_to company_format(company), company_path(slug:company.slug) %>
         <div class="panel-body format-panel">
           <p><%= company.location %></p>
           <p><%= company.industry.name %></p>

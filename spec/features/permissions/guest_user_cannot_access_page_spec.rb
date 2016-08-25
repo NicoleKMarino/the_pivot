@@ -9,10 +9,10 @@ RSpec.feature "Guest can't visit certain pages" do
 
     visit admin_dashboard_index_path
 
-    expect(page).to have_content "You don't have the authority to visit this page"
+    expect(page).to have_content "Please login to view this page!"
 
     visit employer_dashboard_index_path
 
-    expect(page).to have_content "You don't have the authority to visit this page"
+    expect(page).to have_content "Please login to view this page!"
   end
 end

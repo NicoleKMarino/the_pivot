@@ -1,7 +1,7 @@
 <div class="page-content">
   <div class="well col-md-10">
     <h2>Job Application</h2>
-    <p>You are applying for <%= @job_application.job.title.upcase %> position at <%= @job_application.job.company.name.upcase %></p>
+    <p>You are applying for <%= job_format(@job_application) %> position at <%= company_application_format(@job_application) %></p>
     <br>
     <p><strong>Job Position Description</strong></p>
     <p><%= @job_application.job.description %></p>

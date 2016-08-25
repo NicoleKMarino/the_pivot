@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   def index
-    @companies = Company.all.where(status: 1)
+    @companies = Company.where(status: 1)
     @locations = location_list
     @salaries = salary_list
   end

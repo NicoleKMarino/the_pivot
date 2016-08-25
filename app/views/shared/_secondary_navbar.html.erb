@@ -12,11 +12,11 @@
     </li>
     <li>
   <% if current_user != nil %>
-    <% if current_user.platform_admin? %>
+    <% if platform_admin %>
     <%= link_to admin_dashboard_index_path, class:"navbar-list" do %>
       <i class="fa fa-align-justify navbar-list"></i>My Account
     <% end %>
-  <% elsif current_user.employer? %>
+  <% elsif employer %>
     <%= link_to employer_dashboard_index_path, class:"navbar-list" do %>
       <i class="fa fa-align-justify navbar-list"></i>My Account
     <% end %>
