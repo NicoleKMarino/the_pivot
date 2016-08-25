@@ -40,7 +40,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
       within(".jobs-list") do
         first(".job-option-buttons").click_on "Apply"
       end
-      
+    
       expect(page).to have_content "Started Applications: 1"
       
       visit jobs_path
