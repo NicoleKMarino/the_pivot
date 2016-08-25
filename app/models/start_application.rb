@@ -33,11 +33,18 @@ class StartApplication < SimpleDelegator
   end
   
   def job_application_already_in_bucket?
-    if @job.job_applications.exists?
+    if check_bucket
       @outcome = "failed"
     else
       create_job_application
     end
+  end
+  
+  def check_bucket
+    bucket = @bucket.contents.keys.map do |job_app|
+      JobApplication.find(job_app).job_id == @job.id
+    end
+    return true if bucket.include?(true)
   end
   
   def create_job_application

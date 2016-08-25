@@ -2,11 +2,7 @@ require 'rails_helper'
 require 'support/test_helper'
 
 RSpec.feature "Guest can start more than one application but needs to create an account to finalize applications" do
-  
-  # before do
-  #   create_two_jobs
-  # end
-  
+
   scenario "Guest visits jobs page and selects apply for a certain job" do
     create_two_jobs
     
@@ -27,7 +23,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
     within(".jobs-list") do
       find(".job-item:nth-child(2)").click_on "Apply"
     end
-  
+
     expect(page).to have_content("Started Applications: 2")
     expect(current_path).to eq(bucket_path(Job.second))
     expect(page).to have_button("Create Account to Continue Application")
@@ -44,7 +40,7 @@ RSpec.feature "Guest can start more than one application but needs to create an 
       within(".jobs-list") do
         first(".job-option-buttons").click_on "Apply"
       end
-      
+    
       expect(page).to have_content "Started Applications: 1"
       
       visit jobs_path
@@ -54,6 +50,5 @@ RSpec.feature "Guest can start more than one application but needs to create an 
 
       expect(page).to have_content "Started Applications: 1"
       expect(page).to have_content "You can't apply twice for the same job position."
-      
     end
 end
