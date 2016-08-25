@@ -6,10 +6,6 @@ class JobsController < ApplicationController
     @salaries = salary_list
   end
 
-  def unavailable
-    @jobs_unavailable = Job.where(status: 1)
-  end
-
   def show
     @job = Job.find(params[:id])
   end

@@ -22,9 +22,7 @@ Rails.application.routes.draw do
   resources :bucket_applications, only: [:create, :update, :destroy]
   resources :bucket, only: [:index, :show]
 
-  resources :jobs, only: [:index, :show] do
-    get 'unavailable', on: :collection
-  end
+  resources :jobs, only: [:index, :show]
 
   resources :users,  only: [:new, :create, :edit, :update]
   namespace :user do
