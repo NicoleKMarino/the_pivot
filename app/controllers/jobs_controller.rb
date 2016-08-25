@@ -13,15 +13,4 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
   end
-
-  private
-
-    def salary_list
-      @jobs = Job.all
-      @jobs.map { |job| job.salary }.uniq
-    end
-
-    def location_list
-      @companies.map { |company| company.location }.uniq
-    end
 end
