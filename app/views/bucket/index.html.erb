@@ -14,7 +14,13 @@
           <tr>
             <th>Summary Paragrah</th>
             <th>Status</th>
-            <th><%= button_to "Complete this Application", edit_job_application_path(application), method: :get %></th>
+            <th>
+            <% if current_user %>
+              <%= button_to "Complete this Application", edit_job_application_path(application), method: :get %>
+            <% else %>
+              <%=button_to "Login or Create Account to Continue Application", login_path, method: :get, class:"btn btn-warning" %>
+            <% end %>
+          </th>
           </tr>
         </thead>
         <tbody>
