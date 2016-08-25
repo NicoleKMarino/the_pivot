@@ -19,5 +19,4 @@ class JobsController < ApplicationController
       def location_list
         @jobs.map { |job| job.company.location }.uniq
       end
-      
   end

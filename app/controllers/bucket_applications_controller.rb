@@ -30,7 +30,7 @@ class BucketApplicationsController < ApplicationController
     def set_job_application
       @job_application = JobApplication.find(params[:id])
     end
-    
+
     def add_app_to_bucket
       session[:bucket] = @bucket.contents
       flash[:success] = "You have started an application for #{@job.title}. \
