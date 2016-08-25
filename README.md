@@ -1,6 +1,6 @@
 # MakeMyPayday
 
-The Pivot is a collaborative Rails project that builds a multi-tenancy ecommerce website adapted from an existing codebase in 2 weeks. MakeMyPayday is a job platform for employers to post available jobs and job seekers to search and apply for jobs.
+The Pivot is a collaborative Rails project that builds a multi-tenancy website adapted from an existing codebase. MakeMyPayday is a job platform for employers to post available jobs and job seekers to search and apply for jobs.
 
 Production Website - http://makemypayday.herokuapp.com/
 
