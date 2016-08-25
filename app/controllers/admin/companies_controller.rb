@@ -1,7 +1,7 @@
 class Admin::CompaniesController < Admin::BaseController
 
   def index
-    @companies = Company.all.where(status: 0)
+    @companies = Company.where(status: 0)
   end
 
   def update

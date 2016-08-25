@@ -14,7 +14,6 @@ RSpec.feature "Employer can login" do
 
     expect(current_path).to eq(employer_dashboard_index_path)
     expect(page).to have_link "Logout"
-    expect(page).to have_content "Pending Requests"
     expect(page).to have_content "Manage Jobs"
     expect(page).not_to have_content "Login"
   end
@@ -32,4 +31,4 @@ RSpec.feature "Employer can login" do
 
     expect(page).to have_content("You don't have the authority to visit this page")
   end
-end 
+end

@@ -15,7 +15,7 @@ class Bucket
   end
 
   def total_applications
-    self.contents.length
+    contents.length
   end
 
   def all_applications
