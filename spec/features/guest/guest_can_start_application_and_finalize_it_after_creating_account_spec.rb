@@ -38,7 +38,7 @@ RSpec.feature "Guest can finilize application after creating an account" do
     expect(page).to have_content "I have experience in this industry."
     
     click_on "Complete this Application"
-  save_and_open_page
+
     expect(current_path).to eq(edit_job_application_path(JobApplication.last))
     
     fill_in "Education", with: "Turing"
