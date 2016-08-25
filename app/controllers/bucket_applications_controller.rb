@@ -1,6 +1,7 @@
 class BucketApplicationsController < ApplicationController
   include BucketApplicationsHelper
   include ActionView::Helpers::TextHelper
+  before_action :set_job_application, only: [:update, :destroy]
 
   def create
     @job = Job.find(params[:job_id])
@@ -12,16 +13,18 @@ class BucketApplicationsController < ApplicationController
   end
 
   def update
-    @job_application = JobApplication.find(params[:id])
     @bucket.contents[params[:id]] = params[:summary]
     @job_application.update_summary(params[:summary])
     redirect_based_on_referrer_button
   end
 
   def destroy
-    @application = JobApplication.find(params[:id])
     @bucket.contents.delete(params[:id])
-    flash[:success] = "Your application for #{@application.job.title} has been cancelled."
+    flash[:success] = "Your application for #{@job_application.job.title} has been cancelled."
     redirect_to bucket_index_path
+  end
+  
+  def set_job_application
+    @job_application = JobApplication.find(params[:id])
   end
 end

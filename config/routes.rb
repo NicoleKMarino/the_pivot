@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   resources :saved_jobs, only: [:create,:destroy,:index]
 
-  resources :companies,      only: [:index]
-  resources :bucket_applications,    only: [:create, :update, :destroy]
-  resources :bucket,         only: [:index, :show]
+  resources :companies, only: [:index]
+  resources :bucket_applications, only: [:create, :update, :destroy]
+  resources :bucket, only: [:index, :show]
 
   resources :jobs, only: [:index, :show] do
     get 'unavailable', on: :collection
@@ -37,6 +37,6 @@ Rails.application.routes.draw do
   get '/dashboard',                 to: 'users#show'
   get '/industries/:industry_slug', to: 'industries#show', as: :industry
 
-  get '/auth/twitter', as: :twitter_login
+  get '/auth/twitter',          as: :twitter_login
   get '/auth/twitter/callback', to: 'sessions#create'
 end

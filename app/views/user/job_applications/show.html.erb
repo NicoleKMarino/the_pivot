@@ -1,2 +1,10 @@
-<div class="page-content">
-<h1>Job Application <%= @job_application.id %> }</h1>
+<div class="job-show">
+  <div class="well col-md-10">
+    <h1>Job Application for <%= @job_application.job.company.name %></h1>
+    <div class="job-content">
+      <h2><p>Summary: <strong><%= @job_application.summary %></strong></h2></p>
+      <h2><p>Education: <strong><%= @job_application.education %></strong></h2></p>
+      <h2><p>Experience: <strong><%= @job_application.experience %></strong></h2></p>    
+    </div>
+  </div>
+</div>

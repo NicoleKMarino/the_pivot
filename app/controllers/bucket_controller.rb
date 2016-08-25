@@ -1,5 +1,4 @@
 class BucketController < ApplicationController
-
   def index
     @bucket_applications = @bucket.all_applications
   end

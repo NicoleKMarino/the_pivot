@@ -34,8 +34,5 @@ RSpec.feature "Registered user can apply for a job" do
     expect(job_application.status).to eq("submitted")
     expect(current_path).to eq(dashboard_path)    
   end
-  
-  xscenario "User visits a job page and applies for that job" do
-  end
-end
+end  
   
