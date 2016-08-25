@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 
   def index
-    @jobs = Job.where(status: 0)
+    @companies = Company.all.where(status: 1)
     @locations = location_list
     @salaries = salary_list
   end
@@ -17,10 +17,11 @@ class JobsController < ApplicationController
   private
 
     def salary_list
+      @jobs = Job.all
       @jobs.map { |job| job.salary }.uniq
     end
 
     def location_list
-      @jobs.map { |job| job.company.location }.uniq
+      @companies.map { |company| company.location }.uniq
     end
 end

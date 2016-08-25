@@ -1,13 +1,22 @@
 <div class="page-content">
-  <p></p>
+  <br></br>
+    <%if current_user != nil && current_user.platform_admin? %>
+    <center>
+    <div class="well col-md-4 text-left">
+    <h2>Status: <%=@company.status%></h2>
+    <%=button_to "Put Online", admin_company_path(id: @company.id,status: 1), class:"btn btn-warning pull-left", method: :put if current_user.platform_admin? && @company.status == "offline" unless current_user.nil?%>
+    <%=button_to "Take Offline", admin_company_path(id: @company.id, status: 0), class:"btn btn-warning pull-left", method: :put if current_user.platform_admin? && @company.status == "online" unless current_user.nil?%>
+  </div>
+  </center>
+  <%end %>
   <div class="well col-md-10">
-    <%=button_to "Put Online", admin_company_path(id: @company.id), class:"btn btn-warning", method: :put if current_user.platform_admin? && @company.status == "offline" unless current_user.nil?%>
+  <p></p>
+  <h1>Industry: <%= @company.industry.name %></h1>
     <%= image_tag(@company.img_path, class: "company-image", alt: @company.name) unless @company.img_path == nil %>
-    <h2><%=@company.name.capitalize%></h2>
-    <h1>Industry: <%= @company.industry.name %></h1>
+    <h2>Name: <%=@company.name.capitalize%></h2>
     <h4>Description: <%= @company.description %></h4>
     <br>
-    <h1>All Jobs</h1>
+    <h2>All Jobs</h2>
     <br>
     <% @company.jobs.each do |job| %>
     <strong><%=link_to "#{job.title.capitalize}", jobs_path%></strong>
