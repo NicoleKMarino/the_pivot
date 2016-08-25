@@ -1,14 +1,13 @@
 class Employer::JobsController < Employer::BaseController
   before_action :set_job, only: [:edit, :update, :destroy]
-  before_action :set_salary, only: [:edit, :new]
+  before_action :set_salary, only: [:edit, :new, :create, :update]
+  before_action :set_companies
 
   def new
     @job = Job.new
-    @companies = current_user.companies
   end
 
   def index
-    @companies = current_user.companies
   end
 
   def destroy
@@ -29,7 +28,6 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def edit
-    @companies = current_user.companies
   end
 
   def update
@@ -62,5 +60,9 @@ class Employer::JobsController < Employer::BaseController
         "$60,000-$80,000",
         "$80,000-$100,000"
       ]
+    end
+
+    def set_companies
+      @companies = current_user.companies
     end
 end
