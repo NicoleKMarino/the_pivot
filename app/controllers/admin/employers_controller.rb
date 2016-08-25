@@ -1,15 +1,10 @@
 class Admin::EmployersController < Admin::BaseController
 
   def index
-    @employers = []
-    User.all.each do |user|
-      if user.roles.first.name == "employer"
-        @employers << user
-      end
-    end
-    @employers
+    role = Role.find_by(name: "employer")
+    @employers = User.joins(:user_roles).where("user_roles.role_id = ?", role.id)
   end
-
+  
   def update
     @employer = User.find(params[:id])
     if @employer.status == "online"

@@ -6,8 +6,8 @@
         <p> Company: <%= job.company.name %> | Location: <%= job.company.location %></p>
       </div>
       <div class="col-sm-4 job-option-buttons">
-        <%=button_to "Apply", bucket_applications_path(job_id: job.id), class:"btn btn-warning" %>
-        <%=button_to "Save For Later",saved_jobs_path(job_id: job.id), class:"btn btn-primary" unless current_user == nil%>
+        <%=button_to "Apply", bucket_applications_path(id: job.id), class:"btn btn-warning" %>
+        <%=button_to "Save For Later",saved_jobs_path(id: job.id), class:"btn btn-primary" unless current_user == nil%>
       </div>
     </div>
   <% end %>
