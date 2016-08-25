@@ -6,7 +6,6 @@ class Bucket
   end
 
   def add_application(job_application)
-    #add conditional for not allowing duplicates
     @contents[job_application.id.to_s] ||= ""
   end
 

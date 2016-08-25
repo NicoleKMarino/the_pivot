@@ -1,5 +1,5 @@
 class Admin::EmployersController < Admin::BaseController
-
+  
   def index
     @employers = []
     User.all.each do |user|
@@ -9,6 +9,16 @@ class Admin::EmployersController < Admin::BaseController
     end
     @employers
   end
+  
+  # def index
+  #   UserRole.where(role_id: 2).map do |user_role|
+  #     target_id = user_role.user_id
+  #     User.find(target_id)
+  #   end
+  #   @employers
+  # end
+  # 
+  
 
   def update
     @employer = User.find(params[:id])

@@ -1,18 +1,9 @@
 class Employer::JobsController < Employer::BaseController
-  before_action :set_job, only: [:edit, :update]
+  before_action :set_job, only: [:edit, :update, :destroy]
   before_action :set_salary, only: [:edit, :new]
 
-  def set_salary
-    @salaries = [
-      "$20,000-$40,000",
-      "$40,000-$60,000",
-      "$60,000-$80,000",
-      "$80,000-$100,000"
-    ]
-  end
-
   def new
-    @job = Job.new
+    @job = Job.new 
     @companies = current_user.companies
   end
 
@@ -21,7 +12,6 @@ class Employer::JobsController < Employer::BaseController
   end
 
   def destroy
-    @job= Job.find(params[:id])
     @job.destroy
     flash[:success] = "You've deleted job #{@job.title}."
     redirect_to employer_jobs_path
@@ -64,5 +54,13 @@ class Employer::JobsController < Employer::BaseController
   def set_job
     @job = Job.find(params[:id])
   end
-
+  
+  def set_salary
+    @salaries = [
+      "$20,000-$40,000",
+      "$40,000-$60,000",
+      "$60,000-$80,000",
+      "$80,000-$100,000"
+    ]
+  end
 end

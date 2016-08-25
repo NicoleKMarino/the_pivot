@@ -15,8 +15,8 @@
       <div class="form-group">
         <%= f.label :salary %>
         <select name="job[salary]">
-          <%= @salaries.each do |salary| %>
-            <option value="<%=salary %>"><%=salary %></option>
+          <% @salaries.each do |salary| %>
+            <option value="<%=salary %>"><%= salary %></option>
            <% end %>
          </select>
       <div class="form-group">
