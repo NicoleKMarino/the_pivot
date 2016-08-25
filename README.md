@@ -16,11 +16,11 @@ Production Website - http://makemypayday.herokuapp.com/
 ## Features:
 
 ### Guest User
-Visit different companies.
-Company and job filters with jQuery
-Add jobs from multiple companies into a bucket of applications.
-Can start and application.
-Must Log in or create an account before submitting an application.
+- Visit different companies.
+- Company and job filters with jQuery
+- Add jobs from multiple companies into a bucket of applications.
+- Can start and application.
+- Must Log in or create an account before submitting an application.
 
 
 ### Registered User
