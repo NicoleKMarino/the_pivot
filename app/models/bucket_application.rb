@@ -1,9 +1,9 @@
 class BucketApplication < SimpleDelegator
   attr_reader :summary
 
-  def initialize(application, summary)
-    @application = application
+  def initialize(job_application, summary)
+    @job_application = job_application
     @summary = summary
-    super(@application)
+    super(@job_application)
   end
 end

@@ -14,7 +14,7 @@ class Bucket
     self.contents.length
   end
 
-  def all_applications
+  def all_applications #try something else
     contents.map do |application_id, summary|
       application = JobApplication.find(application_id)
       BucketApplication.new(application, summary)
