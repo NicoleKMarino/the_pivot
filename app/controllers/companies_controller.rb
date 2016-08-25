@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  
+
   def index
     @companies = Company.all.where(status: "online")
     @locations = location_list

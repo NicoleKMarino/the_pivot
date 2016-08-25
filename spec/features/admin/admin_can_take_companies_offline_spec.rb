@@ -19,10 +19,15 @@ RSpec.feature "Admin can turn a company off" do
       name: "Inspirato",
       description: "Great company",
       location: "CO",
-      status: "offline",
+      status: "online",
       img_path: "http://kpcbweb2.s3.amazonaws.com/companies/422/logo/original/Inspirato_logotype_K_-%C2%AB.jpg?1339101904",
       user_id: user.id
     )
+    company.jobs.create(
+            title: "Web Developer",
+            description: "Web Stuff",
+            salary: "40,000-60,000",
+          )
     user = User.find(company.user_id)
     role1 = Role.create(name: "platform_admin")
     UserRole.create(user_id: user.id, role_id: role1.id)
@@ -35,14 +40,12 @@ RSpec.feature "Admin can turn a company off" do
 
     expect(current_path).to eq(admin_dashboard_index_path)
 
-    click_link "Pending Requests(#{Company.count})"
+    visit company_path(company.slug)
 
-    expect(page).to have_content company.name
-    click_link "#{company.name}"
+    click_button "Take Offline"
 
-    click_button "Put Online"
+    expect(page).to have_content("#{company.name} Now Offline")
 
-    expect(page).to have_content("#{company.name} Now Online")
 
   end
 end
