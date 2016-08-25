@@ -6,9 +6,7 @@ class BucketApplicationsController < ApplicationController
     @job = Job.find(params[:id])
     app = StartApplication.new(@job, @bucket, current_user)
     if app.outcome == "success"
-      session[:bucket] = @bucket.contents
-      flash[:success] = "You have started an application for #{@job.title}. \
-      You have started #{pluralize(@bucket.total_applications, 'job')} applications."
+      add_app_to_bucket
     else
       flash[:alert] = "You can't apply twice for the same job position."
     end
@@ -33,6 +31,12 @@ class BucketApplicationsController < ApplicationController
       @job_application = JobApplication.find(params[:id])
     end
 
+    def add_app_to_bucket
+      session[:bucket] = @bucket.contents
+      flash[:success] = "You have started an application for #{@job.title}. \
+      You have started #{pluralize(@bucket.total_applications, 'job')} applications."
+    end
+  
     def redirect_based_on_user
       if current_user
         redirect_to edit_job_application_path(JobApplication.last)
