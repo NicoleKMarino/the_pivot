@@ -152,6 +152,20 @@ class Seed
   end
 end
 
+def self.generate_old_applications
+  User.find_by(username: 'jmejia@turing.io')
+    2.times do
+    user.job_applications.create!(
+    user_id: user.id,
+    summary: Faker::Hipster.paragraph(2),
+    education: Faker::Hipster.paragraph(2),
+    experience: Faker::Hipster.paragraph(2),
+    created_at: "2016-08-21 17:40:33",
+    job_id: 4
+    )
+  end
+end
+
 
   def self.generate_main_user
     user = User.create!(
