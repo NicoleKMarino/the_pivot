@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Guest can finilize application after creating an account" do
-  scenario "guest starts an application and after creating an account submits the application" do
+  before do
     role = Role.create(name: "registered_user")
     job = create_job
-
+  end
+  scenario "guest starts an application and after creating an account submits the application" do
+    
     visit jobs_path
     within(".jobs-list") do
       first(".job-option-buttons").click_on "Apply"
@@ -37,6 +39,8 @@ RSpec.feature "Guest can finilize application after creating an account" do
     
     click_on "Complete this Application"
 
+    expect(current_path).to eq(edit_job_application_path(JobApplication.last))
+    
     fill_in "Education", with: "Turing"
     fill_in "Experience", with: "Group projects"
     

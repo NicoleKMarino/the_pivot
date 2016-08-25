@@ -6,7 +6,12 @@ class Bucket
   end
 
   def add_application(job_application)
-    @contents[job_application.id.to_s] ||= ""
+    if @contents.keys.include?(job_application.job_id)
+     return false
+    else
+      @contents[job_application.id.to_s] ||= ""
+      return true
+    end
   end
 
   def total_applications

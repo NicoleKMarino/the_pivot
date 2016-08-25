@@ -41,4 +41,17 @@ class ApplicationController < ActionController::Base
   def authorize?
     PermissionService.new(current_user).allow?(params[:controller])
   end
+  
+  def salary_list
+    @jobs = Job.all
+    @jobs.map { |job| job.salary }.uniq
+  end
+
+  def location_list
+    @companies.map { |company| company.location }.uniq
+  end
+  
+  def industry_list
+    @companies.map { |company| company.industry.name }.uniq
+  end
 end
