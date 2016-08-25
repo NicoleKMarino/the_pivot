@@ -35,7 +35,6 @@ RSpec.feature "Employer cannot create a company without all attributes" do
     click_button 'Submit'
 
     expect(page).to have_content "Missing required fields. Please re-enter your company information."
-
     expect(current_path).to eq(employer_companies_path)
   end
 end

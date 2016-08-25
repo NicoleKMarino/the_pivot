@@ -1,4 +1,5 @@
 class Admin::CompaniesController < Admin::BaseController
+
   def index
     @companies = Company.all.where(status: 0)
   end
@@ -15,8 +16,4 @@ class Admin::CompaniesController < Admin::BaseController
       redirect_to admin_companies_path
     end
   end
-
-
-
-
 end

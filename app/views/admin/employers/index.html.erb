@@ -1,0 +1,15 @@
+<div class="page-content">
+  <h2>Manage Employers</h2>
+<div class="employers-list">
+  <% @employers.each do |employer| %>
+    <div class="row well col-md-10 job-item job">
+      <p>Username: <%= employer.username %></p>
+      <p>Total Companies: <%= employer.companies.count %></p>
+      <p>Total Jobs: <%= employer.total_jobs %></p>
+      <p>Status: <%= employer.status.capitalize %></p>
+      <p><%= button_to "Change Status", admin_employer_path(employer), class:"btn btn-warning", method: :put %></p>
+      </div>
+  <% end %>
+</div>
+</div>
+</div>

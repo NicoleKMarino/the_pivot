@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   after_create :send_welcome_email
 
+  enum status: %w(online offline)
+
   def date_registered
     created_at.strftime("%m/%d/%Y")
   end
@@ -41,5 +43,11 @@ class User < ApplicationRecord
 
   def registered_user?
     roles.exists?(name: "registered_user")
+  end
+
+  def total_jobs #test this method
+    companies.map do |company|
+      company.jobs.count
+    end.reduce(:+)
   end
 end

@@ -19,7 +19,7 @@
       <%= f.label :location %>
       <select name="company[location]">
         <%= @states.each do |state| %>
-          <option value="<%=:location %>"><%=state %></option>
+          <option value="<%= state %>"><%= state %></option>
          <% end %>
        </select>
     <br></br>

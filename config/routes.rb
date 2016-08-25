@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :companies, only: [:index, :update, :destroy]
+    resources :employers, only: [:index, :update]
   end
 
   namespace :employer do

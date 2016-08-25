@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  
   def index
     @companies = Company.all.where(status: 1)
     @locations = location_list
