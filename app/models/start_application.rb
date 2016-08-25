@@ -33,11 +33,13 @@ class StartApplication < SimpleDelegator
   end
   
   def job_application_already_in_bucket?
-    if @job.job_applications.exists?
-      @outcome = "failed"
-    else
+    # 
+    # if @bucket.contents.includes?(@job.job_applications)
+    # if @job.job_applications.exists?
+    #   @outcome = "failed"
+    # else
       create_job_application
-    end
+    # end
   end
   
   def create_job_application
