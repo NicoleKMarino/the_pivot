@@ -6,7 +6,6 @@ class Bucket
   end
 
   def add_application(job_application)
-    #add conditional for not allowing duplicates
     @contents[job_application.id.to_s] ||= ""
   end
 
@@ -14,7 +13,7 @@ class Bucket
     self.contents.length
   end
 
-  def all_applications #try something else
+  def all_applications
     contents.map do |application_id, summary|
       application = JobApplication.find(application_id)
       BucketApplication.new(application, summary)

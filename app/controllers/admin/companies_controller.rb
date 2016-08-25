@@ -4,7 +4,7 @@ class Admin::CompaniesController < Admin::BaseController
     @companies = Company.all.where(status: 0)
   end
 
-  def update #PORO
+  def update
     @company = Company.find(params[:id])
     if @company.status == "online"
         @company.update_attributes(status: "offline")
