@@ -29,7 +29,7 @@ RSpec.feature "Employer cannot create a company without all attributes" do
 
     fill_in 'Name', with: ''
     fill_in 'Description', with: 'testertestertester'
-    select('Colorado', from: 'company[location]')
+    select('Arizona', from: 'company[location]')
     select('Finance', from: 'company[industry_id]')
 
     click_button 'Submit'
